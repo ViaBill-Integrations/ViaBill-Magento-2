@@ -1,0 +1,31 @@
+<!--
+/**
+ * Copyright © ViaBill. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+
+<!-- Cart page template -->
+<div data-bind="if: pageType == 'basket'">
+    <div data-bind="style: { float: pageType == 'basket' ? 'right' : 'none'}">
+        <div class="viabill-pricetag" data-bind="attr: { 'data-view': pageType, 'data-price' : price, 'data-currency': storeCurrency, 'data-language': storeLanguage, 'data-country-code': countryCode }"></div>
+    </div>
+</div>
+
+<!-- Product view template -->
+<div data-bind="if: pageType == 'product'">
+    <div class="viabill-pricetag"
+         data-bind="
+            attr: {
+               'data-view': pageType,
+               'data-currency': storeCurrency,
+               'data-language': storeLanguage,
+               'data-dynamic-price': '.product-info-main|.price',
+               'data-dynamic-price-triggers': '.product-info-main|.super-attribute-select',
+               'data-country-code': countryCode
+            },
+            template: {
+               afterAdd: window.runViabillScript()
+            }
+    "></div>
+</div>

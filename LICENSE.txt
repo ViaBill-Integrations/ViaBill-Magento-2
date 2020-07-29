@@ -1,0 +1,16 @@
+Vaimo has developed and delivered the program to ViaBill,
+who reserves all rights in and to the program. You may not reproduce, copy,
+reverse-engineer, disassemble, attempt to derive the source code of,
+modify or create derivative works of the program, any updates or any part
+thereof without the written consent of ViaBill.
+
+
+Disclaimer:
+THIS NOTICE MAY NOT BE REMOVED OR ALTERED FROM THE PROGRAM BY ANY USER THEREOF.
+THE PROGRAM IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE PROGRAM OR THE USE OR OTHER DEALINGS
+IN THE PROGRAM.

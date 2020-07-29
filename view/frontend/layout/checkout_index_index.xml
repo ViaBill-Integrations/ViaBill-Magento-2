@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © ViaBill. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock name="checkout.root">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="checkout" xsi:type="array">
+                                <item name="children" xsi:type="array">
+                                    <item name="sidebar" xsi:type="array">
+                                        <item name="children" xsi:type="array">
+                                            <item name="summary" xsi:type="array">
+                                                <item name="children" xsi:type="array">
+                                                    <item name="itemsBefore" xsi:type="array">
+                                                        <item name="children" xsi:type="array">
+                                                            <item name="viabill" xsi:type="array">
+                                                                <item name="component" xsi:type="string">Viabillhq_Payment/js/view/checkout/viabillPriceTagCheckout</item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="steps" xsi:type="array">
+                                        <item name="children" xsi:type="array">
+                                            <item name="billing-step" xsi:type="array">
+                                                <item name="component" xsi:type="string">uiComponent</item>
+                                                <item name="children" xsi:type="array">
+                                                    <item name="payment" xsi:type="array">
+                                                        <item name="children" xsi:type="array">
+                                                            <!-- Declare additional before payment components. START -->
+                                                            <!--<item name="beforeMethods" xsi:type="array">-->
+                                                            <!--<item name="component" xsi:type="string">uiComponent</item>-->
+                                                            <!--<item name="displayArea" xsi:type="string">beforeMethods</item>-->
+                                                            <!--<item name="children" xsi:type="array">-->
+                                                            <!--<item name="%your_feature_name%" xsi:type="array">-->
+                                                            <!--<item name="component" xsi:type="string">%path/to/your/feature_js_component%</item>-->
+                                                            <!--</item>-->
+                                                            <!--</item>-->
+                                                            <!--</item>-->
+                                                            <!-- Declare additional before payment components. END -->
+                                                            <!-- Declare the payment method (the component that registrates in the list). START -->
+                                                            <item name="renders" xsi:type="array">
+                                                                <item name="children" xsi:type="array">
+                                                                    <item name="viabill" xsi:type="array">
+                                                                        <item name="component" xsi:type="string">Viabillhq_Payment/js/view/payment/viabill</item>
+                                                                        <item name="methods" xsi:type="array">
+                                                                            <item name="viabill" xsi:type="array">
+                                                                                <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
+                                                                            </item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                                <!-- Declare the payment method (the component that registrates in the list). END -->
+                                                                <!-- Declare additional after payment components. START -->
+                                                                <!--<item name="afterMethods" xsi:type="array">-->
+                                                                <!--<item name="component" xsi:type="string">uiComponent</item>-->
+                                                                <!--<item name="displayArea" xsi:type="string">afterMethods</item>-->
+                                                                <!--<item name="children" xsi:type="array">-->
+                                                                <!--<item name="%your_feature_name%" xsi:type="array">-->
+                                                                <!--<item name="component" xsi:type="string">%path/to/your/feature_js_component%</item>-->
+                                                                <!--</item>-->
+                                                                <!--</item>-->
+                                                                <!--</item>-->
+                                                                <!-- Declare additional after payment components. END -->
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,79 @@
+"You logged into your Viabill account.","You logged into your Viabill account."
+"An error occurred during request to Viabill. Please try again later.","An error occurred during request to Viabill. Please try again later."
+"Invalid command","Invalid command"
+"Renewed order on Viabill.","Renewed order on Viabill."
+"The order has been successfully renewed.","The order has been successfully renewed."
+"An error occurred during order renewal. Please try again later.","An error occurred during order renewal. Please try again later."
+"An error occurred during callback processing.","An error occurred during callback processing."
+"Invalid request","Invalid request"
+"Payment cancelled from Viabill.","Payment cancelled from Viabill."
+"Transaction validation failed.","Transaction validation failed."
+"Error when trying to capture the order - please contact Viabill for more information.","Error when trying to capture the order - please contact Viabill for more information."
+"Capture is not longer possible for this transaction - please contact Viabill for more information.","Capture is not longer possible for this transaction - please contact Viabill for more information."
+"You are not allowed to make several capture attempts in a very short time - please try again in 15 minutes or contact Viabill for more info.","You are not allowed to make several capture attempts in a very short time - please try again in 15 minutes or contact Viabill for more info."
+"Error when trying to capture the transaction - please try again in 15 minutes.","Error when trying to capture the transaction - please try again in 15 minutes."
+"Error when trying to refund the transaction - please contact Viabill for more information.","Error when trying to refund the transaction - please contact Viabill for more information."
+"Refund is not possible at the moment - please contact Viabill for more information.","Refund is not possible at the moment - please contact Viabill for more information."
+"Error when trying to refund the transaction - please try again in 15 minutes.","Error when trying to refund the transaction - please try again in 15 minutes."
+"Error when trying to cancel the transaction - please contact Viabill for more information.","Error when trying to cancel the transaction - please contact Viabill for more information."
+"It's not possible to cancel the transaction - please try again in 15 minutes.","It's not possible to cancel the transaction - please try again in 15 minutes."
+"It's not possible to renew the order at the moment - please contact Viabill for more information.","It's not possible to renew the order at the moment - please contact Viabill for more information."
+"Renew is no longer possible for this transaction.","Renew is no longer possible for this transaction."
+"Error when trying to renew the order - please try again in 15 minutes.","Error when trying to renew the order - please try again in 15 minutes."
+"Order doesn't have Viabill transaction and can't be invoiced right now","Order doesn't have Viabill transaction and can't be invoiced right now"
+"Gateway response error. Incorrect authorize payment parameters.","Gateway response error. Incorrect authorize payment parameters."
+"--Please Select--","--Please Select--"
+name,name
+Critical,Critical
+Major,Major
+Minor,Minor
+Notice,Notice
+"This will renew the order on viabill. Do you want to continue?","This will renew the order on viabill. Do you want to continue?"
+Renew,Renew
+"Viabill payment method has been disabled because it doesn't support current store currency.","Viabill payment method has been disabled because it doesn't support current store currency."
+"Viabill payment method does not support Capture Offline","Viabill payment method does not support Capture Offline"
+"Viabill payment method does not support Refund Offline","Viabill payment method does not support Refund Offline"
+"Forgot password","Forgot password"
+Connect,Connect
+"Go to My Viabill","Go to My Viabill"
+"I've read and accept the","I've read and accept the"
+"terms & conditions","terms & conditions"
+"Create new user","Create new user"
+"Continue to Viabill","Continue to Viabill"
+"My ViaBill","My ViaBill"
+ViaBill,ViaBill
+"Access ViaBill","Access ViaBill"
+"New ViaBill user","New ViaBill user"
+Email,Email
+Country,Country
+URL,URL
+Name,Name
+Phone,Phone
+"Merchant Name","Merchant Name"
+"Existing user","Existing user"
+Password,Password
+"Module Configuration","Module Configuration"
+Enable,Enable
+Title,Title
+"Payment method Title will be shown on checkout page.","Payment method Title will be shown on checkout page."
+Description,Description
+"Description for the payment method will be shown on checkout page.","Description for the payment method will be shown on checkout page."
+"Payment Action","Payment Action"
+"Order status (Before the payment is completed)","Order status (Before the payment is completed)"
+"Set the status of the order before the payment is completed.","Set the status of the order before the payment is completed."
+"Order status (After the payment is completed)","Order status (After the payment is completed)"
+"Set the status of the order after the payment is completed.","Set the status of the order after the payment is completed."
+"Test Transactions Mode","Test Transactions Mode"
+"If enabled, transactions will be marked as ""test"".","If enabled, transactions will be marked as ""test""."
+"Debug Mode","Debug Mode"
+"If enabled, debug information will be saved to log.","If enabled, debug information will be saved to log."
+"Admin Notifications Severity","Admin Notifications Severity"
+"Public Key","Public Key"
+"Private Key","Private Key"
+"PriceTag script","PriceTag script"
+"PriceTag Settings","PriceTag Settings"
+"Enable ViaBill’s PriceTags to obtain the best possible conversion, and inform your customers about ViaBill.","Enable ViaBill’s PriceTags to obtain the best possible conversion, and inform your customers about ViaBill."
+"Acquiring with ViaBill will increase to 2% when deactivating PriceTag","Acquiring with ViaBill will increase to 2% when deactivating PriceTag"
+"Enable on Product page","Enable on Product page"
+"Enable on Cart Summary","Enable on Cart Summary"
+"Enable on Checkout Summary","Enable on Checkout Summary"
