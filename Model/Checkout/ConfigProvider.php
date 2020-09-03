@@ -21,6 +21,11 @@ class ConfigProvider implements ConfigProviderInterface
     private $urlProvider;
 
     /**
+     * @var PriceTagDataProvider
+     */
+    private $priceTag;
+
+    /**
      * @var ConfigInterface
      */
     private $config;
