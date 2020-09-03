@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © ViaBill. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="frame-src">
+            <values>
+                <value id="viabill-pricetag" type="host">https://pricetag.viabill.com</value>
+                <value id="viabill-event-client" type="host">https://event-client.viabill.com</value>
+            </values>
+        </policy>
+        <policy id="script-src">
+            <values>
+                <value id="viabill-pricetag" type="host">pricetag.viabill.com</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>
