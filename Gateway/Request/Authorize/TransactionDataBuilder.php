@@ -34,7 +34,9 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     /**
      * TransactionDataBuilder constructor.
      *
+     * @param ConfigInterface $config
      * @param SubjectReader $subjectReader
+     * @param TransactionProvider $transactionProvider
      * @param array $requestFields
      */
     public function __construct(
@@ -74,12 +76,12 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     /**
      * @param array $buildSubject
      *
-     * @return float
+     * @return string
      */
     protected function getAmount(array $buildSubject)
     {
         $order = $this->subjectReader->readOrder($buildSubject);
-        return $order->getGrandTotal();
+        return (string)round($order->getGrandTotal(), 2);
     }
 
     /**

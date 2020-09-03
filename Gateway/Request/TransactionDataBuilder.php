@@ -61,7 +61,7 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     {
         $amount = $this->subjectReader->readAmount($buildSubject);
         if ($amount) {
-            return round($amount, 2);
+            return (string)-round($amount, 2);
         }
     }
 
@@ -72,7 +72,7 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
      */
     protected function getInvoiceAmount(array $buildSubject)
     {
-        return -($this->getAmount($buildSubject));
+        return $this->getAmount($buildSubject);
     }
 
     /**
