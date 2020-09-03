@@ -10,7 +10,7 @@ use Viabillhq\Payment\Gateway\Request\SubjectReader;
 
 /**
  * Class GetCredentialsDataBuilder
- * @package Viabillhq\Payment\Gateway\Request
+ * @package Viabillhq\Payment\Gateway\Request\GetCredentials
  */
 class RequestDataBuilder implements BuilderInterface
 {

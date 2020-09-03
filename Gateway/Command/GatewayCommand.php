@@ -114,7 +114,7 @@ class GatewayCommand implements CommandInterface
      * @throws ClientException
      * @throws CommandException
      * @throws ConverterException
-     * @throws \Viabillhq\Payment\Gateway\Exception\ViabillInternalException
+     * @throws \Viabillhq\Payment\Gateway\Exception\ViabillException
      */
     public function execute(array $commandSubject)
     {
