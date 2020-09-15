@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © ViaBill. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Viabillhq_Payment::viabill"
+            title="My ViaBill"
+            translate="title"
+            module="Viabillhq_Payment"
+            sortOrder="200"
+            parent="Magento_Sales::sales"
+            action="viabill/account/myviabill"
+            resource="Viabillhq_Payment::viabill"
+            target="_blank"
+        />
+    </menu>
+</config>

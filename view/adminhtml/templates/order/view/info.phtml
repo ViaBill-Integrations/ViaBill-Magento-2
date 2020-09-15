@@ -1,0 +1,20 @@
+<?php
+/**
+ * Copyright © ViaBill. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+/**
+ * @var \Magento\Sales\Block\Adminhtml\Order\View\Info $block
+ */
+
+// @codingStandardsIgnoreFile
+
+$order = $block->getOrder();
+?>
+<?php if ($order->getCustomerNote() && strpos($order->getCustomerNote(), 'Test') !== false): ?>
+    <div role="alert" class="message message-error error">
+        <?= __($order->getCustomerNote()) ?>
+    </div>
+    <br />
+<?php endif; ?>

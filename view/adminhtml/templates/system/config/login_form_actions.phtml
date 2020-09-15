@@ -1,0 +1,35 @@
+<?php
+/**
+ * Copyright © ViaBill. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+/**
+ * @var \Viabillhq\Payment\Block\Adminhtml\System\Config\CredentialsForm $block
+ */
+?>
+
+<div class="pp-buttons-container">
+    <div dir="ltr" class="viabill-buttons" trbidi="on">
+        <script type="text/x-magento-init">
+            {
+                "#viabill-request-form": {
+                    "Viabillhq_Payment/js/viabill_request": {
+                        "loginForm": "#viabil-login-btn",
+                        "loginUrl": "<?php echo $block->escapeUrl($block->getCredentialsRequestUrl())?>",
+                        "loginParam": "<?php echo $block->escapeJs($block->getCommand()) ?>"
+                    }
+                }
+            }
+        </script>
+        <a id="viabil-forgot-password-btn"
+           href="<?php echo $block->escapeUrl($block->getForgotPasswordUrl())?>"
+           target="_blank"
+           class="forgot-password-btn">
+            <?php echo $block->escapeHtml(__('Forgot password')) ?>
+        </a>
+        <span id="viabil-login-btn" class="action-default">
+            <?php echo $block->escapeHtml(__('Connect')) ?>
+        </span>
+    </div>
+</div>

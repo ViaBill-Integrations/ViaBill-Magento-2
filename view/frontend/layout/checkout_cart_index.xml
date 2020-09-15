@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © ViaBill. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="checkout.cart.totals.container">
+            <block ifconfig="payment/viabill/price_tag_show_on_cart" class="Viabillhq\Payment\Block\View\Element\Template" name="viabill.root" template="Viabillhq_Payment::viabill-price-tag.phtml" after="checkout.cart.totals">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="viabill" xsi:type="array">
+                                <item name="component" xsi:type="string">Viabillhq_Payment/js/view/cart/viabillPriceTagCart</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="pageType" xsi:type="string">basket</item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                    <argument name="viewModel" xsi:type="object">Viabillhq\Payment\Block\View\Element\Template\ViewModel</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

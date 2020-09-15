@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © ViaBill. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="viabill_checkout_config_provider"
+                      xsi:type="object">Viabillhq\Payment\Model\Checkout\ConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Viabillhq\Payment\Controller\Payment\Authorize">
+        <arguments>
+            <argument name="checkoutSession" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>
+            <argument name="commandPool" xsi:type="object">ViabillCommandPool</argument>
+            <argument name="logger" xsi:type="object">ViabillLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Viabillhq\Payment\Model\Checkout\SessionWrapper">
+        <arguments>
+            <argument name="checkoutSession" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>
+            <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Viabillhq\Payment\Controller\Payment\Cancel">
+        <arguments>
+            <argument name="checkoutSession" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>
+            <argument name="logger" xsi:type="object">ViabillLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Viabillhq\Payment\Model\Checkout\ConfigProvider">
+        <arguments>
+            <argument name="config" xsi:type="object">ViabillGatewayConfig</argument>
+        </arguments>
+    </type>
+
+    <type name="Viabillhq\Payment\Controller\Payment\Callback">
+        <arguments>
+            <argument name="paymentConfig" xsi:type="object">ViabillGatewayConfig</argument>
+            <argument name="signatureGenerator" xsi:type="object">ViabillCallbackRequestSignatureGenerator</argument>
+            <argument name="logger" xsi:type="object">ViabillLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Payment\Gateway\Command\CommandManager">
+        <arguments>
+            <argument name="commandPool" xsi:type="object">ViabillCommandPool</argument>
+        </arguments>
+    </type>
+
+    <type name="Viabillhq\Payment\Gateway\Response\AuthorizeHandler">
+        <arguments>
+            <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+
+    <type name="Viabillhq\Payment\Model\OrderManagement\OrderManager">
+        <arguments>
+            <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+
+    <type name="Viabillhq\Payment\Model\PriceTag\PriceTagDataProvider">
+        <arguments>
+            <argument name="config" xsi:type="object">ViabillGatewayConfig</argument>
+        </arguments>
+    </type>
+
+    <type name="Viabillhq\Payment\Block\Checkout\Onepage\PriceTagProcessor">
+        <arguments>
+            <argument name="config" xsi:type="object">ViabillGatewayConfig</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Checkout\Block\Onepage">
+        <arguments>
+            <argument name="layoutProcessors" xsi:type="array">
+                <item name="priceTagProcessor" xsi:type="object">Viabillhq\Payment\Block\Checkout\Onepage\PriceTagProcessor</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

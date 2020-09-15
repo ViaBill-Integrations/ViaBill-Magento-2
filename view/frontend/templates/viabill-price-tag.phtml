@@ -1,0 +1,32 @@
+<?php
+/**
+ * Copyright © ViaBill. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Viabillhq\Payment\Block\View\Element\Template\ViewModel $viewModel */
+$viewModel = $block->getData('viewModel');
+?>
+
+<div id="viabill-price-tag" class="viabill-container" data-bind="scope:'viabill'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#viabill-price-tag": {
+                "Magento_Ui/js/core/app": <?= /** @noEscape */ $block->getJsLayout() ?>
+            }
+        }
+    </script>
+</div>
+
+<script>
+    window.runViabillScript = function () {
+        <?= /** @noEscape */ $viewModel->getPriceTagScript();?>
+    };
+    window.priceTag = {
+        'language': '<?= $block->escapeHtml($viewModel->getDataLanguage());?>',
+        'currency': '<?= $block->escapeHtml($viewModel->getDataCurrency());?>',
+        'countryCode': '<?= $block->escapeHtml($viewModel->getDataCountryCode());?>'
+    };
+</script>
