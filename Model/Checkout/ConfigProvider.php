@@ -6,6 +6,7 @@
 namespace Viabillhq\Payment\Model\Checkout;
 
 use Magento\Checkout\Model\ConfigProviderInterface;
+use Magento\Framework\View\Asset\Repository;
 use Magento\Payment\Gateway\ConfigInterface;
 use Viabillhq\Payment\Model\PriceTag\PriceTagDataProvider;
 use Viabillhq\Payment\Model\UrlProvider;
@@ -29,15 +30,21 @@ class ConfigProvider implements ConfigProviderInterface
      * @var ConfigInterface
      */
     private $config;
+    /**
+     * @var Repository
+     */
+    private $repository;
 
     public function __construct(
         UrlProvider $urlProvider,
         PriceTagDataProvider $priceTag,
-        ConfigInterface $config
+        ConfigInterface $config,
+        Repository $repository
     ) {
         $this->urlProvider = $urlProvider;
         $this->priceTag = $priceTag;
         $this->config = $config;
+        $this->repository = $repository;
     }
 
     /**
@@ -52,6 +59,7 @@ class ConfigProvider implements ConfigProviderInterface
                 'viabill' => [
                     'authorizeUrl' => $this->getAuthorizeUrl(),
                     'description' => $this->config->getValue('description'),
+                    'logo' => $this->repository->getUrl('Viabillhq_Payment::ViaBill_Logo.png'),
                     'priceTagScript' => $this->config->getValue('price_tag_script'),
                     'priceTag' => [
                         'language' => $this->priceTag->getDataLanguage(),

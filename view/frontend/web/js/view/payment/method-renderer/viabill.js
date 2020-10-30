@@ -69,6 +69,10 @@ define(
              */
             getDescription: function () {
                 return window.checkoutConfig.payment.viabill.description;
+            },
+
+            getLogoUrl: function () {
+                return window.checkoutConfig.payment.viabill.logo;
             }
         });
     }
