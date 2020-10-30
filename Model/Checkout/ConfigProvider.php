@@ -59,7 +59,7 @@ class ConfigProvider implements ConfigProviderInterface
                 'viabill' => [
                     'authorizeUrl' => $this->getAuthorizeUrl(),
                     'description' => $this->config->getValue('description'),
-                    'logo' => $this->repository->getUrl('Viabillhq_Payment::ViaBill_Logo.png'),
+                    'logo' => $this->repository->getUrl('Viabillhq_Payment::images/ViaBill_Logo.png'),
                     'priceTagScript' => $this->config->getValue('price_tag_script'),
                     'priceTag' => [
                         'language' => $this->priceTag->getDataLanguage(),
