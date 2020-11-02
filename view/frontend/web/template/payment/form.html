@@ -11,7 +11,7 @@
                class="radio"
                data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()" />
         <label data-bind="attr: {'for': getCode()}" class="label">
-            <span data-bind="text: getTitle()"></span>
+            <img class="payment-icon" width="100px" alt="ViaBill" data-bind="attr: {'src': getLogoUrl()}" />
         </label>
     </div>
     <div class="payment-method-content">
