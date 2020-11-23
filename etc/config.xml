@@ -11,7 +11,7 @@
             <viabill>
                 <active>0</active>
                 <title>ViaBill</title>
-                <description>You will be redirected to the ViaBill website.</description>
+                <description>You will be redirected to the ViaBill payment flow.</description>
                 <model>ViabillFacade</model>
                 <order_status>pending_payment</order_status>
                 <debug>1</debug>
