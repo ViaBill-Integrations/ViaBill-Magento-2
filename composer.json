@@ -1,9 +1,9 @@
 {
     "name": "viabillhq/module-payment",
     "type": "magento2-module",
-    "description": "Viabill payment method for Magento 2.3.x",
+    "description": "Viabill payment method for Magento 2.3.x and 2.4.x",
     "license": "proprietary",
-    "version": "2.4.4",
+    "version": "4.0.0",
     "require": {
         "magento/framework": "~101.0.0 || ~102.0.0",
         "magento/module-sales": "~101.0.0 || ~102.0.0",
