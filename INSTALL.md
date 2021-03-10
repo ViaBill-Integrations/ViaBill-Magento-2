@@ -3,7 +3,7 @@
 
 # Prerequisites
 
-1. A compatible Magento 2 version. Note that ViaBill Payment module is compatible with Magento 2.2.x, 2.3.x and 2.4.1. It may be compatible with newer versions as well, but it hasn't been tested.
+1. A compatible Magento 2 version. Note that ViaBill Payment module is compatible with Magento 2.3.x and early versions of 2.4.x. It may be compatible with newer versions as well, but it hasn't been tested.
 2. SSL must be installed on your site and active on your Checkout pages.
 3. As with _all_ Magento extensions, it is highly recommended to backup your site before installation and to install and test on a staging environment prior to production deployments.
 
