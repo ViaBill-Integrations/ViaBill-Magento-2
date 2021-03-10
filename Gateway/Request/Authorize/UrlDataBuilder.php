@@ -8,10 +8,6 @@ namespace Viabillhq\Payment\Gateway\Request\Authorize;
 use Viabillhq\Payment\Gateway\Request\ViabillRequestDataBuilder;
 use Viabillhq\Payment\Model\UrlProvider;
 
-/**
- * Class ConfigDataBuilder
- * @package Viabillhq\Payment\Gateway\Request
- */
 class UrlDataBuilder extends ViabillRequestDataBuilder
 {
     /**

@@ -10,13 +10,20 @@ use Magento\Framework\Logger\Handler\Base;
 use Magento\Payment\Gateway\ConfigInterface;
 use Monolog\Logger;
 
-/**
- * Class Debug
- * @package Viabillhq\Payment\Model\Logger\Handler
- */
 class Debug extends Base
 {
-    const DEFAULT_DEBUG_FILE_NAME = '/var/log/viabill_debug.log';
+
+    /**
+     * Logging level
+     * @var int
+     */
+    protected $loggerType = Logger::DEBUG;
+
+    /**
+     * File name
+     * @var string
+     */
+    protected $fileName = '/var/log/viabill_debug.log';
 
     /**
      * @var ConfigInterface
@@ -28,20 +35,19 @@ class Debug extends Base
      *
      * @param DriverInterface $filesystem
      * @param ConfigInterface $config
-     * @param string $fileName
-     * @param int $loggerType
      * @param null $filePath
      */
+    
     public function __construct(
         DriverInterface $filesystem,
         ConfigInterface $config,
-        $fileName = self::DEFAULT_DEBUG_FILE_NAME,
-        $loggerType = Logger::DEBUG,
         $filePath = null
     ) {
         $this->config = $config;
+        /*
         $this->fileName = $fileName;
         $this->loggerType = $loggerType;
+        */
         parent::__construct($filesystem, $filePath);
     }
 
@@ -54,9 +60,33 @@ class Debug extends Base
      */
     public function isHandling(array $record)
     {
-        if ($this->config && (bool) $this->config->getValue('debug')) {
-            return parent::isHandling($record);
+        $record_debug_level = 0;
+
+        if ($this->config) {
+            $config_debug_level = (int) $this->config->getValue('debug');
+            if (empty($config_debug_level)) {
+                return false;
+            }
+        } else {
+            return false;
         }
-        return false;
+
+        if (!empty($record)) {
+            if (isset($record['context'])) {
+                if (isset($record['context']['debug_level'])) {
+                    $record_debug_level = (int) $record['context']['debug_level'];
+                }
+            }
+        }
+        
+        if ($this->config) {
+            if ($config_debug_level > 0) {
+                if ($record_debug_level && ($config_debug_level >= $record_debug_level)) {
+                    return true;
+                }
+            }
+        }
+
+        return parent::isHandling($record);
     }
 }

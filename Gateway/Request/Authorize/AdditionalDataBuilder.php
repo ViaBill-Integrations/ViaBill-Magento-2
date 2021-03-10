@@ -7,10 +7,6 @@ namespace Viabillhq\Payment\Gateway\Request\Authorize;
 
 use Magento\Payment\Gateway\Request\BuilderInterface;
 
-/**
- * Class AuthorizeRequestOrderIdBuilder
- * @package Viabillhq\Payment\Gateway\Request
- */
 class AdditionalDataBuilder implements BuilderInterface
 {
     /**

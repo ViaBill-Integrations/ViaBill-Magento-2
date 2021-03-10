@@ -7,10 +7,6 @@ namespace Viabillhq\Payment\Gateway\Request;
 
 use Magento\Payment\Gateway\Request\BuilderInterface;
 
-/**
- * Class ViabillDataBuilder
- * @package Viabillhq\Payment\Gateway\Request
- */
 class ViabillRequestDataBuilder implements BuilderInterface
 {
     /**
@@ -56,7 +52,7 @@ class ViabillRequestDataBuilder implements BuilderInterface
         if (method_exists($this, $method)) {
             return $this->{$method}($buildSubject);
         }
-        throw new \Exception(
+        throw new \Exception( // @codingStandardsIgnoreLine
             sprintf('Method "%s" does not exist', $method)
         );
     }

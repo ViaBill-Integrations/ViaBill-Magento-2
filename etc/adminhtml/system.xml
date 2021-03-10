@@ -40,7 +40,7 @@
                         </field>
                         <field id="contact_name" translate="label" sortOrder="150" showInDefault="1" showInWebsite="0" showInStore="0">
                             <label>Name</label>
-                            <frontend_class>disabled_on_log_in</frontend_class>
+                            <frontend_class>account_required disabled_on_log_in</frontend_class>
                             <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
                             <config_path>payment/viabill_account/contact_name</config_path>
                         </field>
@@ -151,7 +151,7 @@
                     </field>
                     <field id="debug" translate="label comment" sortOrder="560" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
                         <label>Debug Mode</label>
-                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <source_model>Viabillhq\Payment\Model\Adminhtml\Source\DebugLevels</source_model>
                         <comment>
                             <![CDATA[If enabled, debug information will be saved to log.]]>
                         </comment>
@@ -181,7 +181,14 @@
                         <frontend_class>disabled_on_log_in</frontend_class>
                         <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
                         <config_path>payment/viabill/price_tag_script</config_path>
-                    </field>
+                    </field>                    
+                </group>
+                <!-- module and system info -->
+                <group id="module_info" translate="label" sortOrder="650" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Module Info</label>
+                    <field id="module_info_field" translate="label" sortOrder="680" type="note" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\ModuleInfoField</frontend_model>
+                    </field>                   
                 </group>
                 <!-- pricetag group -->
                 <group id="price_tag" translate="label comment" sortOrder="800" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -191,8 +198,8 @@
                     </comment>
                     <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Fieldset\ModuleConfiguration</frontend_model>
                     <field id="notification" type="label" translate="label" sortOrder="810" showInDefault="1" showInWebsite="1" showInStore="1">
-                        <label>Acquiring with ViaBill will increase to 2% when deactivating PriceTag</label>
-                        <comment>Acquiring with ViaBill will increase to 2% when deactivating PriceTag</comment>
+                        <label>Enable ViaBill’s PriceTag to make your customers aware of the possibility and thereby maximizing your conversion.</label>
+                        <comment>Enable ViaBill’s PriceTag to make your customers aware of the possibility and thereby maximizing your conversion.</comment>
                         <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\Notice</frontend_model>
                         <depends>
                             <field id="show_on_product">0</field>

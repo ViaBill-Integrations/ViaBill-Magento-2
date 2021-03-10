@@ -10,10 +10,6 @@ use Magento\Payment\Gateway\Http\TransferFactoryInterface;
 use Magento\Payment\Gateway\Http\TransferInterface;
 use Viabillhq\Payment\Model\UrlProvider;
 
-/**
- * Class TransferFactory
- * @package Viabillhq\Payment\Gateway\Http
- */
 class TransferFactory implements TransferFactoryInterface
 {
     /**

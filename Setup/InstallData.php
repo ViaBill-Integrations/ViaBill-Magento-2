@@ -39,17 +39,21 @@ class InstallData implements InstallDataInterface
      */
     public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
     {
+        $setup->startSetup();
+        
         $connection = $setup->getConnection();
-        $table = $setup->getTable('core_config_data');
-        $this->resetConfigData($connection, $table);
-    }
-
-    /**
-     * @param $connection
-     * @param string $table
-     */
-    private function resetConfigData(AdapterInterface $connection, $table)
-    {
+        
+        $moduleSetupTable = $setup->getTable('setup_module');
+        if (!$this->isModuleSetup($connection, $moduleSetupTable)) {
+            $moduleSetupItem = [
+                'module' => 'Viabillhq_Payment',
+                'schema_version' => '0.0.3',
+                'data_version' => '0.0.3'
+            ];
+            $connection->insertOnDuplicate($setup_module_table, $moduleItem);
+        }
+        
+        $configTable = $setup->getTable('core_config_data');
         foreach ($this->configPaths as $configPath) {
             $configItem = [
                 'scope' => ScopeConfigInterface::SCOPE_TYPE_DEFAULT,
@@ -57,7 +61,26 @@ class InstallData implements InstallDataInterface
                 'path' => $configPath,
                 'value' => null
             ];
-            $connection->insertOnDuplicate($table, $configItem, ['value']);
+            $connection->insertOnDuplicate($configTable, $configItem, ['value']);
+        }
+
+        $setup->endSetup();
+    }
+
+    /**
+     * @param ModuleDataSetupInterface $connection
+     * @param string $tableName
+     */
+    public function isModuleSetup($connection, $tableName)
+    {
+        $select = $connection->select()->from($tableName, 'module')->where('module = :module');
+        $moduleName = 'Viabillhq_Payment';
+        $bind = [':module' => (string) $moduleName];
+        $found = (string) $connection->fetchOne($select, $bind);
+        if (empty($found)) {
+            return false;
+        } else {
+            return true;
         }
     }
 }

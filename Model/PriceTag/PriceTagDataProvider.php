@@ -44,7 +44,7 @@ class PriceTagDataProvider
      *
      * @var array
      */
-    private $allowedEUCountries = ['ES'];
+    private $allowedEUCountries = ['ES','DK','US'];
 
     /**
      * PriceTagDataProvider constructor.

@@ -7,10 +7,6 @@ namespace Viabillhq\Payment\Gateway\Request;
 
 use Magento\Payment\Gateway\Data\PaymentDataObjectInterface;
 
-/**
- * Class SubjectReader
- * @package Viabillhq\Payment\Gateway\Request
- */
 class SubjectReader
 {
     const AMOUNT = 'amount';

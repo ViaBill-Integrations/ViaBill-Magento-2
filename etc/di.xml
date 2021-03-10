@@ -219,11 +219,11 @@
                 <item name="email" xsi:type="string">email</item>
                 <item name="url" xsi:type="string">url</item>
                 <item name="country" xsi:type="string">country</item>
+                <item name="name" xsi:type="string">name</item>
                 <item name="affiliate" xsi:type="string">affiliate</item>
                 <item name="additionalInfo" xsi:type="array">
-                    <!--nested array values will be unnamed-->
-                    <item name="name" xsi:type="string">name</item>
-                    <item name="phone" xsi:type="string">phone</item>
+                    <!--nested array values will be unnamed-->                    
+                    <item name="phone" xsi:type="string">phone</item>                    
                 </item>
             </argument>
         </arguments>
@@ -464,15 +464,16 @@
     <virtualType name="ViabillLogger" type="Monolog\Logger">
         <arguments>
             <argument name="name" xsi:type="string">viabill</argument>
-            <argument name="handlers"  xsi:type="array">
+            <argument name="handlers"  xsi:type="array">                                                
                 <item name="debug" xsi:type="object">Viabillhq\Payment\Model\Logger\Handler\Debug</item>
-                <item name="critical" xsi:type="object">Viabillhq\Payment\Model\Logger\Handler\Critical</item>
+                <item name="critical" xsi:type="object">Viabillhq\Payment\Model\Logger\Handler\Critical</item>                
             </argument>
         </arguments>
     </virtualType>
     <type name="Viabillhq\Payment\Model\Logger\Handler\Debug">
         <arguments>
             <argument name="config" xsi:type="object">ViabillGatewayConfig</argument>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
         </arguments>
     </type>
 
@@ -525,6 +526,10 @@
 
     <type name="Viabillhq\Payment\Gateway\Command\ViabillCommandPool">
         <plugin name="setCommandCodeToCommand" type="Viabillhq\Payment\Plugin\Payment\Gateway\Command\CommandPool" />
+    </type>
+    
+    <type name="Magento\Sales\Model\Order\Email\Container\OrderIdentity">
+        <plugin name="controlOrderEmailNotification" type="Viabillhq\Payment\Plugin\Sales\Model\Order\Email\Container\OrderIdentityPlugin"/>
     </type>
 
     <type name="Viabillhq\Payment\Gateway\Exception\ViabillExceptionFactory">

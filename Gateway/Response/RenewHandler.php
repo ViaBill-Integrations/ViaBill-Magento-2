@@ -10,10 +10,6 @@ use Magento\Payment\Gateway\Response\HandlerInterface;
 use Magento\Sales\Api\OrderRepositoryInterface;
 use Viabillhq\Payment\Gateway\Request\SubjectReader;
 
-/**
- * Class RenewHandler
- * @package Viabillhq\Payment\Gateway\Response
- */
 class RenewHandler implements HandlerInterface
 {
     /**

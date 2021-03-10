@@ -10,10 +10,6 @@ use Magento\Sales\Api\Data\TransactionInterface;
 use Magento\Sales\Model\Order\Payment\Transaction\Repository;
 use Magento\Store\Model\StoreManagerInterface;
 
-/**
- * Class TransactionProvider
- * @package Viabillhq\Payment\Model
- */
 class TransactionProvider
 {
     const PREFIX_HASH_LENGTH = 7;

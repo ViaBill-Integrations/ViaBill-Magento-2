@@ -11,10 +11,6 @@ use Viabillhq\Payment\Model\Adminhtml\Source\Notifications;
 use Magento\Payment\Gateway\ConfigInterface;
 use Magento\Framework\UrlInterface;
 
-/**
- * Class AdminNotification
- * @package Viabillhq\Payment\Model\Adminhtml\Source
- */
 class AdminNotification
 {
     /**

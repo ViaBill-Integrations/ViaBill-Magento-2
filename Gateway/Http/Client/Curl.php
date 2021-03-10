@@ -10,12 +10,10 @@ use Magento\Framework\HTTP\Adapter\CurlFactory;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Payment\Gateway\Http\ClientInterface;
 use Magento\Payment\Gateway\Http\TransferInterface;
+use Viabillhq\Payment\Model\Adminhtml\Source\DebugLevels;
 use Psr\Log\LoggerInterface;
 use Zend\Http\Response as ZendResponse;
 
-/**
- * Class Curl
- */
 class Curl implements ClientInterface
 {
     /**
@@ -69,6 +67,9 @@ class Curl implements ClientInterface
             $adapter = $this->adapterFactory->create();
             $options = $this->getBasicOptions($transfer);
             $adapter->setOptions($options);
+
+            // keep a log entry
+            $this->debugLog("Placing request to ".$transfer->getUri(), DebugLevels::DEBUG_LEVEL_PRIORITY_DEVELOPER);
 
             // set request params
             $adapter->write(
@@ -141,5 +142,14 @@ class Curl implements ClientInterface
                 return $location[1] ?? null;
             }
         }
+    }
+
+    /**
+     * @param string $msg
+     * @param int $debug_level
+     */
+    private function debugLog($msg, $debug_level = 1)
+    {
+        $this->logger->debug($msg, ['debug_level' => $debug_level]);
     }
 }

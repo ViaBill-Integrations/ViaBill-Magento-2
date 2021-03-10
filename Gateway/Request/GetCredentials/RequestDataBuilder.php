@@ -8,10 +8,6 @@ namespace Viabillhq\Payment\Gateway\Request\GetCredentials;
 use Magento\Payment\Gateway\Request\BuilderInterface;
 use Viabillhq\Payment\Gateway\Request\SubjectReader;
 
-/**
- * Class GetCredentialsDataBuilder
- * @package Viabillhq\Payment\Gateway\Request\GetCredentials
- */
 class RequestDataBuilder implements BuilderInterface
 {
     /**

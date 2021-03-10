@@ -5,10 +5,6 @@
  */
 namespace Viabillhq\Payment\Model\Adminhtml\Source;
 
-/**
- * Class Notifications
- * @package Viabillhq\Payment\Model\Adminhtml\Source
- */
 class Notifications implements \Magento\Framework\Option\ArrayInterface
 {
     const NOTIFICATION_PRIORITY_NOTICE = 1;

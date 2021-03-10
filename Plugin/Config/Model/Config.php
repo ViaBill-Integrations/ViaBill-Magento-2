@@ -10,10 +10,6 @@ use Magento\Config\Model\ResourceModel\Config as ConfigResource;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Message\ManagerInterface as MessageManager;
 
-/**
- * Class Config
- * @package Viabillhq\Payment\Plugin\Config\Model
- */
 class Config
 {
     const CONFIG_PATH_VIABILL_ACTIVE = 'payment/viabill/active';

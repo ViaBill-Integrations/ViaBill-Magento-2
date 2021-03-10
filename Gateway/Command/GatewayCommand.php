@@ -17,12 +17,13 @@ use Magento\Payment\Gateway\Http\TransferFactoryInterface;
 use Magento\Payment\Gateway\Request\BuilderInterface;
 use Magento\Payment\Gateway\Response\HandlerInterface;
 use Magento\Payment\Gateway\Validator\ValidatorInterface;
+use Viabillhq\Payment\Model\Adminhtml\Source\DebugLevels;
 use Psr\Log\LoggerInterface;
 use Viabillhq\Payment\Gateway\Exception\ViabillExceptionFactory;
 use Zend\Http\Response as ZendResponse;
 
 /**
- * Class GatewayCommand
+ * This class is responsible for forwarding the requests to the ViaBill Gateway
  * @api
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
@@ -126,16 +127,35 @@ class GatewayCommand implements CommandInterface
 
         /** @var ZendResponse $response */
         $response = $result['response'];
+        
+        # Keep a log entry of the request
+        $transfer_headers_str = '';
+        $transfer_headers = $transfer->getHeaders();
+        if (!empty($transfer_headers)) {
+            if (is_string($transfer_headers)) {
+                $transfer_headers_str = $transfer_headers;
+            } else {
+                $transfer_headers_str = $this->jsonSerializer->serialize($transfer_headers);
+            }
+        }
 
-        $this->logger->debug(
-            'Request data: ',
-            [
-                $transfer->getUri(),
-                $transfer->getMethod(),
-                $transfer->getBody(),
-                $response
-            ]
-        );
+        $transfer_body_str = '';
+        $transfer_body = $transfer->getBody();
+        if (!empty($transfer_body)) {
+            if (is_string($transfer_body)) {
+                $transfer_body_str = $transfer_body;
+            } else {
+                $transfer_body_str = $this->jsonSerializer->serialize($transfer_body);
+            }
+        }
+
+        $request_debug_str = 'Gateway Request Data: URL is ['.
+            $transfer->getUri().'] method is ['.
+            $transfer->getMethod().'] body is ['.
+            $transfer_body_str.'] Response is ['.
+            str_replace("\n", " ", $response).']';
+        $this->debugLog($request_debug_str, DebugLevels::DEBUG_LEVEL_PRIORITY_DEVELOPER);
+        # end of log
 
         if (!$this->canProceed($response)) {
             throw $this->exceptionFactory->create($response, $this->code);
@@ -204,5 +224,14 @@ class GatewayCommand implements CommandInterface
             return $this->jsonSerializer->unserialize($response->getContent());
         }
         return [];
+    }
+
+    /**
+     * @param string $msg
+     * @param int $debug_level
+     */
+    private function debugLog($msg, $debug_level = 1)
+    {
+        $this->logger->debug($msg, ['debug_level' => $debug_level]);
     }
 }

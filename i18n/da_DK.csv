@@ -1,0 +1,100 @@
+You logged into your ViaBill account.,Du er logget ind på din ViaBill konto.
+An error occurred during request to ViaBill. Please try again later.,Der opstod en fejl under anmodningen til ViaBill. Prøv igen senere.
+Invalid command,Ugyldig forespørgsel
+Renewed order on ViaBill.,Fornyet ordre hos ViaBill.
+The order has been successfully renewed.,Ordren er blevet fornyet.
+An error occurred during order renewal. Please try again later.,Der opstod en fejl under ordre fornyelse. Prøv igen senere.
+An error occurred during callback processing.,Der opstod en fejl under callback.
+Invalid request,Ugyldig forespørgsel
+Payment cancelled from ViaBill.,Betaling annulleret af ViaBill.
+Transaction validation failed.,Validering af transaktionen mislykkedes.
+Error when trying to capture the order - please contact ViaBill for more information.,Fejl opstod ved forsøg på capture - kontakt venligst ViaBill for mere information.
+Capture is not longer possible for this transaction - please contact ViaBill for more information.,Capture er ikke længere muligt for denne transaktion - kontakt venligst ViaBill for mere information.
+You are not allowed to make several capture attempts in a very short time - please try again in 15 minutes or contact ViaBill for more info.,Det er ikke tilladt at foretage flere capture forsøg på meget kort tid - prøv igen om 15 minutter eller kontakt ViaBill for mere info.
+Error when trying to capture the transaction - please try again in 15 minutes.,"Fejl, ved forsøg på capture - prøv igen om 15 minutter."
+Error when trying to refund the transaction - please contact ViaBill for more information.,Fejl ved forsøg på refundering - kontakt venligst ViaBill for mere information.
+Refund is not possible at the moment - please contact ViaBill for more information.,Refunderingen er ikke mulig i øjeblikket - kontakt venligst ViaBill for mere information.
+Error when trying to refund the transaction - please try again in 15 minutes.,Fejl ved forsøg på at refundere transaktionen - prøv igen om 15 minutter.
+Error when trying to cancel the transaction - please contact ViaBill for more information.,Fejl ved forsøg på at annullere transaktionen - kontakt venligst ViaBill for mere information.
+It's not possible to cancel the transaction - please try again in 15 minutes.,Det er ikke muligt at annullere transaktionen - prøv igen om 15 minutter.
+It's not possible to renew the order at the moment - please contact ViaBill for more information.,Det er ikke muligt at forny ordren i øjeblikket - kontakt venligst ViaBill for mere information.
+Renew is no longer possible for this transaction.,Fornyelse er ikke længere muligt for denne transaktion.
+Error when trying to renew the order - please try again in 15 minutes.,Fejl ved forsøg på at forny ordren - prøv igen om 15 minutter.
+Order doesn't have ViaBill transaction and can't be invoiced right now,Ordren har ikke en ViaBill transaktion og kan derfor ikke faktureres lige pt.
+Gateway response error. Incorrect authorize payment parameters.,Gateway fejlmeddelelse. Forkerte parametre til godkendelse af betaling..
+Yes,Ja
+No,Nej
+--Please Select--,--Vælg venligst--
+name,navn
+Critical,Kritisk
+Major,Større
+Minor,Mindre
+Notice,Varsel
+On Hold,På hold
+Pending,Afventer
+Pending Payment,Afventer Betaling
+Processing,Behandler
+Suspected Fraud,Mistanke om svindel
+Authorize Only,Godkend kun
+Authorize and Capture,Godkend og Capture
+This will renew the order on viabill. Do you want to continue?,Dette vil forny ordren hos ViaBill. Vil du fortsætte?
+Renew,Forny
+ViaBill payment method has been disabled because it doesn't support current store currency.,"ViaBill betalingsmetode er blevet deaktiveret, fordi den ikke understøtter nuværende valuta."
+ViaBill payment method does not support Capture Offline,ViaBill betalingsmetode understøtter ikke offline captures
+ViaBill payment method does not support Refund Offline,ViaBill betalingsmetode understøtter ikke offline refundering
+Forgot password,Glemt kodeord
+Connect,Forbind
+Go to My ViaBill,Gå til MitViaBill
+I've read and accept the,Jeg har læst og accepterer
+terms & conditions,Vilkår og Betingelser
+Create new user,Opret ny bruger
+Continue to ViaBill,Fortsæt til ViaBill
+My ViaBill,MitViaBill
+ViaBill,ViaBill
+Access ViaBill,Tilgå ViaBill
+New ViaBill user,Ny ViaBill bruger
+Email,E-mail
+Country,Land
+URL,URL
+Name,Navn
+Phone,Telefon
+Merchant Name,Virksomhedsnavn
+Existing user,Eksisterende bruger
+Password,Adgangskode
+Module Configuration,Modul-konfiguration
+Enable,Aktiver
+Title,Titel
+Payment method Title will be shown on checkout page.,Titel vil blive vist i checkout på betalingssiden
+Description,Beskrivelse
+Description for the payment method will be shown on checkout page.,Beskrivelse af betalingsmetode vil blive vist i checkout på betalingssiden
+Payment Action,Betalings-handling
+Order status (Before the payment is completed),Ordrestatus (Før betalingen er gennemført)
+Set the status of the order before the payment is completed.,"Sæt status for ordren, før betalingen er gennemført."
+Order status (After the payment is completed),Ordrestatus (Når betalingen er gennemført)
+Set the status of the order after the payment is completed.,"Sæt status for ordren, efter at betalingen er gennemført."
+Order status (After checkout is initiated),Ordrestatus (Efter checkout påbegyndes)
+Set the status of the order before the payment is authorized.,"Sæt status for ordren, før betalingen er godkendt."
+Order status (After the payment is authorized),Ordrestatus (Efter betalingen er godkendt)
+Set the status of the order after the payment is authorized.,"Sæt status for ordren, efter at betalingen er godkendt."
+Order status (After the payment is captured),Ordrestatus (Efter capture af betalingen)
+Set the status of the order after the payment is captured.,"Sæt status for ordren, efter capture af betalingen."
+Test Transactions Mode,Test tilstand
+"If enabled, transactions will be marked as ""test"".","Hvis aktiveret, vil transaktionerne blive markeret som ""test""."
+Debug Mode,Fejlretningstilstand
+"If enabled, debug information will be saved to log.","Hvis aktiveret, vil debug information gemmes i loggen."
+Admin Notifications Severity,Indstillinger for notifikationer
+Public Key,Offentlig nøgle
+Private Key,Private nøgle
+PriceTag script,PriceTag script
+PriceTag Settings,PriceTag Indstillinger
+"Enable ViaBill’s PriceTags to obtain the best possible conversion, and inform your customers about ViaBill.","Aktivér ViaBill's PriceTags for at opnå den bedst mulige konvertering, og for informere dine kunder om ViaBill."
+Acquiring with ViaBill will increase significantly when activating the PriceTag,"Ordrer med ViaBill vil stige betydeligt, når PriceTag aktiveres"
+"Enable ViaBill’s PriceTag to make your customers aware of the possibility and thereby maximizing your conversion.","Aktivér ViaBills PriceTag for at gøre dine kunder opmærksomme på muligheden og derved maksimere din konvertering."
+Enable on Product page,Aktiver på Produktside
+Enable on Cart Summary,Aktiver i indkøbskurven
+Enable on Checkout Summary,Aktiver på ordreoverblik
+"This order was placed in ViaBill Test Mode and should not be shipped! If you have any questions about this order, please contact ViaBill Support.","Denne ordre blev placeret i ViaBill testtilstand og bør ikke sendes! Hvis du har spørgsmål om denne ordre, kan du kontakte ViaBill support."
+ViaBill is currently set to Test Mode. All orders placed with ViaBill should not be shipped! Remember to disable Test Mode before offering ViaBill on your store.,"ViaBill er sat til ttesttilstand. Alle ordrer afgivet med ViaBill bør ikke sendes! Husk at deaktivere testtilstand, før ViaBill tilbydes på din butik."
+Module Info,Modul Info
+Module Version,Modul Version
+System Info,System Info

@@ -9,10 +9,6 @@ use Magento\Framework\Filesystem\DriverInterface;
 use Magento\Framework\Logger\Handler\Base;
 use Monolog\Logger;
 
-/**
- * Class Debug
- * @package Viabillhq\Payment\Model\Logger\Handler
- */
 class Critical extends Base
 {
     const DEFAULT_CRITICAL_FILE_NAME = '/var/log/viabill_critical.log';

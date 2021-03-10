@@ -9,10 +9,6 @@ use Magento\Framework\Exception\LocalizedException;
 use Magento\Sales\Api\Data\CreditmemoInterface;
 use Magento\Sales\Model\Service\CreditmemoService as CoreCreditmemoService;
 
-/**
- * Class CreditmemoService
- * @package Viabillhq\Payment\Plugin\Sales\Model\Services
- */
 class CreditmemoService
 {
     /**

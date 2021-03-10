@@ -18,10 +18,6 @@ use Viabillhq\Payment\Gateway\Exception\ViabillException;
 use Viabillhq\Payment\Gateway\Request\SubjectReader;
 use Zend\Http\Response;
 
-/**
- * Class Renew
- * @package Viabillhq\Payment\Controller\Adminhtml\Order
- */
 class Renew extends Action
 {
     /**

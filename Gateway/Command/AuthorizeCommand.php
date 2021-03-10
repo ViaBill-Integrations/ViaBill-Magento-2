@@ -7,10 +7,6 @@ namespace Viabillhq\Payment\Gateway\Command;
 
 use Zend\Http\Response as ZendResponse;
 
-/**
- * Class AuthorizeCommand
- * @package Viabillhq\Payment\Gateway\Command
- */
 class AuthorizeCommand extends GatewayCommand
 {
     /**

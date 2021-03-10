@@ -9,10 +9,6 @@ use Magento\Framework\Serialize\SerializerInterface;
 use Psr\Log\LoggerInterface;
 use Zend\Http\Response;
 
-/**
- * Class Factory
- * @package Viabillhq\Payment\Gateway\Exception
- */
 class ViabillExceptionFactory
 {
     /**

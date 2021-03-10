@@ -23,9 +23,6 @@ use Viabillhq\Payment\Gateway\Exception\ViabillException;
 use Viabillhq\Payment\Gateway\Request\SubjectReader;
 use Viabillhq\Payment\Model\OrderManagement\OrderManager;
 
-/**
- * Class GetRequestData
- */
 class Authorize extends Action implements CsrfAwareActionInterface
 {
     /**

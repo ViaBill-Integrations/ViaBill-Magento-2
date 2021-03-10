@@ -8,10 +8,6 @@ namespace Viabillhq\Payment\Gateway\Request;
 use Magento\Framework\Locale\Resolver;
 use Magento\Payment\Gateway\ConfigInterface;
 
-/**
- * Class ConfigDataBuilder
- * @package Viabillhq\Payment\Gateway\Request
- */
 class ConfigDataBuilder extends ViabillRequestDataBuilder
 {
     const VIABILL_PROTOCOL_VERSION = '3.1';

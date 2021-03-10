@@ -9,10 +9,6 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Config\Storage\WriterInterface as ConfigWriter;
 use Magento\Framework\Encryption\EncryptorInterface;
 
-/**
- * Class Configuration
- * @package Viabillhq\Payment\Model\Adminhtml
- */
 class AccountConfiguration
 {
     const CONFIG_PATH_VIABILL_ACCOUNT_EMAIL = 'payment/viabill_account/email';
@@ -27,14 +23,17 @@ class AccountConfiguration
 
     private $pathMapping = [
         'email' => self::CONFIG_PATH_VIABILL_ACCOUNT_EMAIL,
+        'login_email' => self::CONFIG_PATH_VIABILL_ACCOUNT_EMAIL,
         'country' => self::CONFIG_PATH_VIABILL_ACCOUNT_COUNTRY,
         'shop_url' => self::CONFIG_PATH_VIABILL_ACCOUNT_SHOP_URL,
+        'url' => self::CONFIG_PATH_VIABILL_ACCOUNT_SHOP_URL,
         'contact_name' => self::CONFIG_PATH_VIABILL_ACCOUNT_CONTACT_NAME,
+        'name' => self::CONFIG_PATH_VIABILL_ACCOUNT_CONTACT_NAME,
         'phone' => self::CONFIG_PATH_VIABILL_ACCOUNT_PHONE,
         'merchant_name' => self::CONFIG_PATH_VIABILL_ACCOUNT_MERCHANT_NAME,
         'key' => self::CONFIG_PATH_VIABILL_API_KEY,
         'secret' => self::CONFIG_PATH_VIABILL_SECRET,
-        'pricetagScript' => self::CONFIG_PATH_VIABILL_PRICE_TAG_SCRIPT
+        'pricetagScript' => self::CONFIG_PATH_VIABILL_PRICE_TAG_SCRIPT,
     ];
 
     /**

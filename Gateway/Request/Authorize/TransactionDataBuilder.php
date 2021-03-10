@@ -10,10 +10,6 @@ use Viabillhq\Payment\Gateway\Request\SubjectReader;
 use Viabillhq\Payment\Gateway\Request\ViabillRequestDataBuilder;
 use Viabillhq\Payment\Model\TransactionProvider;
 
-/**
- * Class TransactionDataBuilder
- * @package Viabillhq\Payment\Gateway\Request
- */
 class TransactionDataBuilder extends ViabillRequestDataBuilder
 {
     /**

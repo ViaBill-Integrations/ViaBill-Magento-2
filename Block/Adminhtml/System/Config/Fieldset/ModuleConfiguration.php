@@ -8,10 +8,6 @@ namespace Viabillhq\Payment\Block\Adminhtml\System\Config\Fieldset;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Viabillhq\Payment\Model\Adminhtml\AccountConfiguration;
 
-/**
- * Class ModuleConfiguration
- * @package Viabillhq\Payment\Block\Adminhtml\System\Config\Field
- */
 class ModuleConfiguration extends \Magento\Config\Block\System\Config\Form\Fieldset
 {
     /**

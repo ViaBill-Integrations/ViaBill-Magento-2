@@ -11,10 +11,6 @@ use Viabillhq\Payment\Model\Adminhtml\Source\Country;
 use Viabillhq\Payment\Model\Adminhtml\AccountConfiguration;
 use Viabillhq\Payment\Gateway\Request\SubjectReader;
 
-/**
- * Class GetCredentialsHandler
- * @package Viabillhq\Payment\Gateway\Response
- */
 class GetCredentialsHandler implements HandlerInterface
 {
     /**

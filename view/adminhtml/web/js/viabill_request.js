@@ -66,20 +66,48 @@ define(
                     }
                     
                     //Adding form values
-                    $.each($formElements, function () {
-                        var label = $(this).find('label span').text();
-                        var name = label.toLowerCase().split(' ').join('_');
-
-                        if ($formElements == 'undefined' || name == '') {
-                            return
-                        }
-
-                        var formElementValue = $(this).find('input, select').val();
-                        if (!formElementValue) {
-                            return
-                        }
-
-                        formData[name] = formElementValue;
+                    $.each($formElements, function () {                        
+                        var formElement = $(this).find('input, select');
+                        if (formElement.length>0) {						
+                            var formElementValue = formElement.val();						
+                            var formElementName = null;
+                            var formElementNameRaw = formElement.attr('name');
+                            if (typeof formElementNameRaw !== typeof undefined && formElementNameRaw !== false) {
+                                var matchField = formElementNameRaw.match(/\[fields\]\[(.+)\]\[value\]/);
+                                if (matchField) {
+                                    formElementName = matchField[1];
+                                } else {
+                                    var formElementID = formElement.attr('id');
+                                    if (typeof formElementID !== typeof undefined && formElementID !== false) {		
+                                        if (formData['command'] == 'register') {
+                                            matchField = formElementID.match(/reg_configuration_(.+)/);
+                                            if (matchField) {
+                                                formElementName = matchField[1];		
+                                            }
+                                        } else if (formData['command'] == 'login') {
+                                            matchField = formElementID.match(/login_(.+)/);
+                                            if (matchField) {
+                                                formElementName = matchField[1];		
+                                            }
+                                        }
+                                    }
+                                }					
+                                if (formElementName && formElementValue) {
+                                    var fieldNameMappins = {};
+                                    if (formData['command'] == 'register') {
+                                        fieldNameMappins = {'contact_name':'name', 'shop_url':'url'};
+                                    } else {
+                                        fieldNameMappins = {'login_email':'email'};
+                                    }
+                                    if (formElementName in fieldNameMappins) {
+                                        formElementName = fieldNameMappins[formElementName];
+                                    }
+                                    formData[formElementName] = formElementValue;		
+                                }						                     
+                            }
+                        } else {
+                            return;
+                        }                                                             					
                     });
 
                     return formData;
@@ -98,7 +126,7 @@ define(
                         type: 'POST',
                         data: data,
                         showLoader: true,
-                        dataType: 'json',
+                        dataType: 'json',                        
                         
                         /**
                          * Success callback.
@@ -110,18 +138,14 @@ define(
                             } else {
                                 window.location.reload();
                             }
-
-
                         }.bind(this),
 
                         error: function (resp) {
-
-                            if (resp.responseJSON.errorMessage !== undefined) {
+                            if (resp !== null && resp.responseJSON !== undefined && resp.responseJSON.errorMessage !== undefined) {
                                 alert(resp.responseJSON.errorMessage);
                             } else {
                                 console.log('Response error');
-                            }
-
+                            }                            
                         }
                     });
                 },

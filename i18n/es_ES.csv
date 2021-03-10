@@ -1,102 +1,99 @@
-"You logged into your Viabill account.","Usted iniciÛ sesiÛn en su cuenta ViaBill."
-"An error occurred during request to Viabill. Please try again later.","Se ha producido un error durante su solicitud a ViaBill. Vuelva a intentarlo m·s tarde."
-"Invalid command","Comando inv·lido"
-"Renewed order on Viabill.","Pedido renovado en ViaBill."
-"The order has been successfully renewed.","El pedido ha sido renovado correctamente."
-"An error occurred during order renewal. Please try again later.","Se ha producido un error durante la renovaciÛn del pedido. Vuelva a intentarlo m·s tarde."
-"An error occurred during callback processing.","Se ha producido un error durante el procesamiento de la autentificaciÛn."
-"Invalid request","Solicitud inv·lida"
-"Payment cancelled from Viabill.","Pago cancelado por ViaBill."
-"Transaction validation failed.","No se ha podido validar la transacciÛn."
-"Error when trying to capture the order - please contact Viabill for more information.","Error al intentar capturar el pedido. ComunÌquese con ViaBill para obtener m·s informaciÛn."
-"Capture is not longer possible for this transaction - please contact Viabill for more information.","Ya no es posible capturar esta transacciÛn. ComunÌquese con ViaBill para obtener m·s informaciÛn."
-"You are not allowed to make several capture attempts in a very short time - please try again in 15 minutes or contact Viabill for more info.","Usted no puede realizar distintos intentos de captura en un tiempo muy breve. Vuelva a intentarlo en 15 minutos o comunÌquese con ViaBill para obtener m·s informaciÛn."
-"Error when trying to capture the transaction - please try again in 15 minutes.","Error al intentar capturar la transacciÛn. Vuelva a intentarlo en 15 minutos."
-"Error when trying to refund the transaction - please contact Viabill for more information.","Error al intentar reembolsar la transacciÛn. ComunÌquese con ViaBill para obtener m·s informaciÛn."
-"Refund is not possible at the moment - please contact Viabill for more information.","No se puede realizar el reembolso en este momento. ComunÌquese con ViaBill para obtener m·s informaciÛn."
-"Error when trying to refund the transaction - please try again in 15 minutes.","Error al intentar reembolsar la transacciÛn. Vuelva a intentarlo en 15 minutos."
-"Error when trying to cancel the transaction - please contact Viabill for more information.","Error al intentar cancelar la transacciÛn. ComunÌquese con ViaBill para obtener m·s informaciÛn."
-"It's not possible to cancel the transaction - please try again in 15 minutes.","No es posible cancelar la transacciÛn. Vuelva a intentarlo en 15 minutos."
-"It's not possible to renew the order at the moment - please contact Viabill for more information.","No es posible renovar el pedido en este momento. ComunÌquese con ViaBill para obtener m·s informaciÛn."
-"Renew is no longer possible for this transaction.","Ya no es posible renovar esta transacciÛn."
-"Error when trying to renew the order - please try again in 15 minutes.","Error al intentar renovar el pedido. Vuelva a intentarlo en 15 minutos."
-"Order doesn't have Viabill transaction and can't be invoiced right now","El pedido no tiene una transacciÛn ViaBill y no se puede facturar en este momento"
-"Gateway response error. Incorrect authorize payment parameters.","Error de respuesta de la Pasarela de pago. Par·metros incorrectos de autorizaciÛn de pago."
-"Yes","Sí"
-"No","No"
-"--Please Select--","--Seleccione--"
+You logged into your Viabill account.,Usted inició sesión en su cuenta ViaBill.
+An error occurred during request to Viabill. Please try again later.,Se ha producido un error durante su solicitud a ViaBill. Vuelva a intentarlo más tarde.
+Invalid command,Comando no valido
+Renewed order on Viabill.,Pedido renovado en ViaBill.
+The order has been successfully renewed.,El pedido ha sido renovado correctamente.
+An error occurred during order renewal. Please try again later.,Se ha producido un error durante la renovación del pedido. Vuelva a intentarlo más tarde.
+An error occurred during callback processing.,Se ha producido un error durante el procesamiento de la autentificación.
+Invalid request,Solicitud no valida
+Payment cancelled from Viabill.,Pago cancelado por ViaBill.
+Transaction validation failed.,No se ha podido validar la transacción.
+Error when trying to capture the order - please contact Viabill for more information.,Error al intentar capturar el pedido. Comuníquese con ViaBill para obtener más información.
+Capture is not longer possible for this transaction - please contact Viabill for more information.,Ya no es posible capturar esta transacción. Comuníquese con ViaBill para obtener más información.
+You are not allowed to make several capture attempts in a very short time - please try again in 15 minutes or contact Viabill for more info.,Usted no puede realizar distintos intentos de captura en un tiempo muy breve. Vuelva a intentarlo en 15 minutos o comunÌquese con ViaBill para obtener más información.
+Error when trying to capture the transaction - please try again in 15 minutes.,Error al intentar capturar la transacción. Vuelva a intentarlo en 15 minutos.
+Error when trying to refund the transaction - please contact Viabill for more information.,Error al intentar reembolsar la transacción. Comuníquese con ViaBill para obtener más información.
+Refund is not possible at the moment - please contact Viabill for more information.,No se puede realizar el reembolso en este momento. ComunÌquese con ViaBill para obtener más información.
+Error when trying to refund the transaction - please try again in 15 minutes.,Error al intentar reembolsar la transacción. Vuelva a intentarlo en 15 minutos.
+Error when trying to cancel the transaction - please contact Viabill for more information.,Error al intentar cancelar la transacción. Comuníquese con ViaBill para obtener más información.
+It's not possible to cancel the transaction - please try again in 15 minutes.,No es posible cancelar la transacción. Vuelva a intentarlo en 15 minutos.
+It's not possible to renew the order at the moment - please contact Viabill for more information.,No es posible renovar el pedido en este momento. Comuníquese con ViaBill para obtener más información.
+Renew is no longer possible for this transaction.,Ya no es posible renovar esta transacción.
+Error when trying to renew the order - please try again in 15 minutes.,Error al intentar renovar el pedido. Vuelva a intentarlo en 15 minutos.
+Order doesn't have Viabill transaction and can't be invoiced right now,El pedido no tiene una transacción ViaBill y no se puede facturar en este momento
+Gateway response error. Incorrect authorize payment parameters.,Error de respuesta de la Pasarela de pago. Par·metros incorrectos de autorización de pago.
+Yes,Sí
+No,No
+--Please Select--,--Seleccione--
 name,nombre
-Critical,CrÌtico
+Critical,Crítico
 Major,Principal
 Minor,Secundario
 Notice,Aviso
-"On Hold","En espera"
-"Pending","Pendiente"
-"Pending Payment","Pago pendiente"
-"Processing","Procesando"
-"Suspected Fraud","Sospecha de fraude"
-"Authorize Only","Autorizar solamente"
-"Authorize and Capture","Autorizar y capturar"
-"This will renew the order on viabill. Do you want to continue?","Esto renovar· su pedido en ViaBill. øDesea continuar?"
+On Hold,En espera
+Pending,Pendiente
+Pending Payment,Pago pendiente
+Processing,Procesando
+Suspected Fraud,Sospecha de fraude
+Authorize Only,Sólo autorizar
+Authorize and Capture,Autorizar y capturar
+This will renew the order on viabill. Do you want to continue?,Esto renovar· su pedido en ViaBill. Desea continuar?
 Renew,Renovar
-"Viabill payment method has been disabled because it doesn't support current store currency.","La forma de pago de ViaBill ha sido desactivada porque no es compatible con la moneda actual de la tienda."
-"ViaBill actualmente est· configurado en modo de prueba. 
-                    °No se debe enviar ning˙n pedido realizado con ViaBill! 
-                    Recuerde desactivar el modo de prueba antes de ofrecer ViaBill en su tienda. ViaBill actualmente est· configurado en modo de prueba. "
-                    °No se debe enviar ning˙n pedido realizado con ViaBill! 
-"                    Recuerde desactivar el modo de prueba antes de ofrecer ViaBill en su tienda."
-"Viabill payment method does not support Capture Offline","La forma de pago de ViaBill no permite capturas fuera de lÌnea"
-"Viabill payment method does not support Refund Offline","La forma de pago de ViaBill no permite reembolsos fuera de lÌnea"
-"ViaBill actualmente est· configurado en modo de prueba. 
-                 °No se debe enviar ning˙n pedido realizado con ViaBill! 
-                 Recuerde desactivar el modo de prueba antes de ofrecer ViaBill en su tienda. ViaBill actualmente est· configurado en modo de prueba. "
-                 °No se debe enviar ning˙n pedido realizado con ViaBill! 
-"                 Recuerde desactivar el modo de prueba antes de ofrecer ViaBill en su tienda."
-"Forgot password","OlvidÈ mi contraseÒa"
+Viabill payment method has been disabled because it doesn't support current store currency.,La forma de pago de ViaBill ha sido desactivada porque no es compatible con la moneda actual de la tienda.
+Viabill payment method does not support Capture Offline,Viabill payment method does not support Capture Offline
+Viabill payment method does not support Refund Offline,Viabill payment method does not support Refund Offline
+Forgot password,Olvidé mi contraseña
 Connect,Conectar
-"Go to My Viabill","Ir a Mi ViaBill"
-"I've read and accept the","He leÌdo y acepto los"
-"terms & conditions","TÈrminos y condiciones"
-"Create new user","Crear un nuevo usuario"
-"Continue to Viabill","Continuar a ViaBill"
-"My ViaBill","Mi ViaBill"
+Go to My Viabill,Ir a Mi ViaBill
+I've read and accept the,He leído y acepto los
+terms & conditions,Términos y condiciones
+Create new user,Crear un nuevo usuario
+Continue to Viabill,Continuar a ViaBill
+My ViaBill,Mi ViaBill
 ViaBill,ViaBill
-"Access ViaBill","Acceder a ViaBill"
-"New ViaBill user","Nuevo usuario de ViaBill"
-Email,Correo electrÛnico
-Country,PaÌs
+Access ViaBill,Acceder a ViaBill
+New ViaBill user,Nuevo usuario de ViaBill
+Email,Correo electrónico
+Country,País
 URL,URL
 Name,Nombre
-Phone,TelÈfono
-"Merchant Name","Nombre del comerciante"
-"Existing user","Usuario existente"
-Password,ContraseÒa
-"Module Configuration","ConfiguraciÛn del mÛdulo"
+Phone,Teléfono
+Merchant Name,Nombre del comerciante
+Existing user,Usuario existente
+Password,Contraseña
+Module Configuration,Configuración del módulo
 Enable,Activar
-Title,TÌtulo
-"Payment method Title will be shown on checkout page.","El tÌtulo de la forma de pago se mostrar· en la p·gina de finalizaciÛn de la compra."
-Description,DescripciÛn
-"Description for the payment method will be shown on checkout page.","La descripciÛn de la forma de pago se mostrar· en la p·gina de finalizaciÛn de la compra."
-"Order status (After checkout is initiated)","Estado del pedido (despuÈs de iniciar la finalizaciÛn de la compra)"
-"Set the status of the order before the payment is authorized.","Establecer el estado del pedido antes de autorizar el pago."
-"Order status (After the payment is authorized)","Estado del pedido (despuÈs de autorizar el pago)"
-"Set the status of the order after the payment is authorized.","Establecer el estado del pedido despuÈs de autorizar el pago."
-"Order status (After the payment is captured)","Estado del pedido (despuÈs de capturar el pago)"
-"Set the status of the order after the payment is captured.","Establecer el estado del pedido despuÈs de capturar el pago."
-"Payment Action","AcciÛn de pago"
-"Test Transactions Mode","Modo de transacciones de prueba"
-"If enabled, transactions will be marked as ""test"".","Si est· activado, las transacciones se marcar·n como ìpruebaî."
-"Debug Mode","Modo de depuraciÛn"
-"If enabled, debug information will be saved to log.","Si est· activado, la informaciÛn depurada se guardar· en un registro."
-"Admin Notifications Severity","Administrar severidad de los avisos"
-"Public Key","Clave p˙blica"
-"Private Key","Clave privada"
-"PriceTag script","Script de la Etiqueta de precio"
-"PriceTag Settings","Configuraciones de la Etiqueta de precio"
-"Enable ViaBill's PriceTags to obtain the best possible conversion, and inform your customers about ViaBill.","Activar las Etiquetas de precio de ViaBill para obtener la mejor conversiÛn posible e informar a sus clientes sobre ViaBill."
-"Acquiring with ViaBill will increase to 2% when deactivating PriceTag","Las compras con las Etiquetas de precio ViaBill aumentaron nuestra tasa de conversiÛn el 20 %"
-"Enable on Product page","Activar en la p·gina del producto"
-"Enable on Cart Summary","Activar en el resumen de la cesta"
-"Enable on Checkout Summary","Activar en el resumen de la finalizaciÛn de la compra"
-"This order was placed in ViaBill Test Mode and should not be shipped! If you have any questions about this order, please contact <a href=https://viabill.com/ target=_blank>ViaBill Support</a>.","¡Este pedido se realizó en modo de prueba ViaBill y no debe enviarse! Si tiene alguna pregunta sobre este pedido, comuníquese con <a href=https://viabill.com/ target=_blank> Soporte de ViaBill </a>."
-"ViaBill is currently set to Test Mode. All orders placed with ViaBill should not be shipped! Remember to disable Test Mode before offering ViaBill on your store.","ViaBill está actualmente configurado en modo de prueba. ¡Todos los pedidos realizados con ViaBill no deben enviarse! Recuerde desactivar el modo de prueba antes de ofrecer ViaBill en su tienda."
+Title,Título
+Payment method Title will be shown on checkout page.,El título de la forma de pago se mostrar· en la página de finalización de la compra.
+Description,Descripción
+Description for the payment method will be shown on checkout page.,La descripción de la forma de pago se mostrar· en la p·gina de finalización de la compra.
+Order status (After checkout is initiated),Estado del pedido (después de iniciar la finalización de la compra)
+Set the status of the order before the payment is authorized.,Establecer el estado del pedido antes de autorizar el pago.
+Order status (After the payment is authorized),Estado del pedido (después de autorizar el pago)
+Set the status of the order after the payment is authorized.,Establecer el estado del pedido después de autorizar el pago.
+Order status (After the payment is captured),Estado del pedido (después de capturar el pago)
+Set the status of the order after the payment is captured.,Establecer el estado del pedido después de capturar el pago.
+Payment Action,Acción de pago
+Order status (Before the payment is completed),Order status (Before the payment is completed)
+Set the status of the order before the payment is completed.,Set the status of the order before the payment is completed.
+Order status (After the payment is completed),Order status (After the payment is completed)
+Set the status of the order after the payment is completed.,Set the status of the order after the payment is completed.
+Test Transactions Mode,Modo de transacciones de prueba
+"If enabled, transactions will be marked as ""test"".","Si está activado, las transacciones se marcan como prueba."
+Debug Mode,Modo de depuración
+"If enabled, debug information will be saved to log.","Si está activado, la información depurada se guardar en un registro."
+Admin Notifications Severity,Administrar severidad de los avisos
+Public Key,Clave pública
+Private Key,Clave privada
+PriceTag script,Script de la Etiqueta de precio
+PriceTag Settings,Configuraciones de la Etiqueta de precio
+"Enable ViaBill’s PriceTags to obtain the best possible conversion, and inform your customers about ViaBill.",Activar las Etiquetas de precio de ViaBill para obtener la mejor conversión posible e informar a sus clientes sobre ViaBill.
+"Enable ViaBill’s PriceTag to make your customers aware of the possibility and thereby maximizing your conversion.","Habilite PriceTag de ViaBill para que sus clientes sean conscientes de la posibilidad y, por lo tanto, maximice su conversión."
+Enable on Product page,Activar en la página del producto
+Enable on Cart Summary,Activar en el resumen de la cesta
+Enable on Checkout Summary,Activar en el resumen de la finalización de la compra
+"This order was placed in ViaBill Test Mode and should not be shipped! If you have any questions about this order, please contact ViaBill Support.","¡Este pedido se realizó en modo de prueba ViaBill y no debe enviarse! Si tiene alguna pregunta sobre este pedido, comuníquese con Soporte de ViaBill."
+ViaBill is currently set to Test Mode. All orders placed with ViaBill should not be shipped! Remember to disable Test Mode before offering ViaBill on your store.,ViaBill está actualmente configurado en modo de prueba. ¡Todos los pedidos realizados con ViaBill no deben enviarse! Recuerde desactivar el modo de prueba antes de ofrecer ViaBill en su tienda.
+Module Info,Module Info
+Module Version,Module Version
+System Info,System Info

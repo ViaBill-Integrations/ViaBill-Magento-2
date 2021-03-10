@@ -5,10 +5,6 @@
  */
 namespace Viabillhq\Payment\Plugin\Payment\Gateway\Command;
 
-/**
- * Class CommandCodeDeclaration
- * @package Viabillhq\Payment\Plugin
- */
 class CommandPool
 {
     /**
@@ -27,5 +23,3 @@ class CommandPool
         return $command;
     }
 }
-
-

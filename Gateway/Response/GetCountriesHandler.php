@@ -8,10 +8,6 @@ namespace Viabillhq\Payment\Gateway\Response;
 use Magento\Payment\Gateway\Response\HandlerInterface;
 use Viabillhq\Payment\Model\Adminhtml\Source\Country;
 
-/**
- * Class GetCountriesHandler
- * @package Viabillhq\Payment\Gateway\Response
- */
 class GetCountriesHandler implements HandlerInterface
 {
     /**

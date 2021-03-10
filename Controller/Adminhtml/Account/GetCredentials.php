@@ -20,9 +20,6 @@ use Viabillhq\Payment\Gateway\Request\SubjectReader;
 use Viabillhq\Payment\Model\Adminhtml\AccountConfiguration;
 use Viabillhq\Payment\Model\Adminhtml\AdminNotification;
 
-/**
- * Class GetCredentials
- */
 class GetCredentials extends Action
 {
     /**

@@ -8,10 +8,6 @@ namespace Viabillhq\Payment\Block\Adminhtml\System\Config\Field;
 use Magento\Framework\Data\Form\Element\AbstractElement;
 use Viabillhq\Payment\Model\Adminhtml\AccountConfiguration;
 
-/**
- * Class AccountField
- * @package Viabillhq\Payment\Block\Adminhtml\System\Config\Field
- */
 class AccountField extends \Magento\Config\Block\System\Config\Form\Field
 {
     const FRONTEND_CLASS_DISABLED_ON_LOG_IN = 'disabled_on_log_in';

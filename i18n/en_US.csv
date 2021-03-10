@@ -22,12 +22,21 @@
 "Error when trying to renew the order - please try again in 15 minutes.","Error when trying to renew the order - please try again in 15 minutes."
 "Order doesn't have Viabill transaction and can't be invoiced right now","Order doesn't have Viabill transaction and can't be invoiced right now"
 "Gateway response error. Incorrect authorize payment parameters.","Gateway response error. Incorrect authorize payment parameters."
+"Yes","Yes"
+"No","No"
 "--Please Select--","--Please Select--"
 name,name
 Critical,Critical
 Major,Major
 Minor,Minor
 Notice,Notice
+"On Hold","En espera"
+"Pending","Pendiente"
+"Pending Payment","Pago pendiente"
+"Processing","Processing"
+"Suspected Fraud","Suspected Fraud"
+"Authorize Only","Authorize Only"
+"Authorize and Capture","Authorize and Capture"
 "This will renew the order on viabill. Do you want to continue?","This will renew the order on viabill. Do you want to continue?"
 Renew,Renew
 "Viabill payment method has been disabled because it doesn't support current store currency.","Viabill payment method has been disabled because it doesn't support current store currency."
@@ -63,6 +72,12 @@ Description,Description
 "Set the status of the order before the payment is completed.","Set the status of the order before the payment is completed."
 "Order status (After the payment is completed)","Order status (After the payment is completed)"
 "Set the status of the order after the payment is completed.","Set the status of the order after the payment is completed."
+"Order status (After checkout is initiated)","Order status (After checkout is initiated)"
+"Set the status of the order before the payment is authorized.","Set the status of the order before the payment is authorized."
+"Order status (After the payment is authorized)","Order status (After the payment is authorized)"
+"Set the status of the order after the payment is authorized.","Set the status of the order after the payment is authorized."
+"Order status (After the payment is captured)","Order status (After the payment is captured)"
+"Set the status of the order after the payment is captured.","Set the status of the order after the payment is captured."
 "Test Transactions Mode","Test Transactions Mode"
 "If enabled, transactions will be marked as ""test"".","If enabled, transactions will be marked as ""test""."
 "Debug Mode","Debug Mode"
@@ -73,7 +88,12 @@ Description,Description
 "PriceTag script","PriceTag script"
 "PriceTag Settings","PriceTag Settings"
 "Enable ViaBill’s PriceTags to obtain the best possible conversion, and inform your customers about ViaBill.","Enable ViaBill’s PriceTags to obtain the best possible conversion, and inform your customers about ViaBill."
-"Acquiring with ViaBill will increase to 2% when deactivating PriceTag","Acquiring with ViaBill will increase to 2% when deactivating PriceTag"
+"Enable ViaBill’s PriceTag to make your customers aware of the possibility and thereby maximizing your conversion.","Enable ViaBill’s PriceTag to make your customers aware of the possibility and thereby maximizing your conversion."
 "Enable on Product page","Enable on Product page"
 "Enable on Cart Summary","Enable on Cart Summary"
 "Enable on Checkout Summary","Enable on Checkout Summary"
+"This order was placed in ViaBill Test Mode and should not be shipped! If you have any questions about this order, please contact ViaBill Support.","This order was placed in ViaBill Test Mode and should not be shipped! If you have any questions about this order, please contact ViaBill Support."
+"ViaBill is currently set to Test Mode. All orders placed with ViaBill should not be shipped! Remember to disable Test Mode before offering ViaBill on your store.","ViaBill is currently set to Test Mode. All orders placed with ViaBill should not be shipped! Remember to disable Test Mode before offering ViaBill on your store."
+"Module Info","Module Info"
+"Module Version","Module Version"
+"System Info","System Info"

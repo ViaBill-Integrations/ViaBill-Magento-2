@@ -16,34 +16,37 @@ $myViabillUrl = $block->getMyViaBillUrl();
                 "#viabill-request-form": {
                     "Viabillhq_Payment/js/viabill_request": {
                         "registerForm": "#viabil-register-btn",
-                        "registerUrl": "<?php echo $block->escapeUrl($block->getCredentialsRequestUrl())?>",
-                        "registerParam": "<?php echo $block->escapeJs($block->getCommand()) ?>"
+                        "registerUrl": "<?= $block->escapeUrl($block->getCredentialsRequestUrl())?>",
+                        "registerParam": "<?= $block->escapeJs($block->getCommand())?>"
                     }
                 }
             }
         </script>
 
-        <?php if (!empty($myViabillUrl)) : ?>
-            <a id="viabil-my-viabill-btn" class="my-viabill-btn" href="<?php echo $block->escapeUrl($myViabillUrl)?>" target="_blank">
-                <?php echo $block->escapeHtml(__('Go to My Viabill')) ?>
+        <?php if (!empty($myViabillUrl)): ?>
+            <a id="viabil-my-viabill-btn" class="my-viabill-btn" 
+            href="<?= $block->escapeUrl($myViabillUrl)?>" target="_blank">
+                <?= $block->escapeHtml(__('Go to My Viabill')) ?>
             </a>
         <?php endif; ?>
 
-        <?php if ($block->isButtonVisible()) : ?>
+        <?php if ($block->isButtonVisible()): ?>
         <p class="terms-and-conditions-wrap">
             <?php $termsAndConditionLink = $block->escapeUrl($block->getTermsAndConditionsUrl()) ?>
 
             <input type="checkbox" id="viabil-terms-and-conditions-checkbox" name="terms-and-conditions">
             <label for="viabil-terms-and-conditions-checkbox">
-                <span><?php echo $block->escapeHtml(__("I've read and accept the")) ?> </span>
-                <a data-link="<?php echo $block->escapeUrl($termsAndConditionLink) ?>" id="viabil-terms-and-conditions-link" href="<?php echo $block->escapeUrl($termsAndConditionLink) ?>" target="_blank">
-                    <?php echo $block->escapeHtml(__('terms & conditions')) ?>
+                <span><?= $block->escapeHtml(__("I've read and accept the")) ?> </span>
+                <a data-link="<?= $block->escapeUrl($termsAndConditionLink) ?>" 
+                id="viabil-terms-and-conditions-link" 
+                href="<?= $block->escapeUrl($termsAndConditionLink) ?>" target="_blank">
+                    <?= $block->escapeHtml(__('terms & conditions')) ?>
                 </a>
             </label>
         </p>
 
         <span id="viabil-register-btn" class="register-btn action-default disabled">
-            <?php echo $block->escapeHtml(__('Create new user')) ?>
+            <?= $block->escapeHtml(__('Create new user')) ?>
         </span>
         <?php endif; ?>
     </div>

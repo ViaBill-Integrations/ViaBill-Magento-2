@@ -8,10 +8,6 @@ namespace Viabillhq\Payment\Block\View\Element\Template;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
 use Viabillhq\Payment\Model\PriceTag\PriceTagDataProvider;
 
-/**
- * Class ViewModel
- * @package Viabillhq\Payment\Block\View\Element\Template
- */
 class ViewModel implements ArgumentInterface
 {
     /**

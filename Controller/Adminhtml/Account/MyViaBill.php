@@ -11,10 +11,6 @@ use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Controller\ResultInterface;
 use Viabillhq\Payment\Model\Adminhtml\Source\MyViaBill as LinkProvider;
 
-/**
- * Class MyViaBill
- * @package Viabillhq\Payment\Controller\Account
- */
 class MyViaBill extends Action
 {
     /**

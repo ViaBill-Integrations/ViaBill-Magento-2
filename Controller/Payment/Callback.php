@@ -17,15 +17,12 @@ use Magento\Payment\Gateway\ConfigInterface;
 use Magento\Payment\Model\Method\AbstractMethod;
 use Magento\Sales\Model\Order;
 use Psr\Log\LoggerInterface;
+use Viabillhq\Payment\Model\Adminhtml\Source\DebugLevels;
 use Viabillhq\Payment\Model\OrderManagement\OrderLocator;
 use Viabillhq\Payment\Model\OrderManagement\OrderManager;
 use Viabillhq\Payment\Model\Request\SignatureGenerator;
 use Zend\Http\Response;
 
-/**
- * Class Callback
- * @package Viabillhq\Payment\Controller\Payment
- */
 class Callback extends Action implements CsrfAwareActionInterface
 {
     const VIABILL_STATUS_APPROVED = 'APPROVED';
@@ -102,6 +99,7 @@ class Callback extends Action implements CsrfAwareActionInterface
         $result = $this->resultFactory->create(ResultFactory::TYPE_JSON);
         try {
             $request = $this->getRequest()->getContent();
+            $this->debugLog('Payment Callback: Raw Request is '. $request, DebugLevels::DEBUG_LEVEL_PRIORITY_BASIC);
             $requestData = $this->jsonSerializer->unserialize($request);
             $this->validateRequest($requestData);
             $this->checkSignature($requestData);
@@ -110,15 +108,13 @@ class Callback extends Action implements CsrfAwareActionInterface
             $order = $this->orderLocator->get($orderId);
             $this->processOrder($order, $requestData);
             $result->setHttpResponseCode(Response::STATUS_CODE_204);
-        } catch (\Exception $e) {
+        } catch (\Exception $e) { // @codingStandardsIgnoreLine
             $this->logger->critical($e->getMessage());
             $result->setHttpResponseCode($e->getCode());
             $result->setData([
                 'status' => $e->getCode(),
                 'message' => __('An error occurred during callback processing.')
             ]);
-        } finally {
-            $this->logger->debug('Callback Request Content: ', [$this->getRequest()->getContent()]);
         }
         return $result;
     }
@@ -134,7 +130,12 @@ class Callback extends Action implements CsrfAwareActionInterface
         $secret = $this->paymentConfig->getValue('secret');
         $realSignature = $this->signatureGenerator->generateSignature($requestData + ['secret' => $secret]);
         if ($requestSignature !== $realSignature) {
-            throw new \Exception(__('Invalid request', 401));
+            $this->debugLog(
+                'Payment Callback: Request Signature '.$requestSignature.
+                ' is not equal to Real signature '.$realSignature,
+                DebugLevels::DEBUG_LEVEL_PRIORITY_BASIC
+            );
+            throw new \Exception(__('Invalid request', 401)); // @codingStandardsIgnoreLine
         }
     }
 
@@ -158,7 +159,9 @@ class Callback extends Action implements CsrfAwareActionInterface
             ],
             array_keys($requestData)
         ))) {
-            throw new \Exception('Invalid request parameters', 400);
+            $this->debugLog('Payment Callback: Request Fields are missing '.
+                '- Request Validation failed.', DebugLevels::DEBUG_LEVEL_PRIORITY_BASIC);
+            throw new \Exception('Invalid request parameters', 400); // @codingStandardsIgnoreLine
         }
     }
 
@@ -172,10 +175,26 @@ class Callback extends Action implements CsrfAwareActionInterface
     private function processOrder($order, $requestData)
     {
         if (!($order && $order->getState() == Order::STATE_NEW)) {
+            $this->debugLog(
+                'Payment Callback: Order not new - returning null',
+                DebugLevels::DEBUG_LEVEL_PRIORITY_BASIC
+            );
             return null;
         }
 
+        if (isset($requestData['status'])) {
+            $this->debugLog(
+                'Payment Callback: Status is '.$requestData['status'],
+                DebugLevels::DEBUG_LEVEL_PRIORITY_DEVELOPER
+            );
+        }
+
         if ($requestData['status'] === self::VIABILL_STATUS_APPROVED) {
+            $this->debugLog(
+                'Payment Callback: Entering Approved Status',
+                DebugLevels::DEBUG_LEVEL_PRIORITY_DEVELOPER
+            );
+
             $this->orderManager->performAuthorize(
                 $order,
                 $requestData['transaction'],
@@ -184,14 +203,36 @@ class Callback extends Action implements CsrfAwareActionInterface
 
             $authorizeAndCapture = $this->paymentConfig->getValue('viabill_payment_action');
             if ($authorizeAndCapture == AbstractMethod::ACTION_AUTHORIZE_CAPTURE) {
+                $this->debugLog(
+                    'Payment Callback: Entering Authorize Capture',
+                    DebugLevels::DEBUG_LEVEL_PRIORITY_DEVELOPER
+                );
+
                 $order = $this->orderLocator->get($order->getIncrementId());
                 $this->orderManager->performCapture($order);
             }
 
+            $this->debugLog(
+                'Payment Callback: Notifying Order Manager',
+                DebugLevels::DEBUG_LEVEL_PRIORITY_DEVELOPER
+            );
             $this->orderManager->notify($order);
         } elseif ($requestData['status'] === self::VIABILL_STATUS_CANCELLED) {
+            $this->debugLog(
+                'Payment Callback: Entering Cancel Status',
+                DebugLevels::DEBUG_LEVEL_PRIORITY_DEVELOPER
+            );
             $this->orderManager->cancelOrder($order->getId(), self::CANCEL_MESSAGE);
         }
+    }
+
+    /**
+     * @param string $msg
+     * @param int $debug_level
+     */
+    private function debugLog($msg, $debug_level = 1)
+    {
+        $this->logger->debug($msg, ['debug_level' => $debug_level]);
     }
 
     /**

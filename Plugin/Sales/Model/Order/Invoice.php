@@ -8,10 +8,6 @@ namespace Viabillhq\Payment\Plugin\Sales\Model\Order;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Sales\Model\Order\Invoice as CoreInvoice;
 
-/**
- * Class Invoice
- * @package Viabillhq\Payment\Plugin\Sales\Model\Order
- */
 class Invoice
 {
     /**

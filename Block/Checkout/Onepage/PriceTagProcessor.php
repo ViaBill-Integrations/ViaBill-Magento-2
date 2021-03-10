@@ -8,10 +8,6 @@ namespace Viabillhq\Payment\Block\Checkout\Onepage;
 use Magento\Checkout\Block\Checkout\LayoutProcessorInterface;
 use Magento\Payment\Gateway\ConfigInterface;
 
-/**
- * Class PriceTagProcessor
- * @package Viabillhq\Payment\Block\Checkout\Onepage
- */
 class PriceTagProcessor implements LayoutProcessorInterface
 {
     /**

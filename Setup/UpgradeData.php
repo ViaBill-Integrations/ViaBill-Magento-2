@@ -9,10 +9,6 @@ use Magento\Framework\Setup\UpgradeDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 
-/**
- * Class UpgradeData
- * @package Viabillhq\Payment\Setup
- */
 class UpgradeData implements UpgradeDataInterface
 {
     /**
@@ -29,7 +25,7 @@ class UpgradeData implements UpgradeDataInterface
             $connection = $setup->getConnection();
             foreach ($pathMap as $wrongPath => $correctPath) {
                 $connection->update(
-                    $connection->getTableName('core_config_data'),
+                    $setup->getTable('core_config_data'),
                     ['path' => $correctPath],
                     $connection->quoteInto('path = ?', $wrongPath)
                 );

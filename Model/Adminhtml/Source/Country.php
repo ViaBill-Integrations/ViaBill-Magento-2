@@ -9,10 +9,6 @@ use Magento\Payment\Gateway\Command\CommandPoolInterface;
 use Psr\Log\LoggerInterface;
 use Viabillhq\Payment\Gateway\Command\ViabillCommandPool;
 
-/**
- * Class Country
- * @package Viabillhq\Payment\Model\Adminhtml\Source
- */
 class Country implements \Magento\Framework\Option\ArrayInterface
 {
     /**

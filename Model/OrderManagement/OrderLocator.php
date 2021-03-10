@@ -9,10 +9,6 @@ use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Sales\Api\Data\OrderInterface;
 use Magento\Sales\Api\OrderRepositoryInterface;
 
-/**
- * Class OrderLocator
- * @package Viabillhq\Payment\Model\OrderManagement
- */
 class OrderLocator
 {
     /**

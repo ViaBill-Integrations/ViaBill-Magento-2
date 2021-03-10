@@ -11,10 +11,11 @@
             <viabill>
                 <active>0</active>
                 <title>ViaBill</title>
+                <sort_order>6</sort_order>
                 <description>You will be redirected to the ViaBill website.</description>
                 <model>ViabillFacade</model>
                 <order_status>pending_payment</order_status>
-                <debug>1</debug>
+                <debug>0</debug>
                 <test_transaction>1</test_transaction>
                 <apikey backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
                 <secret backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>

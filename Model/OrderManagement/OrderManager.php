@@ -18,18 +18,14 @@ use Magento\Sales\Model\Order\Payment\Processor as PaymentProcessor;
 use Viabillhq\Payment\Model\Checkout\SessionWrapper;
 use Magento\Framework\Exception\CouldNotSaveException;
 
-/**
- * Class OrderPlace
- * @package Viabillhq\Model\OrderManagement
- */
 class OrderManager
 {
     /**
      * Warning message for Transaction Test Mode enabled.
      */
-    const WARNING_MESSAGE = 'This order was placed in ViaBill Test Mode and should not be shipped! '.
-                            'If you have any questions about this order, ' .
-                            'please contact <a href=https://viabill.com/ target=_blank>ViaBill Support</a>.';
+    const WARNING_MESSAGE =
+            'This order was placed in ViaBill Test Mode and should not be shipped! '.
+            'If you have any questions about this order, please contact ViaBill Support.';
 
     /**
      * @var CartManagementInterface

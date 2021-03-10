@@ -3,10 +3,10 @@
     "type": "magento2-module",
     "description": "Viabill payment method for Magento 2.3.x and 2.4.x",
     "license": "MIT",
-    "version": "4.0.1",
-    "require": {
+    "version": "4.0.10",
+    "require": {        
         "magento/framework": "~102.0.0 || ~103.0.0",
-        "magento/module-sales": "~103.0.0 || ~104.0.0",
+        "magento/module-sales": "~102.0.0 || ~103.0.0 || ~104.0.0",
         "magento/module-payment": "~100.3.0 || ~100.4.0",
         "magento/module-checkout": "~100.3.0 || ~100.4.0",
         "zendframework/zend-http": "^2.6.0",

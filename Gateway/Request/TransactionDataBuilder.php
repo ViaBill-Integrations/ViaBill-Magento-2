@@ -8,10 +8,6 @@ namespace Viabillhq\Payment\Gateway\Request;
 use Viabillhq\Payment\Model\TransactionProvider;
 use Viabillhq\Payment\Gateway\Exception\ViabillException;
 
-/**
- * Class TransactionDataBuilder
- * @package Viabillhq\Payment\Gateway\Request
- */
 class TransactionDataBuilder extends ViabillRequestDataBuilder
 {
     /**

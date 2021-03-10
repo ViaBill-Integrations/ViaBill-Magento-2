@@ -8,15 +8,12 @@ namespace Viabillhq\Payment\Block\Adminhtml\System\Config;
 use Magento\Backend\Block\Template\Context;
 use Magento\Framework\Data\Form\Element\AbstractElement as Element;
 use Magento\Framework\Locale\Resolver as LocaleResolver;
+use Magento\Framework\Data\Form\FormKey;
 use Viabillhq\Payment\Gateway\Command\ViabillCommandPool;
 use Viabillhq\Payment\Model\Adminhtml\AccountConfiguration;
 use Viabillhq\Payment\Model\Adminhtml\Source\MyViaBill;
 use Viabillhq\Payment\Model\UrlProvider;
 
-/**
- * Class CredentialsForm
- * @package Viabillhq\Payment\Block\Adminhtml\System\Config
- */
 class CredentialsForm extends \Magento\Config\Block\System\Config\Form\Field
 {
     const LOGIN_TEMPLATE = 'system/config/login_form_actions.phtml';
@@ -48,12 +45,18 @@ class CredentialsForm extends \Magento\Config\Block\System\Config\Form\Field
     private $myViaBill;
 
     /**
+     * @var FormKey
+     */
+    protected $formKey;
+
+    /**
      * CredentialsForm constructor.
      *
      * @param Context $context
      * @param LocaleResolver $localeResolver
      * @param UrlProvider $urlProvider
      * @param MyViaBill $myViaBill
+     * @param FormKey $formKey
      * @param string $command
      * @param string $template
      * @param array $data
@@ -63,6 +66,7 @@ class CredentialsForm extends \Magento\Config\Block\System\Config\Form\Field
         LocaleResolver $localeResolver,
         UrlProvider $urlProvider,
         MyViaBill $myViaBill,
+        FormKey $formKey,
         string $command = '',
         string $template = '',
         array $data = []
@@ -73,6 +77,7 @@ class CredentialsForm extends \Magento\Config\Block\System\Config\Form\Field
         $this->command = $command;
         $this->template = $template;
         $this->myViaBill = $myViaBill;
+        $this->formKey = $formKey;
     }
 
     /**
@@ -114,6 +119,16 @@ class CredentialsForm extends \Magento\Config\Block\System\Config\Form\Field
     public function getCommand() : string
     {
         return $this->command;
+    }
+
+    /**
+     * Form Key is used to protect agains CSFR attacks
+     *
+     * @return string
+     */
+    public function getFormKey()
+    {
+        return $this->formKey->getFormKey();
     }
 
     /**

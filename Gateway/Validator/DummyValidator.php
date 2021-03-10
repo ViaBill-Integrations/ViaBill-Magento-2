@@ -12,7 +12,6 @@ use Magento\Payment\Gateway\Validator\ResultInterface;
  * Class DummyValidator
  *
  * Validator for requests which don't expect any data in response
- * @package Viabillhq\Payment\Gateway\Validator
  */
 class DummyValidator extends AbstractValidator
 {

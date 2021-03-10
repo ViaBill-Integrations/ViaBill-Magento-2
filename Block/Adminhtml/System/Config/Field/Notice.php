@@ -5,10 +5,6 @@
  */
 namespace Viabillhq\Payment\Block\Adminhtml\System\Config\Field;
 
-/**
- * Class Notice
- * @package Viabillhq\Payment\Block\Adminhtml\System\Config\Field
- */
 class Notice extends \Magento\Backend\Block\AbstractBlock implements
     \Magento\Framework\Data\Form\Element\Renderer\RendererInterface
 {

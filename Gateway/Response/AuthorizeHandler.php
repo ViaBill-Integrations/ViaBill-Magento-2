@@ -15,10 +15,6 @@ use Magento\Quote\Api\CartRepositoryInterface;
 use Magento\Quote\Model\Quote\Payment;
 use Viabillhq\Payment\Gateway\Request\SubjectReader;
 
-/**
- * Class AuthorizeHandler
- * @package Viabillhq\Payment\Gateway\Response
- */
 class AuthorizeHandler implements HandlerInterface
 {
     /**

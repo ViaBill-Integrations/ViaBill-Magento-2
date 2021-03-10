@@ -13,14 +13,11 @@ use Magento\Framework\App\CsrfAwareActionInterface;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\Session\SessionManagerInterface;
+use Viabillhq\Payment\Model\Adminhtml\Source\DebugLevels;
 use Psr\Log\LoggerInterface;
 use Viabillhq\Payment\Model\OrderManagement\OrderManager;
 use Zend\Http\Response;
 
-/**
- * Class Callback
- * @package Viabillhq\Payment\Controller\Payment
- */
 class Cancel extends Action implements CsrfAwareActionInterface
 {
     const CANCEL_MESSAGE = 'Payment cancelled from Viabill.';
@@ -78,9 +75,19 @@ class Cancel extends Action implements CsrfAwareActionInterface
             $this->logger->critical($e->getMessage());
             $result->setHttpResponseCode(Response::STATUS_CODE_500);
         } finally {
-            $this->logger->debug('Cancel Request Content: ' . $this->getRequest()->getContent());
+            $this->debugLog('Cancel Request Content: ' .
+                $this->getRequest()->getContent(), DebugLevels::DEBUG_LEVEL_PRIORITY_BASIC);
         }
         return $result;
+    }
+
+    /**
+     * @param string $msg
+     * @param int $debug_level
+     */
+    private function debugLog($msg, $debug_level = 1)
+    {
+        $this->logger->debug($msg, ['debug_level' => $debug_level]);
     }
 
     /**

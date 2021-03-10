@@ -9,8 +9,8 @@
     <policies>
         <policy id="frame-src">
             <values>
-                <value id="viabill-pricetag" type="host">https://pricetag.viabill.com</value>
-                <value id="viabill-event-client" type="host">https://event-client.viabill.com</value>
+                <value id="viabill-pricetag" type="host">pricetag.viabill.com</value>
+                <value id="viabill-event-client" type="host">event-client.viabill.com</value>
             </values>
         </policy>
         <policy id="script-src">

@@ -5,10 +5,6 @@
  */
 namespace Viabillhq\Payment\Gateway\Exception;
 
-/**
- * Class MessagesMap
- * @package Viabillhq\Payment\Gateway\Exception
- */
 class MessagesMap
 {
     /**

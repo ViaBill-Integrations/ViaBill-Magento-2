@@ -11,9 +11,6 @@ use Magento\Payment\Gateway\ConfigInterface;
 use Viabillhq\Payment\Model\PriceTag\PriceTagDataProvider;
 use Viabillhq\Payment\Model\UrlProvider;
 
-/**
- * Class ConfigProvider
- */
 class ConfigProvider implements ConfigProviderInterface
 {
     /**
@@ -30,6 +27,7 @@ class ConfigProvider implements ConfigProviderInterface
      * @var ConfigInterface
      */
     private $config;
+    
     /**
      * @var Repository
      */

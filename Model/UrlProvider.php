@@ -10,10 +10,6 @@ use Magento\Framework\UrlInterface;
 use Magento\Payment\Gateway\ConfigInterface;
 use Magento\Store\Model\StoreManagerInterface;
 
-/**
- * Class UrlProvider
- * @package Viabillhq\Payment\Model
- */
 class UrlProvider
 {
     /**
