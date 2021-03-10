@@ -7,7 +7,7 @@ ViaBill is changing the way people shop online. We offer a payment solution that
 For more information about ViaBill, please visit our [ViaBill](https://viabill.com) site.
 
 ## Pre-Requisites
-* Magento 2.2.x or 2.3.x
+* Magento 2.2.x or 2.3.x or 2.4.x
     * [Magento 2 System Requirements](http://devdocs.magento.com/magento-system-requirements.html)
 * SSL is installed on your site and active on the Checkout page
 
