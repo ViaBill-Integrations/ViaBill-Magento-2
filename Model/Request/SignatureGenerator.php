@@ -38,12 +38,14 @@ class SignatureGenerator
      */
     public function generateSignature(array $fields) : string
     {
-        $signature = $this->signaturePattern;
-        foreach ($fields as $field => $value) {
-            if (strpos($this->signaturePattern, $field) !== false) {
-                $signature = str_replace($field, $value, $signature);
+        $signatureParts = array();
+        $patternParts = explode('#', $this->signaturePattern);
+        foreach ($patternParts as $part) {
+            if (isset($fields[$part])) {
+                $signatureParts[] = $fields[$part];
             }
         }
-        return hash('sha256', $signature); // @codingStandardsIgnoreLine
+        $signature = implode('#', $signatureParts);	
+        return hash('sha256', $signature);       
     }
 }
