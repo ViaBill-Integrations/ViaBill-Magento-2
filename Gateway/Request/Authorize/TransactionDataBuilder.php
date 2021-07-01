@@ -90,4 +90,87 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
         $orderId = $this->getOrderIncrementId($buildSubject);
         return $this->transactionProvider->generateViabillTransactionId($orderId);
     }
+
+    /**
+     * @param array $buildSubject
+     *
+     * @return string
+     */
+    protected function getCustomerInfo(array $buildSubject)
+    {
+        $info = array(
+            'email'=>'',
+            'phone'=>'',
+            'first_name'=>'',
+            'last_name'=>'',
+            'full_name'=>'',
+            'address'=>'',
+            'city'=>'',
+            'postal_code'=>'',
+            'country'=>''
+        );
+          
+        $order = $this->subjectReader->readOrder($buildSubject);
+        if (!empty($order)) {        
+            try {
+                $firstname = $order->getCustomerFirstname();            
+                $lastname = $order->getCustomerLastname();                
+                $fullname = trim($firstname.' '.$lastname);
+                if (!empty($fullname)) {
+                    $info['first_name'] = $firstname;
+                    $info['last_name'] = $lastname;
+                    $info['full_name'] = $fullname;
+                }
+                $email = $order->getEmail();
+                if (!empty($email)) {
+                    $info['email'] = $email;
+                }                
+                
+                $address = null;
+                $billingAddress = $order->getBillingAddress();                
+                if (!empty($billingAddress)) {                    
+                    $address = $billingAddress;
+                } else {
+                    $shippingAddress = $order->getShippingAddress();
+                    if (!empty($shippingAddress)) {                        
+                        $address = $shippingAddress;
+                    }   
+                }
+                if (isset($address)) {
+                    if (empty($info['email'])) {
+                        $email = $address->getEmail();
+                        if (!empty($email)) {
+                            $info['email'] = $email;
+                        }
+                    }
+                    $phone = $address->getTelephone();
+                    if (!empty($phone)) {
+                        $info['phone'] = $phone;
+                    }
+                    $city = $address->getCity();
+                    if (!empty($city)) {
+                        $info['city'] = $city;
+                    }
+                    $postal_code = $address->getPostcode();
+                    if (!empty($postal_code)) {
+                        $info['postal_code'] = $postal_code;
+                    }
+                    $street = $address->getStreet();
+                    if (!empty($street)) {
+                        $info['address'] = $street;
+                    }
+                    $country = $address->getCountryId();
+                    if (!empty($country)) {
+                        $info['country'] = $country;
+                    }
+                                                           
+                }                            
+            } catch (\Exception $e) {
+                // do nothing 
+                exit($e->getMessage());
+            }        
+        }        
+
+        return json_encode($info);
+    }
 }

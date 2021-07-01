@@ -90,6 +90,7 @@
                 <item name="order_number" xsi:type="string">orderIncrementId</item>
                 <item name="amount" xsi:type="string">amount</item>
                 <item name="currency" xsi:type="string">currency</item>
+                <item name="customer_info" xsi:type="string">customerInfo</item>
             </argument>
         </arguments>
     </virtualType>

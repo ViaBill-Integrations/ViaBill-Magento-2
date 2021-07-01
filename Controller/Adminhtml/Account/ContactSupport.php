@@ -28,7 +28,7 @@ class ContactSupport extends Action
     /**
      * The ViaBill module version
      */
-    const ADDON_VERSION = '4.1.0';
+    const ADDON_VERSION = '4.0.11';
 
     /**
      * Contact From Action.
