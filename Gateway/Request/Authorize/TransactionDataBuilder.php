@@ -93,33 +93,34 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
 
     /**
      * @param array $buildSubject
+     * @param string $key
      *
-     * @return string
+     * @return array
      */
-    protected function getCustomerInfo(array $buildSubject)
+    protected function getCustomerInfo(array $buildSubject, $key = null)
     {
         $info = array(
             'email'=>'',
-            'phone'=>'',
-            'first_name'=>'',
-            'last_name'=>'',
-            'full_name'=>'',
+            'phoneNumber'=>'',
+            'firstName'=>'',
+            'lastName'=>'',
+            'fullName'=>'',
             'address'=>'',
             'city'=>'',
-            'postal_code'=>'',
+            'postalCode'=>'',
             'country'=>''
-        );
+        );             
           
         $order = $this->subjectReader->readOrder($buildSubject);
         if (!empty($order)) {        
             try {
-                $firstname = $order->getCustomerFirstname();            
-                $lastname = $order->getCustomerLastname();                
+                $firstname = $order->getCustomerFirstname();
+                $lastname = $order->getCustomerLastname();
                 $fullname = trim($firstname.' '.$lastname);
                 if (!empty($fullname)) {
-                    $info['first_name'] = $firstname;
-                    $info['last_name'] = $lastname;
-                    $info['full_name'] = $fullname;
+                    $info['firstName'] = $firstname;
+                    $info['lastName'] = $lastname;
+                    $info['fullName'] = $fullname;
                 }
                 $email = $order->getEmail();
                 if (!empty($email)) {
@@ -145,7 +146,7 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
                     }
                     $phone = $address->getTelephone();
                     if (!empty($phone)) {
-                        $info['phone'] = $phone;
+                        $info['phoneNumber'] = $phone;
                     }
                     $city = $address->getCity();
                     if (!empty($city)) {
@@ -153,11 +154,17 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
                     }
                     $postal_code = $address->getPostcode();
                     if (!empty($postal_code)) {
-                        $info['postal_code'] = $postal_code;
+                        $info['postalCode'] = $postal_code;
                     }
                     $street = $address->getStreet();
                     if (!empty($street)) {
-                        $info['address'] = $street;
+                        $street_str = '';
+                        if (is_array($street)) {
+                            $street_str = implode(' ', $street);
+                        } else {
+                            $street_str = $street;
+                        }
+                        $info['address'] = $street_str;
                     }
                     $country = $address->getCountryId();
                     if (!empty($country)) {
@@ -170,7 +177,12 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
                 exit($e->getMessage());
             }        
         }        
-
-        return json_encode($info);
+		
+		if (!empty($key)) {
+			if (isset($info[$key])) return $info[$key];
+		}
+		
+        return $info;
     }
+    
 }

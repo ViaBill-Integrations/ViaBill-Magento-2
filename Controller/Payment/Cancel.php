@@ -66,10 +66,10 @@ class Cancel extends Action implements CsrfAwareActionInterface
 
         /** @var \Magento\Framework\Controller\Result\Redirect $result */
         $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-        try {
+        try {        
             $orderId = $this->checkoutSession->getLastRealOrder()->getId();
             $this->orderManager->cancelOrder($orderId, self::CANCEL_MESSAGE);
-            $this->checkoutSession->restoreQuote();
+            $this->checkoutSession->restoreQuote();            
             $result->setPath('checkout/cart');
         } catch (\Exception $e) {
             $this->logger->critical($e->getMessage());
