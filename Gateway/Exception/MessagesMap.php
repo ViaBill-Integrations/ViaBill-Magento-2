@@ -24,6 +24,8 @@ class MessagesMap
     }
 
     /**
+     * Get the message
+     *
      * @param string $commandCode
      * @param int $httpResponseCode
      *

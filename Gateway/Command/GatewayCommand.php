@@ -107,7 +107,7 @@ class GatewayCommand implements CommandInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @param array $commandSubject
      *
@@ -184,7 +184,9 @@ class GatewayCommand implements CommandInterface
     }
 
     /**
-     * @param $commandCode
+     * Set the code
+     *
+     * @param string $commandCode
      */
     public function setCode($commandCode)
     {
@@ -192,6 +194,8 @@ class GatewayCommand implements CommandInterface
     }
 
     /**
+     * Check if user can proceed
+     *
      * @param ZendResponse $response
      *
      * @return bool
@@ -202,6 +206,8 @@ class GatewayCommand implements CommandInterface
     }
 
     /**
+     * Log the exceptions
+     *
      * @param Phrase[] $fails
      *
      * @return void
@@ -214,6 +220,8 @@ class GatewayCommand implements CommandInterface
     }
 
     /**
+     * Get the response body
+     *
      * @param ZendResponse $response
      *
      * @return array
@@ -227,6 +235,8 @@ class GatewayCommand implements CommandInterface
     }
 
     /**
+     * Log the debug messages
+     *
      * @param string $msg
      * @param int $debug_level
      */

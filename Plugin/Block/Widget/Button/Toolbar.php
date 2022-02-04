@@ -12,6 +12,8 @@ use Magento\Framework\View\Element\AbstractBlock;
 class Toolbar
 {
     /**
+     * Before Push Button
+     *
      * @param ToolbarContext $toolbar
      * @param AbstractBlock $context
      * @param ButtonList $buttonList

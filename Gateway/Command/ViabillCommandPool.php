@@ -9,14 +9,14 @@ use Magento\Payment\Gateway\Command\CommandPool;
 
 class ViabillCommandPool extends CommandPool //implements CommandPoolInterface
 {
-    const COMMAND_AUTHORIZE = 'authorize';
-    const COMMAND_CAPTURE = 'capture';
-    const COMMAND_REFUND = 'refund';
-    const COMMAND_CANCEL = 'cancel';
-    const COMMAND_GET_COUNTRIES = 'getCountries';
-    const COMMAND_ACCOUNT_REGISTER = 'register';
-    const COMMAND_ACCOUNT_LOGIN = 'login';
-    const COMMAND_ACCOUNT_MY_VIABILL = 'myViabill';
-    const COMMAND_ACCOUNT_GET_NOTIFICATIONS = 'getNotifications';
-    const COMMAND_RENEW = 'renew';
+    public const COMMAND_AUTHORIZE = 'authorize';
+    public const COMMAND_CAPTURE = 'capture';
+    public const COMMAND_REFUND = 'refund';
+    public const COMMAND_CANCEL = 'cancel';
+    public const COMMAND_GET_COUNTRIES = 'getCountries';
+    public const COMMAND_ACCOUNT_REGISTER = 'register';
+    public const COMMAND_ACCOUNT_LOGIN = 'login';
+    public const COMMAND_ACCOUNT_MY_VIABILL = 'myViabill';
+    public const COMMAND_ACCOUNT_GET_NOTIFICATIONS = 'getNotifications';
+    public const COMMAND_RENEW = 'renew';
 }

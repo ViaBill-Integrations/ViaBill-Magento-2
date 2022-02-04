@@ -23,7 +23,7 @@ class OrderManager
     /**
      * Warning message for Transaction Test Mode enabled.
      */
-    const WARNING_MESSAGE =
+    public const WARNING_MESSAGE =
             'This order was placed in ViaBill Test Mode and should not be shipped! '.
             'If you have any questions about this order, please contact ViaBill Support.';
 
@@ -92,6 +92,8 @@ class OrderManager
     }
 
     /**
+     * Place order
+     *
      * @param Quote $quote
      *
      * @return OrderInterface
@@ -130,9 +132,11 @@ class OrderManager
     }
 
     /**
+     * Perform Authorize
+     *
      * @param OrderInterface $order
-     * @param $transactionId
-     * @param $amountAuthorized
+     * @param int $transactionId
+     * @param float $amountAuthorized
      */
     public function performAuthorize(OrderInterface $order, $transactionId, $amountAuthorized)
     {
@@ -159,8 +163,7 @@ class OrderManager
     /**
      * Cancel current order by session data
      *
-     * @param $orderId
-     *
+     * @param int $orderId
      * @param string $comment
      *
      * @return bool
@@ -168,13 +171,18 @@ class OrderManager
     public function cancelOrder($orderId, $comment = '')
     {
         $order = $this->orderRepository->get($orderId);
-        if ($order->getId() && $order->getState() != Order::STATE_CANCELED) {
+        if (($order->getId()) && 
+                ($order->getState() != Order::STATE_CANCELED) &&
+                ($order->getState() != Order::STATE_COMPLETE)
+            ) {
             $order->registerCancellation($comment)->save();
             return true;
         }
     }
 
     /**
+     * Set pending payment state
+     *
      * @param OrderInterface $order
      */
     public function setPendingPaymentState(OrderInterface $order)

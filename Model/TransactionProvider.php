@@ -12,7 +12,7 @@ use Magento\Store\Model\StoreManagerInterface;
 
 class TransactionProvider
 {
-    const PREFIX_HASH_LENGTH = 7;
+    public const PREFIX_HASH_LENGTH = 7;
 
     /**
      * @var ConfigInterface
@@ -49,7 +49,7 @@ class TransactionProvider
     /**
      * Generates transaction ID based on store-specific data and current time in microseconds.
      *
-     * @param $orderId
+     * @param int $orderId
      *
      * @return string
      */

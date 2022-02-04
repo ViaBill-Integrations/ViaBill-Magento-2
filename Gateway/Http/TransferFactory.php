@@ -82,7 +82,7 @@ class TransferFactory implements TransferFactoryInterface
     /**
      * Generating Url.
      *
-     * @param $request
+     * @param array $request
      *
      * @return string
      */

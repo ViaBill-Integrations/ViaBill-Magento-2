@@ -26,6 +26,8 @@ class ViabillRequestDataBuilder implements BuilderInterface
     }
 
     /**
+     * Build the request
+     *
      * @param array $buildSubject
      *
      * @return array
@@ -41,7 +43,10 @@ class ViabillRequestDataBuilder implements BuilderInterface
     }
 
     /**
-     * @param $field
+     * Get the field data
+     *
+     * @param string $field
+     * @param array $buildSubject
      *
      * @return mixed
      * @throws \Exception

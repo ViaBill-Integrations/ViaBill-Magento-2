@@ -56,6 +56,7 @@ class ModuleInfoField extends \Magento\Backend\Block\AbstractBlock implements
      * @param LoggerInterface $logger
      * @param FormKey $formKey
      * @param DirectoryList $directory
+     * @param StoreManagerInterface $storeManager
      * @param File $fileIO
      * @param array $data
      */
@@ -82,6 +83,7 @@ class ModuleInfoField extends \Magento\Backend\Block\AbstractBlock implements
      * Render element html
      *
      * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
+     *
      * @return string
      */
     public function render(\Magento\Framework\Data\Form\Element\AbstractElement $element)
@@ -93,7 +95,7 @@ class ModuleInfoField extends \Magento\Backend\Block\AbstractBlock implements
         
         try {
             // Get Module Version
-            $module_version = '4.0.13';
+            $module_version = '4.0.14';
                         
             $module_info_data = $module_version;
 
@@ -157,6 +159,13 @@ class ModuleInfoField extends \Magento\Backend\Block\AbstractBlock implements
         return $html;
     }
 
+    /**
+     * Get Support Email
+     *
+     * @param array $params
+     *
+     * @return string
+     */
     protected function getSupportEmail($params)
     {
                 
@@ -194,6 +203,13 @@ class ModuleInfoField extends \Magento\Backend\Block\AbstractBlock implements
         return $html;
     }
 
+    /**
+     * Get Support Form
+     *
+     * @param array $system_params
+     *
+     * @return string
+     */
     protected function getSupportForm($system_params = null)
     {
 
@@ -203,6 +219,14 @@ class ModuleInfoField extends \Magento\Backend\Block\AbstractBlock implements
         return $html;
     }
 
+    /**
+     * Get File Tail
+     *
+     * @param string $filepath
+     * @param int $num_of_lines
+     *
+     * @return string
+     */
     protected function fileTail($filepath, $num_of_lines = 100)
     {
         $tail = '';

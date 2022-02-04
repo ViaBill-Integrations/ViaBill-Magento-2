@@ -43,6 +43,8 @@ class Country implements \Magento\Framework\Option\ArrayInterface
     }
 
     /**
+     * Array of options
+     *
      * @param bool $isMultiselect
      *
      * @return array
@@ -62,6 +64,8 @@ class Country implements \Magento\Framework\Option\ArrayInterface
     }
 
     /**
+     * Load options
+     *
      * Load countries and set them into options.
      */
     private function loadOptions()
@@ -74,6 +78,8 @@ class Country implements \Magento\Framework\Option\ArrayInterface
     }
 
     /**
+     * Set options
+     *
      * @param array $countries
      */
     public function setOptions(array $countries)

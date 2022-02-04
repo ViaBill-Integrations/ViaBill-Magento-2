@@ -10,8 +10,8 @@ use Viabillhq\Payment\Model\Adminhtml\AccountConfiguration;
 
 class AccountField extends \Magento\Config\Block\System\Config\Form\Field
 {
-    const FRONTEND_CLASS_DISABLED_ON_LOG_IN = 'disabled_on_log_in';
-    const FRONTEND_CLASS_REQUIRED = 'account_required';
+    public const FRONTEND_CLASS_DISABLED_ON_LOG_IN = 'disabled_on_log_in';
+    public const FRONTEND_CLASS_REQUIRED = 'account_required';
 
     /**
      * Render element html
@@ -40,6 +40,8 @@ class AccountField extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Check if required
+     *
      * @param AbstractElement $element
      *
      * @return bool
@@ -50,6 +52,8 @@ class AccountField extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Check if disabled
+     *
      * @param AbstractElement $element
      *
      * @return bool
@@ -61,6 +65,8 @@ class AccountField extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Check if has class
+     *
      * @param AbstractElement $element
      * @param string $frontendClass
      *

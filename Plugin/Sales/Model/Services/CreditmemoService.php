@@ -12,6 +12,8 @@ use Magento\Sales\Model\Service\CreditmemoService as CoreCreditmemoService;
 class CreditmemoService
 {
     /**
+     * Before refund
+     *
      * @param CoreCreditmemoService $creditmemoService
      * @param CreditmemoInterface $creditmemo
      * @param bool $offlineRequested

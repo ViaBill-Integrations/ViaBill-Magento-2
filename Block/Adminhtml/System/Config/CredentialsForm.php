@@ -16,8 +16,8 @@ use Viabillhq\Payment\Model\UrlProvider;
 
 class CredentialsForm extends \Magento\Config\Block\System\Config\Form\Field
 {
-    const LOGIN_TEMPLATE = 'system/config/login_form_actions.phtml';
-    const REGISTRATION_TEMPLATE = 'system/config/registration_form_actions.phtml';
+    public const LOGIN_TEMPLATE = 'system/config/login_form_actions.phtml';
+    public const REGISTRATION_TEMPLATE = 'system/config/registration_form_actions.phtml';
 
     /**
      * @var UrlProvider
@@ -81,6 +81,8 @@ class CredentialsForm extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Get MyViabill URL
+     *
      * @return null|string
      */
     public function getMyViaBillUrl()
@@ -89,6 +91,8 @@ class CredentialsForm extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Get Forgot Password URL
+     *
      * @return string
      */
     public function getForgotPasswordUrl() : string
@@ -98,6 +102,8 @@ class CredentialsForm extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Get Terms and Conditions URL
+     *
      * @return string
      */
     public function getTermsAndConditionsUrl() : string
@@ -106,6 +112,8 @@ class CredentialsForm extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Get Credentials Request URL
+     *
      * @return string
      */
     public function getCredentialsRequestUrl() : string
@@ -114,6 +122,8 @@ class CredentialsForm extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Get Command
+     *
      * @return string
      */
     public function getCommand() : string
@@ -132,6 +142,8 @@ class CredentialsForm extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Check if button is visible
+     *
      * @return bool
      */
     public function isButtonVisible()
@@ -153,6 +165,8 @@ class CredentialsForm extends \Magento\Config\Block\System\Config\Form\Field
     }
 
     /**
+     * Prepare layout
+     *
      * @return $this
      */
     protected function _prepareLayout()

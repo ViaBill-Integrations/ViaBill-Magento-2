@@ -10,7 +10,7 @@ use Magento\Payment\Gateway\ConfigInterface;
 
 class ConfigDataBuilder extends ViabillRequestDataBuilder
 {
-    const VIABILL_PROTOCOL_VERSION = '3.1';
+    public const VIABILL_PROTOCOL_VERSION = '3.1';
 
     /**
      * @var ConfigInterface
@@ -40,6 +40,8 @@ class ConfigDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get Protocol
+     *
      * @return string
      */
     protected function getProtocol()
@@ -48,6 +50,8 @@ class ConfigDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get API Key
+     *
      * @return mixed
      */
     protected function getApikey()
@@ -56,6 +60,8 @@ class ConfigDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get Secret
+     *
      * @return mixed
      */
     protected function getSecret()
@@ -64,6 +70,8 @@ class ConfigDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Check if this is a test transaction
+     *
      * @return mixed
      */
     protected function getIsTestTransaction()
@@ -72,6 +80,8 @@ class ConfigDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get Locale
+     *
      * @return mixed
      */
     protected function getLocale()

@@ -45,6 +45,8 @@ class RenewHandler implements HandlerInterface
     }
 
     /**
+     * Handle renewal
+     *
      * @param array $handlingSubject
      * @param array $responseBody
      */

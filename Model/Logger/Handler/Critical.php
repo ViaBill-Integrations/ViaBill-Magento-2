@@ -11,7 +11,7 @@ use Monolog\Logger;
 
 class Critical extends Base
 {
-    const DEFAULT_CRITICAL_FILE_NAME = '/var/log/viabill_critical.log';
+    public const DEFAULT_CRITICAL_FILE_NAME = '/var/log/viabill_critical.log';
 
     /**
      * Critical constructor.
@@ -19,7 +19,7 @@ class Critical extends Base
      * @param DriverInterface $filesystem
      * @param string $fileName
      * @param int $loggerType
-     * @param null $filePath
+     * @param string $filePath
      */
     public function __construct(
         DriverInterface $filesystem,

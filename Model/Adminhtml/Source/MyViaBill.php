@@ -14,7 +14,7 @@ class MyViaBill
     /**
      * Url to MyViabill login page.
      */
-    const VIABILL_LOGIN_URL = 'https://my.viabill.com/en/#/auth/login';
+    public const VIABILL_LOGIN_URL = 'https://my.viabill.com/en/#/auth/login';
 
     /**
      * @var CommandPoolInterface
@@ -51,6 +51,8 @@ class MyViaBill
     }
 
     /**
+     * Get MyViabill URL
+     *
      * @return string
      */
     public function getMyViaBillUrl()
@@ -62,6 +64,8 @@ class MyViaBill
     }
 
     /**
+     * Get Viabill Notifications (if any)
+     *
      * @return array
      */
     public function getViaBillNotifications()

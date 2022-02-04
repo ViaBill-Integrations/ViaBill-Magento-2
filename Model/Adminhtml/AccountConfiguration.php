@@ -11,16 +11,19 @@ use Magento\Framework\Encryption\EncryptorInterface;
 
 class AccountConfiguration
 {
-    const CONFIG_PATH_VIABILL_ACCOUNT_EMAIL = 'payment/viabill_account/email';
-    const CONFIG_PATH_VIABILL_ACCOUNT_COUNTRY = 'payment/viabill_account/country';
-    const CONFIG_PATH_VIABILL_ACCOUNT_SHOP_URL = 'payment/viabill_account/shop_url';
-    const CONFIG_PATH_VIABILL_ACCOUNT_CONTACT_NAME = 'payment/viabill_account/contact_name';
-    const CONFIG_PATH_VIABILL_ACCOUNT_PHONE = 'payment/viabill_account/phone';
-    const CONFIG_PATH_VIABILL_ACCOUNT_MERCHANT_NAME = 'payment/viabill_account/merchant_name';
-    const CONFIG_PATH_VIABILL_API_KEY = 'payment/viabill/apikey';
-    const CONFIG_PATH_VIABILL_SECRET = 'payment/viabill/secret';
-    const CONFIG_PATH_VIABILL_PRICE_TAG_SCRIPT = 'payment/viabill/price_tag_script';
+    public const CONFIG_PATH_VIABILL_ACCOUNT_EMAIL = 'payment/viabill_account/email';
+    public const CONFIG_PATH_VIABILL_ACCOUNT_COUNTRY = 'payment/viabill_account/country';
+    public const CONFIG_PATH_VIABILL_ACCOUNT_SHOP_URL = 'payment/viabill_account/shop_url';
+    public const CONFIG_PATH_VIABILL_ACCOUNT_CONTACT_NAME = 'payment/viabill_account/contact_name';
+    public const CONFIG_PATH_VIABILL_ACCOUNT_PHONE = 'payment/viabill_account/phone';
+    public const CONFIG_PATH_VIABILL_ACCOUNT_MERCHANT_NAME = 'payment/viabill_account/merchant_name';
+    public const CONFIG_PATH_VIABILL_API_KEY = 'payment/viabill/apikey';
+    public const CONFIG_PATH_VIABILL_SECRET = 'payment/viabill/secret';
+    public const CONFIG_PATH_VIABILL_PRICE_TAG_SCRIPT = 'payment/viabill/price_tag_script';
 
+    /**
+     * @var array
+     */
     private $pathMapping = [
         'email' => self::CONFIG_PATH_VIABILL_ACCOUNT_EMAIL,
         'login_email' => self::CONFIG_PATH_VIABILL_ACCOUNT_EMAIL,
@@ -61,7 +64,9 @@ class AccountConfiguration
     }
 
     /**
-     * @param $configuration
+     * Save configuration
+     *
+     * @param array $configuration
      */
     public function save($configuration = [])
     {
@@ -78,8 +83,10 @@ class AccountConfiguration
     }
 
     /**
-     * @param $path
-     * @param $value
+     * Save configuration
+     *
+     * @param string $path
+     * @param string $value
      */
     private function saveConfig($path, $value)
     {
@@ -92,7 +99,9 @@ class AccountConfiguration
     }
 
     /**
-     * @param $path
+     * Get path
+     *
+     * @param string $path
      *
      * @return string|null
      */
@@ -102,7 +111,9 @@ class AccountConfiguration
     }
 
     /**
-     * @param $path
+     * Check if encryption is required
+     *
+     * @param string $path
      *
      * @return bool
      */

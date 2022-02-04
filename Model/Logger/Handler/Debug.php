@@ -20,7 +20,6 @@ class Debug extends Base
     protected $loggerType = Logger::DEBUG;
 
     /**
-     * File name
      * @var string
      */
     protected $fileName = '/var/log/viabill_debug.log';
@@ -35,9 +34,8 @@ class Debug extends Base
      *
      * @param DriverInterface $filesystem
      * @param ConfigInterface $config
-     * @param null $filePath
+     * @param string $filePath
      */
-    
     public function __construct(
         DriverInterface $filesystem,
         ConfigInterface $config,
@@ -52,7 +50,7 @@ class Debug extends Base
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @param array $record
      *

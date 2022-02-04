@@ -12,6 +12,7 @@ use Magento\Framework\Exception\LocalizedException;
  */
 class ViabillException extends LocalizedException
 {
-    const DEFAULT_CODE = 400;
-    const DEFAULT_MESSAGE = 'Couldn\'t process this request. Please try again later or contact a store administrator.';
+    public const DEFAULT_CODE = 400;
+    public const DEFAULT_MESSAGE =
+        'Couldn\'t process this request. Please try again later or contact a store administrator.';
 }

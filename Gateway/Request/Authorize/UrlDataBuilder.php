@@ -30,6 +30,8 @@ class UrlDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get success url
+     *
      * @return string
      */
     protected function getSuccessUrl()
@@ -38,6 +40,8 @@ class UrlDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get cancel url
+     *
      * @return string
      */
     protected function getCancelUrl()
@@ -46,6 +50,8 @@ class UrlDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get callback url
+     *
      * @return mixed|string
      */
     protected function getCallbackUrl()

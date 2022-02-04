@@ -42,7 +42,7 @@ class ViabillExceptionFactory
      * Generate exception depending on response.
      *
      * @param \Zend\Http\Response $response
-     * @param $commandCode
+     * @param string $commandCode
      *
      * @return \Viabillhq\Payment\Gateway\Exception\ViabillException
      */
@@ -61,6 +61,8 @@ class ViabillExceptionFactory
     }
 
     /**
+     * Get the response error message
+     *
      * @param Response $response
      *
      * @return null|string

@@ -48,6 +48,8 @@ class GetCredentials extends Action
      * @param Context $context
      * @param CommandPoolInterface $commandPool
      * @param LoggerInterface $logger
+     * @param AdminNotification $adminNotification
+     * @param AccountConfiguration $accountConfiguration
      */
     public function __construct(
         Context $context,
@@ -64,6 +66,8 @@ class GetCredentials extends Action
     }
 
     /**
+     * Execute action
+     *
      * @return \Magento\Framework\App\ResponseInterface|ResultInterface
      */
     public function execute()
@@ -98,10 +102,9 @@ class GetCredentials extends Action
     }
 
     /**
-     * Validate request variable 'command'.
-     * Throws exception if not permitted command is passed in request.
+     * Validate request variable 'command'. Throws exception if not permitted command is passed in request.
      *
-     * @param $requestParams
+     * @param array $requestParams
      * @throws CommandException
      */
     private function validateCommand($requestParams)
@@ -115,6 +118,8 @@ class GetCredentials extends Action
     }
 
     /**
+     * Before request
+     *
      * @param string $command
      * @param array $requestParams
      */
@@ -126,6 +131,8 @@ class GetCredentials extends Action
     }
 
     /**
+     * After request
+     *
      * @param string $command
      */
     private function afterRequest($command)

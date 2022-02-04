@@ -58,6 +58,8 @@ class AuthorizeHandler implements HandlerInterface
     }
 
     /**
+     * Handle the response
+     *
      * @param array $handlingSubject
      * @param array $responseBody
      */

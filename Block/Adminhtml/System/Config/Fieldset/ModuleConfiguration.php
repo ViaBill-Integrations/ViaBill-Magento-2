@@ -11,6 +11,8 @@ use Viabillhq\Payment\Model\Adminhtml\AccountConfiguration;
 class ModuleConfiguration extends \Magento\Config\Block\System\Config\Form\Fieldset
 {
     /**
+     * Render element
+     *
      * @param \Magento\Framework\Data\Form\Element\AbstractElement $element
      *
      * @return string

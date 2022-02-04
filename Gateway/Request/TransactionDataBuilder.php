@@ -38,6 +38,8 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get currency
+     *
      * @param array $buildSubject
      *
      * @return string
@@ -49,6 +51,8 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get Amount
+     *
      * @param array $buildSubject
      *
      * @return string
@@ -62,6 +66,8 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get invoice amount
+     *
      * @param array $buildSubject
      *
      * @return string
@@ -72,6 +78,8 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get payment transaction id
+     *
      * @param array $buildSubject
      *
      * @return string
@@ -90,6 +98,8 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get order authorized transaction id
+     *
      * @param array $buildSubject
      *
      * @return mixed

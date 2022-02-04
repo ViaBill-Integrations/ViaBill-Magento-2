@@ -133,7 +133,7 @@
                         <comment>
                             <![CDATA[Set the status of the order after the payment is captured.]]>
                         </comment>
-                        <source_model>Magento\Sales\Model\Config\Source\Order\Status\Processing</source_model>
+                        <source_model>Magento\Sales\Model\ResourceModel\Order\Status\Collection</source_model>
                         <config_path>payment/viabill/order_status_after_capture</config_path>
                     </field>
                     <field id="viabill_payment_action" translate="label" type="select" sortOrder="547" showInDefault="1" showInWebsite="1" showInStore="1">

@@ -11,6 +11,8 @@ use Magento\Sales\Model\Order\Invoice as CoreInvoice;
 class Invoice
 {
     /**
+     * Before Register
+     *
      * @param CoreInvoice $subject
      *
      * @throws LocalizedException

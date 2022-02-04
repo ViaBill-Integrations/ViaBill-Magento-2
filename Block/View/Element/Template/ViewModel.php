@@ -27,6 +27,8 @@ class ViewModel implements ArgumentInterface
     }
 
     /**
+     * Get Data Currency
+     *
      * @return string
      */
     public function getDataCurrency()
@@ -35,6 +37,8 @@ class ViewModel implements ArgumentInterface
     }
 
     /**
+     * Get Data Country Code
+     *
      * @return string
      */
     public function getDataCountryCode()
@@ -43,6 +47,8 @@ class ViewModel implements ArgumentInterface
     }
 
     /**
+     * Get Data Language
+     *
      * @return string
      */
     public function getDataLanguage()
@@ -51,6 +57,8 @@ class ViewModel implements ArgumentInterface
     }
 
     /**
+     * Get PriceTags Script
+     *
      * @return string
      */
     public function getPriceTagScript()

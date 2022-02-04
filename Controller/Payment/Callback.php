@@ -25,11 +25,11 @@ use Zend\Http\Response;
 
 class Callback extends Action implements CsrfAwareActionInterface
 {
-    const VIABILL_STATUS_APPROVED = 'APPROVED';
+    public const VIABILL_STATUS_APPROVED = 'APPROVED';
 
-    const VIABILL_STATUS_CANCELLED = 'CANCELLED';
+    public const VIABILL_STATUS_CANCELLED = 'CANCELLED';
 
-    const CANCEL_MESSAGE = 'Payment cancelled from Viabill.';
+    public const CANCEL_MESSAGE = 'Payment cancelled from Viabill.';
 
     /**
      * @var LoggerInterface
@@ -91,6 +91,8 @@ class Callback extends Action implements CsrfAwareActionInterface
     }
 
     /**
+     * Execute action
+     *
      * @return \Magento\Framework\App\ResponseInterface|ResultInterface
      */
     public function execute()
@@ -120,7 +122,9 @@ class Callback extends Action implements CsrfAwareActionInterface
     }
 
     /**
-     * @param $requestData
+     * Check Signature
+     *
+     * @param array $requestData
      *
      * @throws \Exception
      */
@@ -142,7 +146,7 @@ class Callback extends Action implements CsrfAwareActionInterface
     /**
      * Check if all required fields present
      *
-     * @param $requestData
+     * @param array $requestData
      * @throws \Exception
      */
     private function validateRequest($requestData)
@@ -166,8 +170,10 @@ class Callback extends Action implements CsrfAwareActionInterface
     }
 
     /**
-     * @param $order
-     * @param $requestData
+     * Process Order
+     *
+     * @param OrderInterface $order
+     * @param array $requestData
      *
      * @return |null
      * @throws \Magento\Framework\Exception\LocalizedException
@@ -189,9 +195,11 @@ class Callback extends Action implements CsrfAwareActionInterface
             );
         }
 
+        $order_id = $order->getId();
+
         if ($requestData['status'] === self::VIABILL_STATUS_APPROVED) {
             $this->debugLog(
-                'Payment Callback: Entering Approved Status',
+                'Payment Callback Action: Entering Approved Status for order '.$order_id,
                 DebugLevels::DEBUG_LEVEL_PRIORITY_DEVELOPER
             );
 
@@ -204,7 +212,7 @@ class Callback extends Action implements CsrfAwareActionInterface
             $authorizeAndCapture = $this->paymentConfig->getValue('viabill_payment_action');
             if ($authorizeAndCapture == AbstractMethod::ACTION_AUTHORIZE_CAPTURE) {
                 $this->debugLog(
-                    'Payment Callback: Entering Authorize Capture',
+                    'Payment Callback Action: Entering Authorize Capture for order '.$order_id,
                     DebugLevels::DEBUG_LEVEL_PRIORITY_DEVELOPER
                 );
 
@@ -213,13 +221,13 @@ class Callback extends Action implements CsrfAwareActionInterface
             }
 
             $this->debugLog(
-                'Payment Callback: Notifying Order Manager',
+                'Payment Callback Action: Notifying Order Manager',
                 DebugLevels::DEBUG_LEVEL_PRIORITY_DEVELOPER
             );
             $this->orderManager->notify($order);
         } elseif ($requestData['status'] === self::VIABILL_STATUS_CANCELLED) {
             $this->debugLog(
-                'Payment Callback: Entering Cancel Status',
+                'Payment Callback Action: Entering Cancel Status for order '.$order_id,
                 DebugLevels::DEBUG_LEVEL_PRIORITY_DEVELOPER
             );
             $this->orderManager->cancelOrder($order->getId(), self::CANCEL_MESSAGE);
@@ -227,6 +235,8 @@ class Callback extends Action implements CsrfAwareActionInterface
     }
 
     /**
+     * Log debug info
+     *
      * @param string $msg
      * @param int $debug_level
      */
@@ -236,7 +246,7 @@ class Callback extends Action implements CsrfAwareActionInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @param RequestInterface $request
      *
@@ -248,7 +258,7 @@ class Callback extends Action implements CsrfAwareActionInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @param RequestInterface $request
      *

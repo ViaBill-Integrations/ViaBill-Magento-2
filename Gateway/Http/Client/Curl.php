@@ -54,6 +54,8 @@ class Curl implements ClientInterface
     }
 
     /**
+     * Place request
+     *
      * @param TransferInterface $transfer
      *
      * @return array
@@ -97,8 +99,10 @@ class Curl implements ClientInterface
     }
 
     /**
-     * @param $curl
-     * @param $headerLine
+     * Handle Response Headers
+     *
+     * @param ClientInterface $curl
+     * @param string $headerLine
      *
      * @return int
      */
@@ -109,6 +113,8 @@ class Curl implements ClientInterface
     }
 
     /**
+     * Get Basic Options
+     *
      * @param TransferInterface $transfer
      *
      * @return array
@@ -122,6 +128,8 @@ class Curl implements ClientInterface
     }
 
     /**
+     * Get Headers
+     *
      * @param array $headers
      *
      * @return array
@@ -132,6 +140,8 @@ class Curl implements ClientInterface
     }
 
     /**
+     * Get Redirect URL
+     *
      * @return string | null
      */
     private function getRedirectUrl()
@@ -145,6 +155,8 @@ class Curl implements ClientInterface
     }
 
     /**
+     * Log debug info
+     *
      * @param string $msg
      * @param int $debug_level
      */

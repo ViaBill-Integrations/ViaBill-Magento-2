@@ -68,6 +68,8 @@ class RequestBuilderComposite implements BuilderInterface
     }
 
     /**
+     * Build request
+     *
      * @param array $buildSubject
      *
      * @return array
@@ -95,7 +97,9 @@ class RequestBuilderComposite implements BuilderInterface
     }
 
     /**
-     * @param $data
+     * Sign data
+     *
+     * @param array $data
      *
      * @return mixed
      */
@@ -108,7 +112,9 @@ class RequestBuilderComposite implements BuilderInterface
     }
 
     /**
-     * @param $data
+     * Clean up data
+     *
+     * @param array $data
      *
      * @return mixed
      */

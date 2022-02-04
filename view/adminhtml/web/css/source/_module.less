@@ -3,23 +3,27 @@
  * See LICENSE.txt for license details.
  */
 
+@asterisk-color: #f00;
+
 .pp-buttons-container {
-    .forgot-password-btn, .my-viabill-btn {
+    .forgot-password-btn,
+    .my-viabill-btn {
+        cursor: pointer;
         display: block;
         padding: 10px 0;
-        cursor: pointer;
     }
 }
 
-.register-btn, .terms-and-conditions-wrap label {
+.register-btn,
+.terms-and-conditions-wrap label {
     cursor: pointer;
 }
 
 .viabill-buttons {
-    text-align: left;
     cursor: pointer;
+    text-align: left;
 }
 
 .viabill-asterisk {
-    color: red;
+    color: @asterisk-color;
 }

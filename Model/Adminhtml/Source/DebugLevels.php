@@ -7,11 +7,13 @@ namespace Viabillhq\Payment\Model\Adminhtml\Source;
 
 class DebugLevels implements \Magento\Framework\Option\ArrayInterface
 {
-    const DEBUG_LEVEL_PRIORITY_NONE = 0;
-    const DEBUG_LEVEL_PRIORITY_BASIC = 1;
-    const DEBUG_LEVEL_PRIORITY_DEVELOPER = 4;
+    public const DEBUG_LEVEL_PRIORITY_NONE = 0;
+    public const DEBUG_LEVEL_PRIORITY_BASIC = 1;
+    public const DEBUG_LEVEL_PRIORITY_DEVELOPER = 4;
 
     /**
+     * Array of options
+     *
      * @return array
      */
     public function toOptionArray()

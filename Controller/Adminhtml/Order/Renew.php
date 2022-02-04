@@ -36,6 +36,11 @@ class Renew extends Action
     private $orderRepository;
 
     /**
+     * @var string
+     */
+    private $refererURL;
+
+    /**
      * Renew constructor.
      *
      * @param Context $context
@@ -52,10 +57,13 @@ class Renew extends Action
         $this->commandPool = $commandPool;
         $this->logger = $logger;
         $this->orderRepository = $orderRepository;
+        $this->refererURL = $context->getRedirect()->getRefererUrl();
         parent::__construct($context);
     }
 
     /**
+     * Execute action
+     *
      * @return \Magento\Framework\App\ResponseInterface|ResultInterface
      */
     public function execute()
@@ -81,7 +89,7 @@ class Renew extends Action
                 __('An error occurred during order renewal. Please try again later.')
             );
         } finally {
-            $resultRedirect->setUrl($this->_redirect->getRefererUrl());
+            $resultRedirect->setUrl($this->refererURL);
         }
         return $resultRedirect;
     }

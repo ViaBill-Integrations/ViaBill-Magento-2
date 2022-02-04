@@ -17,7 +17,7 @@ class PriceTagDataProvider
     /**
      * Country config path.
      */
-    const COUNTRY_CODE_PATH = 'general/country/default';
+    public const COUNTRY_CODE_PATH = 'general/country/default';
 
     /**
      * @var ConfigInterface
@@ -40,8 +40,6 @@ class PriceTagDataProvider
     private $scopeConfig;
 
     /**
-     * Allowed EU countries.
-     *
      * @var array
      */
     private $allowedEUCountries = ['ES','DK','US'];
@@ -67,6 +65,8 @@ class PriceTagDataProvider
     }
 
     /**
+     * Get data currency
+     *
      * @return string
      */
     public function getDataCurrency()
@@ -90,6 +90,8 @@ class PriceTagDataProvider
     }
 
     /**
+     * Get data language
+     *
      * @return string
      */
     public function getDataLanguage()
@@ -100,6 +102,8 @@ class PriceTagDataProvider
     }
 
     /**
+     * Get pricetags script
+     *
      * @return mixed
      */
     public function getPriceTagScript()

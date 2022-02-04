@@ -28,27 +28,27 @@ class ContactSupport extends Action
     /**
      * The ViaBill module version
      */
-    const ADDON_VERSION = '4.0.13';
+    public const ADDON_VERSION = '4.0.14';
 
     /**
      * Contact From Action.
      */
-    const VIABILL_TECH_SUPPORT_EMAIL = 'tech@viabill.com';
+    public const VIABILL_TECH_SUPPORT_EMAIL = 'tech@viabill.com';
 
     /**
      * Country config path.
      */
-    const CONFIG_PATH_VIABILL_ACCOUNT_COUNTRY = 'payment/viabill_account/country';
+    public const CONFIG_PATH_VIABILL_ACCOUNT_COUNTRY = 'payment/viabill_account/country';
 
     /**
      * Email config path.
      */
-    const CONFIG_PATH_VIABILL_ACCOUNT_EMAIL = 'payment/viabill_account/email';
+    public const CONFIG_PATH_VIABILL_ACCOUNT_EMAIL = 'payment/viabill_account/email';
     
     /**
      * Number of lines to read from the log files (debug and error).
      */
-    const LOG_FILE_LINES_TO_READ = 150;
+    public const LOG_FILE_LINES_TO_READ = 150;
     
     /**
      * @var LoggerInterface
@@ -115,11 +115,11 @@ class ContactSupport extends Action
      * @param UrlProvider $urlProvider
      * @param Repository $repository
      * @param FormKey $formKey
-     * @param Resolver $localeResolver     
+     * @param Escaper $escaper
+     * @param Resolver $localeResolver
      * @param StoreManagerInterface $storeManager
-     * @param ConfigInterface $config
      * @param ScopeConfigInterface $scopeConfig
-     * @param RequestInterface $request;
+     * @param RequestInterface $request
      */
     public function __construct(
         Context $context,
@@ -151,6 +151,8 @@ class ContactSupport extends Action
     }
 
     /**
+     * Execute action
+     *
      * @return \Magento\Framework\App\ResponseInterface|ResultInterface
      */
     public function execute()
@@ -173,6 +175,11 @@ class ContactSupport extends Action
         return $result;
     }
 
+    /**
+     * Get Contact Form
+     *
+     * @return string
+     */
     protected function getContactForm()
     {
         // Get Module Version
@@ -413,6 +420,13 @@ class ContactSupport extends Action
         return $html;
     }
     
+    /**
+     * Get Contact Form Output
+     *
+     * @param array $request
+     *
+     * @return string
+     */
     protected function getContactFormOutput($request)
     {
         $ticket_info = $request['ticket_info'];
@@ -521,6 +535,11 @@ class ContactSupport extends Action
         return $html;
     }
     
+    /**
+     * Get Request Data
+     *
+     * @return array
+     */
     protected function getRequestedData()
     {
         $request = $this->request->getPost();
@@ -532,12 +551,24 @@ class ContactSupport extends Action
         return $request;
     }
     
+    /**
+     * Get Action URL
+     *
+     * @return string
+     */
     protected function getActionURL()
     {
         $url = $this->urlProvider->getUrl('viabill/account/contactsupport');
         return $url;
     }
     
+    /**
+     * Get Sender email
+     *
+     * @param array $request
+     *
+     * @return string
+     */
     protected function getSenderEmail($request)
     {
         $senderEmail = '';
@@ -594,11 +625,24 @@ class ContactSupport extends Action
         return $senderEmail;
     }
     
+    /**
+     * Get form key
+     *
+     * @return string
+     */
     protected function getFormKey()
     {
         return $this->formKey->getFormKey();
     }
 
+    /**
+     * Get file tail
+     *
+     * @param string $filepath
+     * @param int $num_of_lines
+     *
+     * @return string
+     */
     protected function fileTail($filepath, $num_of_lines = 100)
     {
         $tail = '';

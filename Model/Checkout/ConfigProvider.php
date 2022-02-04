@@ -33,6 +33,14 @@ class ConfigProvider implements ConfigProviderInterface
      */
     private $repository;
 
+    /**
+     * SessionWrapper constructor.
+     *
+     * @param UrlProvider $urlProvider
+     * @param PriceTagDataProvider $priceTag
+     * @param ConfigInterface $config
+     * @param Repository $repository
+     */
     public function __construct(
         UrlProvider $urlProvider,
         PriceTagDataProvider $priceTag,
@@ -72,6 +80,8 @@ class ConfigProvider implements ConfigProviderInterface
     }
 
     /**
+     * Get Authorize URL
+     *
      * @return string
      */
     private function getAuthorizeUrl()

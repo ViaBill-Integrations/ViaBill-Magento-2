@@ -24,10 +24,10 @@ class GetCountriesHandler implements HandlerInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @param array $handlingSubject
-     * @param array $response
+     * @param array $responseBody
      */
     public function handle(array $handlingSubject, array $responseBody)
     {

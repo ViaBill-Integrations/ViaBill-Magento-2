@@ -8,6 +8,8 @@ namespace Viabillhq\Payment\Plugin\Payment\Gateway\Command;
 class CommandPool
 {
     /**
+     * After get
+     *
      * @param \Magento\Payment\Gateway\Command\CommandPool $commandPool
      * @param \Viabillhq\Payment\Gateway\Command\GatewayCommand $command
      * @param string $commandCode

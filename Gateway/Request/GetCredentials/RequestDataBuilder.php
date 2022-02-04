@@ -35,6 +35,8 @@ class RequestDataBuilder implements BuilderInterface
     }
 
     /**
+     * Build request
+     *
      * @param array $buildSubject
      *
      * @return array
@@ -46,6 +48,8 @@ class RequestDataBuilder implements BuilderInterface
     }
 
     /**
+     * Map fields
+     *
      * @param array $fields
      * @param array $dataSource
      *

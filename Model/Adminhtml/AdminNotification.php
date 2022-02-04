@@ -65,6 +65,8 @@ class AdminNotification
     }
 
     /**
+     * Add notification
+     *
      * @param string $message
      */
     private function addNotification($message = '')

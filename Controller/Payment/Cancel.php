@@ -20,7 +20,7 @@ use Zend\Http\Response;
 
 class Cancel extends Action implements CsrfAwareActionInterface
 {
-    const CANCEL_MESSAGE = 'Payment cancelled from Viabill.';
+    public const CANCEL_MESSAGE = 'Payment cancelled from Viabill.';
 
     /**
      * @var LoggerInterface
@@ -58,18 +58,24 @@ class Cancel extends Action implements CsrfAwareActionInterface
     }
 
     /**
+     * Execute action
+     *
      * @return \Magento\Framework\App\ResponseInterface|ResultInterface
      */
     public function execute()
     {
-        $this->messageManager->addErrorMessage(__('Payment cancelled from Viabill.'));
+        $this->messageManager->addErrorMessage(__(self::CANCEL_MESSAGE));
 
         /** @var \Magento\Framework\Controller\Result\Redirect $result */
         $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-        try {        
+        try {
             $orderId = $this->checkoutSession->getLastRealOrder()->getId();
+            $this->debugLog(
+                'Payment Cancel Action for order '.$orderId,
+                DebugLevels::DEBUG_LEVEL_PRIORITY_DEVELOPER
+            );
             $this->orderManager->cancelOrder($orderId, self::CANCEL_MESSAGE);
-            $this->checkoutSession->restoreQuote();            
+            $this->checkoutSession->restoreQuote();
             $result->setPath('checkout/cart');
         } catch (\Exception $e) {
             $this->logger->critical($e->getMessage());
@@ -82,6 +88,8 @@ class Cancel extends Action implements CsrfAwareActionInterface
     }
 
     /**
+     * Log debug info
+     *
      * @param string $msg
      * @param int $debug_level
      */
@@ -91,7 +99,7 @@ class Cancel extends Action implements CsrfAwareActionInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @param RequestInterface $request
      *
@@ -103,7 +111,7 @@ class Cancel extends Action implements CsrfAwareActionInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @param RequestInterface $request
      *

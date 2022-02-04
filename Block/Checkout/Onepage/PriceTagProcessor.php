@@ -27,6 +27,8 @@ class PriceTagProcessor implements LayoutProcessorInterface
     }
 
     /**
+     * Process
+     *
      * @param array $jsLayout
      *
      * @return array

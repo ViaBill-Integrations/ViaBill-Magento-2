@@ -46,6 +46,8 @@ class SessionWrapper
     }
 
     /**
+     * Determine Checkout Method
+     *
      * @param Quote $quote
      */
     public function determineCheckoutMethod($quote)

@@ -24,6 +24,8 @@ class OrderIdentityPlugin
     }
 
     /**
+     * Check if around is enabled
+     *
      * @param \Magento\Sales\Model\Order\Email\Container\OrderIdentity $subject
      * @param callable $proceed
      * @return bool

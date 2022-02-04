@@ -7,12 +7,14 @@ namespace Viabillhq\Payment\Model\Adminhtml\Source;
 
 class Notifications implements \Magento\Framework\Option\ArrayInterface
 {
-    const NOTIFICATION_PRIORITY_NOTICE = 1;
-    const NOTIFICATION_PRIORITY_MINOR = 2;
-    const NOTIFICATION_PRIORITY_MAJOR = 3;
-    const NOTIFICATION_PRIORITY_CRITICAL = 4;
+    public const NOTIFICATION_PRIORITY_NOTICE = 1;
+    public const NOTIFICATION_PRIORITY_MINOR = 2;
+    public const NOTIFICATION_PRIORITY_MAJOR = 3;
+    public const NOTIFICATION_PRIORITY_CRITICAL = 4;
 
     /**
+     * Array of options
+     *
      * @return array
      */
     public function toOptionArray()

@@ -68,6 +68,8 @@ class UrlProvider
     }
 
     /**
+     * Get Viabill Server API base URL
+     *
      * @return string
      */
     private function getViabillApiBaseUrl() : string
@@ -76,7 +78,9 @@ class UrlProvider
     }
 
     /**
-     * @param $url
+     * Get Viabill Server API url
+     *
+     * @param string $url
      *
      * @return string
      */
@@ -86,8 +90,10 @@ class UrlProvider
     }
 
     /**
-     * @param null $routePath
-     * @param null $routeParams
+     * Get Callback URL
+     *
+     * @param string $routePath
+     * @param array $routeParams
      *
      * @return mixed|string
      */
@@ -111,7 +117,9 @@ class UrlProvider
     }
 
     /**
-     * @param $localeCode
+     * Get Forgot Password URL
+     *
+     * @param string $localeCode
      *
      * @return string
      */
@@ -121,6 +129,8 @@ class UrlProvider
     }
 
     /**
+     * Get Terms and Conditions URL
+     *
      * @return string
      */
     public function getTermsAndConditionsUrl() : string
@@ -129,8 +139,10 @@ class UrlProvider
     }
 
     /**
-     * @param null $routePath
-     * @param null $routeParams
+     * Get URL
+     *
+     * @param string $routePath
+     * @param array $routeParams
      *
      * @return string
      */

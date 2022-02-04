@@ -48,6 +48,8 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get order inc id
+     *
      * @param array $buildSubject
      *
      * @return mixed
@@ -59,6 +61,8 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get currency
+     *
      * @param array $buildSubject
      *
      * @return string
@@ -70,6 +74,8 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get amount
+     *
      * @param array $buildSubject
      *
      * @return string
@@ -81,6 +87,8 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get authorize transaction id
+     *
      * @param array $buildSubject
      *
      * @return string
@@ -92,6 +100,8 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
+     * Get customer info
+     *
      * @param array $buildSubject
      * @param string $key
      *
@@ -99,7 +109,7 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
      */
     protected function getCustomerInfo(array $buildSubject, $key = null)
     {
-        $info = array(
+        $info = [
             'email'=>'',
             'phoneNumber'=>'',
             'firstName'=>'',
@@ -109,10 +119,10 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
             'city'=>'',
             'postalCode'=>'',
             'country'=>''
-        );             
+        ];
           
         $order = $this->subjectReader->readOrder($buildSubject);
-        if (!empty($order)) {        
+        if (!empty($order)) {
             try {
                 $firstname = $order->getCustomerFirstname();
                 $lastname = $order->getCustomerLastname();
@@ -125,17 +135,17 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
                 $email = $order->getEmail();
                 if (!empty($email)) {
                     $info['email'] = $email;
-                }                
-                
+                }
+
                 $address = null;
-                $billingAddress = $order->getBillingAddress();                
-                if (!empty($billingAddress)) {                    
+                $billingAddress = $order->getBillingAddress();
+                if (!empty($billingAddress)) {
                     $address = $billingAddress;
                 } else {
                     $shippingAddress = $order->getShippingAddress();
-                    if (!empty($shippingAddress)) {                        
+                    if (!empty($shippingAddress)) {
                         $address = $shippingAddress;
-                    }   
+                    }
                 }
                 if (isset($address)) {
                     if (empty($info['email'])) {
@@ -170,19 +180,19 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
                     if (!empty($country)) {
                         $info['country'] = $country;
                     }
-                                                           
-                }                            
+                }
             } catch (\Exception $e) {
-                // do nothing 
-                exit($e->getMessage());
-            }        
-        }        
-		
-		if (!empty($key)) {
-			if (isset($info[$key])) return $info[$key];
-		}
-		
+                // do nothing
+                $error_msg = $e->getMessage();
+            }
+        }
+
+        if (!empty($key)) {
+            if (isset($info[$key])) {
+                return $info[$key];
+            }
+        }
+
         return $info;
     }
-    
 }

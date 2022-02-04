@@ -9,12 +9,14 @@ use Magento\Payment\Gateway\Data\PaymentDataObjectInterface;
 
 class SubjectReader
 {
-    const AMOUNT = 'amount';
-    const ORDER = 'subject_order';
-    const PAYMENT = 'payment';
-    const REQUEST = 'subject_request_data';
+    public const AMOUNT = 'amount';
+    public const ORDER = 'subject_order';
+    public const PAYMENT = 'payment';
+    public const REQUEST = 'subject_request_data';
 
     /**
+     * Get Subject Fields
+     *
      * @return array
      */
     public function getSubjectFields() : array
@@ -27,7 +29,9 @@ class SubjectReader
     }
 
     /**
-     * @param $subject
+     * Read order
+     *
+     * @param array $subject
      *
      * @return null
      */
@@ -37,7 +41,9 @@ class SubjectReader
     }
 
     /**
-     * @param $subject
+     * Read amount
+     *
+     * @param array $subject
      *
      * @return null
      */
@@ -47,6 +53,8 @@ class SubjectReader
     }
 
     /**
+     * Read payment
+     *
      * @param array $subject
      *
      * @return PaymentDataObjectInterface|null

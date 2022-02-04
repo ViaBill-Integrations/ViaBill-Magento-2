@@ -19,6 +19,11 @@ class MyViaBill extends Action
     private $myViaBill;
 
     /**
+     * @var string
+     */
+    private $refererURL;
+
+    /**
      * MyViaBill constructor.
      *
      * @param Context $context
@@ -29,10 +34,13 @@ class MyViaBill extends Action
         LinkProvider $myViaBill
     ) {
         $this->myViaBill = $myViaBill;
+        $this->refererURL = $context->getRedirect()->getRefererUrl();
         parent::__construct($context);
     }
 
     /**
+     * Execute action
+     *
      * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\Result\Redirect|ResultInterface
      */
     public function execute()
@@ -40,7 +48,7 @@ class MyViaBill extends Action
         /** @var \Magento\Framework\Controller\Result\Redirect $result */
         $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         $myViaBillUrl = $this->myViaBill->getMyViaBillUrl();
-        $url = $myViaBillUrl ?? $this->_redirect->getRefererUrl();
+        $url = $myViaBillUrl ?? $this->refererURL;
         $result->setUrl($url);
         return $result;
     }

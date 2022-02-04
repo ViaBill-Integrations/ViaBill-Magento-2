@@ -24,6 +24,8 @@ class SignatureGenerator
     }
 
     /**
+     * Check if signature is needed
+     *
      * @return bool
      */
     public function isSignatureNeeded() : bool
@@ -32,20 +34,22 @@ class SignatureGenerator
     }
 
     /**
+     * Generate signature
+     *
      * @param array $fields
      *
      * @return string
      */
     public function generateSignature(array $fields) : string
     {
-        $signatureParts = array();
+        $signatureParts = [];
         $patternParts = explode('#', $this->signaturePattern);
         foreach ($patternParts as $part) {
             if (isset($fields[$part])) {
                 $signatureParts[] = $fields[$part];
             }
         }
-        $signature = implode('#', $signatureParts);	
-        return hash('sha256', $signature);       
+        $signature = implode('#', $signatureParts);
+        return hash('sha256', $signature);
     }
 }

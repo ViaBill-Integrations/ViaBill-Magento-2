@@ -27,6 +27,8 @@ class ViabillNotifications implements ObserverInterface
     }
 
     /**
+     * Execute action
+     *
      * @param \Magento\Framework\Event\Observer $observer
      */
     public function execute(\Magento\Framework\Event\Observer $observer)

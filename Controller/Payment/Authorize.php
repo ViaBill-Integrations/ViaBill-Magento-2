@@ -69,6 +69,8 @@ class Authorize extends Action implements CsrfAwareActionInterface
     }
 
     /**
+     * Execute action
+     *
      * @return \Magento\Framework\App\ResponseInterface|ResultInterface
      */
     public function execute()
@@ -102,7 +104,7 @@ class Authorize extends Action implements CsrfAwareActionInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @param RequestInterface $request
      *
@@ -114,7 +116,7 @@ class Authorize extends Action implements CsrfAwareActionInterface
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritdoc
      *
      * @param RequestInterface $request
      *

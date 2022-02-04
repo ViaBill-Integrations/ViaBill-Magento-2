@@ -12,8 +12,8 @@ use Magento\Framework\Message\ManagerInterface as MessageManager;
 
 class Config
 {
-    const CONFIG_PATH_VIABILL_ACTIVE = 'payment/viabill/active';
-    const CONFIG_PATH_DEFAULT_CURRENCY = 'currency/options/default';
+    public const CONFIG_PATH_VIABILL_ACTIVE = 'payment/viabill/active';
+    public const CONFIG_PATH_DEFAULT_CURRENCY = 'currency/options/default';
 
     /**
      * @var array
@@ -58,6 +58,8 @@ class Config
     }
 
     /**
+     * Before Save
+     *
      * @param MagentoConfig $subject
      */
     public function beforeSave(MagentoConfig $subject)
@@ -73,6 +75,8 @@ class Config
     }
 
     /**
+     * Check if Module is enabled
+     *
      * @param \Magento\Config\Model\Config $subject
      *
      * @return bool
@@ -87,6 +91,8 @@ class Config
     }
 
     /**
+     * Check if currency is allowed
+     *
      * @param \Magento\Config\Model\Config $subject
      *
      * @return bool
@@ -102,6 +108,8 @@ class Config
     }
 
     /**
+     * Disable module
+     *
      * @param \Magento\Config\Model\Config $subject
      */
     private function disableModule(MagentoConfig $subject)
@@ -121,6 +129,8 @@ class Config
     }
 
     /**
+     * Get currency code for the scope
+     *
      * @param MagentoConfig $subject
      *
      * @return mixed

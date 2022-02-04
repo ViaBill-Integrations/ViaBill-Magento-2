@@ -10,6 +10,8 @@ use Magento\Payment\Gateway\Request\BuilderInterface;
 class AdditionalDataBuilder implements BuilderInterface
 {
     /**
+     * Bulld it
+     *
      * @param array $buildSubject
      *
      * @return array
@@ -21,6 +23,8 @@ class AdditionalDataBuilder implements BuilderInterface
     }
 
     /**
+     * Get authorize options
+     *
      * @return array
      */
     private function getClientAuthorizeOptions()

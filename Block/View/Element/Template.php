@@ -8,6 +8,8 @@ namespace Viabillhq\Payment\Block\View\Element;
 class Template extends \Magento\Framework\View\Element\Template
 {
     /**
+     * Convert to html
+     *
      * @return string
      */
     public function _toHtml()

@@ -10,6 +10,8 @@ use Zend\Http\Response as ZendResponse;
 class AuthorizeCommand extends GatewayCommand
 {
     /**
+     * Check if user can proceed
+     *
      * @param ZendResponse $response
      *
      * @return bool
