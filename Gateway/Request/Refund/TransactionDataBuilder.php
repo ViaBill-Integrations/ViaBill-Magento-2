@@ -3,8 +3,11 @@
  * Copyright © ViaBill. All rights reserved.
  * See LICENSE.txt for license details.
  */
-namespace Viabillhq\Payment\Gateway\Request;
+namespace Viabillhq\Payment\Gateway\Request\Refund;
 
+use Magento\Payment\Gateway\ConfigInterface;
+use Viabillhq\Payment\Gateway\Request\SubjectReader;
+use Viabillhq\Payment\Gateway\Request\ViabillRequestDataBuilder;
 use Viabillhq\Payment\Model\TransactionProvider;
 use Viabillhq\Payment\Gateway\Exception\ViabillException;
 
@@ -61,7 +64,7 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     {
         $amount = $this->subjectReader->readAmount($buildSubject);
         if ($amount) {
-            return (string)-round($amount, 2);
+            return (string) round($amount, 2);
         } else return 0;
     }
 

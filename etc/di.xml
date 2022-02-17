@@ -330,7 +330,7 @@
             <argument name="signatureGenerator" xsi:type="object">SalesViabillSignatureGenerator</argument>
         </arguments>
     </virtualType>
-    <virtualType name="RefundTransactionDataBuilder" type="Viabillhq\Payment\Gateway\Request\TransactionDataBuilder">
+    <virtualType name="RefundTransactionDataBuilder" type="Viabillhq\Payment\Gateway\Request\Refund\TransactionDataBuilder">
         <arguments>
             <argument name="requestFields" xsi:type="array">
                 <item name="id" xsi:type="string">paymentTransactionId</item>
