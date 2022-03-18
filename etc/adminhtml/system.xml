@@ -157,6 +157,14 @@
                         </comment>
                         <config_path>payment/viabill/debug</config_path>
                     </field>
+                    <field id="hide_checkout" translate="label comment" sortOrder="570" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Hide in Checkout</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <comment>
+                            <![CDATA[If enabled, the Viabill payment mode will not be available in the checkout step.]]>
+                        </comment>
+                        <config_path>payment/viabill/hide_checkout</config_path>
+                    </field>
                     <field id="admin_notifications_severity" translate="label" type="select" sortOrder="570" showInDefault="1" showInWebsite="1" showInStore="0">
                         <label>Admin Notifications Severity</label>
                         <source_model>Viabillhq\Payment\Model\Adminhtml\Source\Notifications</source_model>

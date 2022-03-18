@@ -98,3 +98,5 @@ ViaBill is currently set to Test Mode. All orders placed with ViaBill should not
 Module Info,Modul Info
 Module Version,Modul Version
 System Info,System Info
+Hide in Checkout,Skjul i Checkout
+"If enabled, the Viabill payment mode will not be available in the checkout step.","Hvis den er aktiveret, vil Viabill betalingstilstand ikke være tilgængelig i kassen."
