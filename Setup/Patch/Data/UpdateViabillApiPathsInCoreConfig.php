@@ -86,7 +86,7 @@ class UpdateViabillApiPathsInCoreConfig implements DataPatchInterface, PatchVers
     }
 
     /**
-     * Updating the Klarna api path keys
+     * Updating the Viabill api path keys
      */
     private function updateViabillApiPathKeys()
     {
@@ -100,7 +100,7 @@ class UpdateViabillApiPathsInCoreConfig implements DataPatchInterface, PatchVers
                 'schema_version' => '0.0.3',
                 'data_version' => '0.0.3'
             ];
-            $connection->insertOnDuplicate($moduleSetupTable, $moduleItem);
+            $connection->insertOnDuplicate($moduleSetupTable, $moduleSetupItem);
         }
         
         $configTable = $setup->getTable('core_config_data');

@@ -13,6 +13,11 @@ use Viabillhq\Payment\Model\UrlProvider;
 class TransferFactory implements TransferFactoryInterface
 {
     /**
+     * The ViaBill module version
+     */
+    public const ADDON_VERSION = '4.0.18';
+
+    /**
      * @var TransferBuilder
      */
     private $transferBuilder;
@@ -95,6 +100,19 @@ class TransferFactory implements TransferFactoryInterface
                 $endpointUrl = str_replace(':' . $paramValue, $request[$paramValue], $endpointUrl);
             }
         }
-        return $this->urlProvider->getViabillApiUrl($endpointUrl);
+        /** Add platform details, if needed */
+        if (strpos($endpointUrl, '/api/addon/magento/notifications')!== false) {
+            $platform = 'magento';
+            // Get Magento Version
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            $productMetadata =
+                $objectManager->get('Magento\Framework\App\ProductMetadataInterface'); // @codingStandardsIgnoreLine
+            $magento_version = $productMetadata->getVersion();
+            $module_version = self::ADDON_VERSION;
+            $platform_version = $magento_version;
+            
+            $endpointUrl = $endpointUrl .'&platform='.urlencode($platform).'&platform_ver='.urlencode($platform_version).'&module_ver='.urlencode($module_version);
+        }
+        return $this->urlProvider->getViabillApiUrl($endpointUrl);        
     }
 }

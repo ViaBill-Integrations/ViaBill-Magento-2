@@ -37,8 +37,8 @@ class InstallData implements InstallDataInterface
      * @param ModuleDataSetupInterface $setup
      * @param ModuleContextInterface $context
      */
-    public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)
-    {
+    public function install(ModuleDataSetupInterface $setup, ModuleContextInterface $context)    
+    {        
         $setup->startSetup();
         
         $connection = $setup->getConnection();
@@ -50,7 +50,7 @@ class InstallData implements InstallDataInterface
                 'schema_version' => '0.0.3',
                 'data_version' => '0.0.3'
             ];
-            $connection->insertOnDuplicate($setup_module_table, $moduleItem);
+            $connection->insertOnDuplicate($moduleSetupTable, $moduleSetupItem);
         }
         
         $configTable = $setup->getTable('core_config_data');
