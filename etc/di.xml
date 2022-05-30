@@ -97,7 +97,7 @@
 
     <virtualType name="ViabillAuthorizeTransferFactory" type="Viabillhq\Payment\Gateway\Http\TransferFactory">
         <arguments>
-            <argument name="method" xsi:type="const">Zend\Http\Request::METHOD_POST</argument>
+            <argument name="method" xsi:type="const">Laminas\http\Request::METHOD_POST</argument>
             <argument name="endpointUrl" xsi:type="string">/api/checkout-authorize/addon/magento</argument>
         </arguments>
     </virtualType>
@@ -129,7 +129,7 @@
     </virtualType>
     <virtualType name="ViabillGetCountriesTransferFactory" type="Viabillhq\Payment\Gateway\Http\TransferFactory">
         <arguments>
-            <argument name="method" xsi:type="const">Zend\Http\Request::METHOD_GET</argument>
+            <argument name="method" xsi:type="const">Laminas\http\Request::METHOD_GET</argument>
             <argument name="endpointUrl" xsi:type="string">/api/addon/magento/countries/supported/:locale</argument>
             <argument name="urlParams" xsi:type="array">
                 <item name="locale" xsi:type="string">locale</item>
@@ -157,7 +157,7 @@
     </virtualType>
     <virtualType name="ViabillGetNotificationsTransferFactory" type="Viabillhq\Payment\Gateway\Http\TransferFactory">
         <arguments>
-            <argument name="method" xsi:type="const">Zend\Http\Request::METHOD_GET</argument>
+            <argument name="method" xsi:type="const">Laminas\http\Request::METHOD_GET</argument>
             <argument name="endpointUrl" xsi:type="string">/api/addon/magento/notifications?key=:apikey&amp;signature=:signature</argument>
             <argument name="urlParams" xsi:type="array">
                 <item name="key" xsi:type="string">apikey</item>
@@ -193,7 +193,7 @@
     </virtualType>
     <virtualType name="ViabillMyViabillTransferFactory" type="Viabillhq\Payment\Gateway\Http\TransferFactory">
         <arguments>
-            <argument name="method" xsi:type="const">Zend\Http\Request::METHOD_GET</argument>
+            <argument name="method" xsi:type="const">Laminas\http\Request::METHOD_GET</argument>
             <argument name="endpointUrl" xsi:type="string">/api/addon/magento/myviabill?key=:apikey&amp;signature=:signature</argument>
             <argument name="urlParams" xsi:type="array">
                 <item name="key" xsi:type="string">apikey</item>
@@ -231,7 +231,7 @@
     </virtualType>
     <virtualType name="ViabillAccountRegisterTransferFactory" type="Viabillhq\Payment\Gateway\Http\TransferFactory">
         <arguments>
-            <argument name="method" xsi:type="const">Zend\Http\Request::METHOD_POST</argument>
+            <argument name="method" xsi:type="const">Laminas\http\Request::METHOD_POST</argument>
             <argument name="endpointUrl" xsi:type="string">/api/addon/magento/register</argument>
         </arguments>
     </virtualType>
@@ -264,7 +264,7 @@
     </virtualType>
     <virtualType name="ViabillAccountLoginTransferFactory" type="Viabillhq\Payment\Gateway\Http\TransferFactory">
         <arguments>
-            <argument name="method" xsi:type="const">Zend\Http\Request::METHOD_POST</argument>
+            <argument name="method" xsi:type="const">Laminas\http\Request::METHOD_POST</argument>
             <argument name="endpointUrl" xsi:type="string">/api/addon/magento/login</argument>
         </arguments>
     </virtualType>
@@ -305,7 +305,7 @@
     </virtualType>
     <virtualType name="ViabillCaptureTransferFactory" type="Viabillhq\Payment\Gateway\Http\TransferFactory">
         <arguments>
-            <argument name="method" xsi:type="const">Zend\Http\Request::METHOD_POST</argument>
+            <argument name="method" xsi:type="const">Laminas\http\Request::METHOD_POST</argument>
             <argument name="endpointUrl" xsi:type="string">/api/transaction/capture</argument>
         </arguments>
     </virtualType>
@@ -341,7 +341,7 @@
     </virtualType>
     <virtualType name="ViabillRefundTransferFactory" type="Viabillhq\Payment\Gateway\Http\TransferFactory">
         <arguments>
-            <argument name="method" xsi:type="const">Zend\Http\Request::METHOD_POST</argument>
+            <argument name="method" xsi:type="const">Laminas\http\Request::METHOD_POST</argument>
             <argument name="endpointUrl" xsi:type="string">/api/transaction/refund</argument>
         </arguments>
     </virtualType>
@@ -380,7 +380,7 @@
     </virtualType>
     <virtualType name="ViabillCancelTransferFactory" type="Viabillhq\Payment\Gateway\Http\TransferFactory">
         <arguments>
-            <argument name="method" xsi:type="const">Zend\Http\Request::METHOD_POST</argument>
+            <argument name="method" xsi:type="const">Laminas\http\Request::METHOD_POST</argument>
             <argument name="endpointUrl" xsi:type="string">/api/transaction/cancel</argument>
         </arguments>
     </virtualType>
@@ -419,7 +419,7 @@
     </virtualType>
     <virtualType name="ViabillRenewOrdersTransferFactory" type="Viabillhq\Payment\Gateway\Http\TransferFactory">
         <arguments>
-            <argument name="method" xsi:type="const">Zend\Http\Request::METHOD_POST</argument>
+            <argument name="method" xsi:type="const">Laminas\http\Request::METHOD_POST</argument>
             <argument name="endpointUrl" xsi:type="string">/api/transaction/renew</argument>
         </arguments>
     </virtualType>

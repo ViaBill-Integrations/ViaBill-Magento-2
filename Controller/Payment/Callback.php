@@ -21,7 +21,7 @@ use Viabillhq\Payment\Model\Adminhtml\Source\DebugLevels;
 use Viabillhq\Payment\Model\OrderManagement\OrderLocator;
 use Viabillhq\Payment\Model\OrderManagement\OrderManager;
 use Viabillhq\Payment\Model\Request\SignatureGenerator;
-use Zend\Http\Response;
+use Laminas\http\Response;
 
 class Callback extends Action implements CsrfAwareActionInterface
 {

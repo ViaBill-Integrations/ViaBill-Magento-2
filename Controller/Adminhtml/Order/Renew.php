@@ -16,7 +16,7 @@ use Psr\Log\LoggerInterface;
 use Viabillhq\Payment\Gateway\Command\ViabillCommandPool;
 use Viabillhq\Payment\Gateway\Exception\ViabillException;
 use Viabillhq\Payment\Gateway\Request\SubjectReader;
-use Zend\Http\Response;
+use Laminas\http\Response;
 
 class Renew extends Action
 {

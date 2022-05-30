@@ -7,7 +7,7 @@ namespace Viabillhq\Payment\Gateway\Exception;
 
 use Magento\Framework\Serialize\SerializerInterface;
 use Psr\Log\LoggerInterface;
-use Zend\Http\Response;
+use Laminas\http\Response;
 
 class ViabillExceptionFactory
 {
@@ -41,7 +41,7 @@ class ViabillExceptionFactory
     /**
      * Generate exception depending on response.
      *
-     * @param \Zend\Http\Response $response
+     * @param \Laminas\http\Response $response
      * @param string $commandCode
      *
      * @return \Viabillhq\Payment\Gateway\Exception\ViabillException

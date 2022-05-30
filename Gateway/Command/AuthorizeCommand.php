@@ -5,18 +5,18 @@
  */
 namespace Viabillhq\Payment\Gateway\Command;
 
-use Zend\Http\Response as ZendResponse;
+use Laminas\http\Response as LaminasResponse;
 
 class AuthorizeCommand extends GatewayCommand
 {
     /**
      * Check if user can proceed
      *
-     * @param ZendResponse $response
+     * @param LaminasResponse $response
      *
      * @return bool
      */
-    protected function canProceed(ZendResponse $response) : bool
+    protected function canProceed(LaminasResponse $response) : bool
     {
         return $response->isRedirect();
     }

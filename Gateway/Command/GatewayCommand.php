@@ -20,7 +20,7 @@ use Magento\Payment\Gateway\Validator\ValidatorInterface;
 use Viabillhq\Payment\Model\Adminhtml\Source\DebugLevels;
 use Psr\Log\LoggerInterface;
 use Viabillhq\Payment\Gateway\Exception\ViabillExceptionFactory;
-use Zend\Http\Response as ZendResponse;
+use Laminas\http\Response as LaminasResponse;
 
 /**
  * This class is responsible for forwarding the requests to the ViaBill Gateway
@@ -125,7 +125,7 @@ class GatewayCommand implements CommandInterface
 
         $result = $this->client->placeRequest($transfer);
 
-        /** @var ZendResponse $response */
+        /** @var LaminasResponse $response */
         $response = $result['response'];
         
         # Keep a log entry of the request
@@ -196,11 +196,11 @@ class GatewayCommand implements CommandInterface
     /**
      * Check if user can proceed
      *
-     * @param ZendResponse $response
+     * @param LaminasResponse $response
      *
      * @return bool
      */
-    protected function canProceed(ZendResponse $response) : bool
+    protected function canProceed(LaminasResponse $response) : bool
     {
         return $response->isSuccess();
     }
@@ -222,13 +222,13 @@ class GatewayCommand implements CommandInterface
     /**
      * Get the response body
      *
-     * @param ZendResponse $response
+     * @param LaminasResponse $response
      *
      * @return array
      */
-    private function getResponseBody(ZendResponse $response) : array
+    private function getResponseBody(LaminasResponse $response) : array
     {
-        if ($response->getStatusCode() !== ZendResponse::STATUS_CODE_204) {
+        if ($response->getStatusCode() !== LaminasResponse::STATUS_CODE_204) {
             return $this->jsonSerializer->unserialize($response->getContent());
         }
         return [];

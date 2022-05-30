@@ -135,9 +135,8 @@ define(
                         success: function (resp) {
                             if (resp !== null && resp.errorMessage !== undefined) {
                                 alert(resp.errorMessage);
-                            } else {
-                                window.location.reload();
                             }
+                            window.location.reload();
                         }.bind(this),
 
                         error: function (resp) {
@@ -145,7 +144,8 @@ define(
                                 alert(resp.responseJSON.errorMessage);
                             } else {
                                 console.log('Response error');
-                            }                            
+                            }
+                            window.location.reload();                          
                         }
                     });
                 },

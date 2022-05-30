@@ -16,7 +16,7 @@ use Magento\Framework\Session\SessionManagerInterface;
 use Viabillhq\Payment\Model\Adminhtml\Source\DebugLevels;
 use Psr\Log\LoggerInterface;
 use Viabillhq\Payment\Model\OrderManagement\OrderManager;
-use Zend\Http\Response;
+use Laminas\http\Response;
 
 class Cancel extends Action implements CsrfAwareActionInterface
 {

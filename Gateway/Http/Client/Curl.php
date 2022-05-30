@@ -12,7 +12,7 @@ use Magento\Payment\Gateway\Http\ClientInterface;
 use Magento\Payment\Gateway\Http\TransferInterface;
 use Viabillhq\Payment\Model\Adminhtml\Source\DebugLevels;
 use Psr\Log\LoggerInterface;
-use Zend\Http\Response as ZendResponse;
+use Laminas\http\Response as LaminasResponse;
 
 class Curl implements ClientInterface
 {
@@ -83,8 +83,8 @@ class Curl implements ClientInterface
             );
             // send request
             $responseSting = $adapter->read();
-            $response = ZendResponse::fromString($responseSting);
-            if ($response->getStatusCode() === ZendResponse::STATUS_CODE_302) {
+            $response = LaminasResponse::fromString($responseSting);
+            if ($response->getStatusCode() === LaminasResponse::STATUS_CODE_302) {
                 $response->setContent(
                     $this->jsonSerializer->serialize(['url' => $this->getRedirectUrl()])
                 );
