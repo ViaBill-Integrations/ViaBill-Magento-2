@@ -60,12 +60,22 @@ class ConfigProvider implements ConfigProviderInterface
      */
     public function getConfig()
     {
+
+        $logo_filename = 'ViaBill_Logo';
+        $lang = strtoupper($this->priceTag->getDataLanguage());
+        switch ($lang) {
+            case 'EN': $logo_filename ='ViaBill_Logo_EN'; break;
+            case 'ES': $logo_filename ='ViaBill_Logo_ES'; break;
+            case 'DA': $logo_filename ='ViaBill_Logo_DA'; break;
+            default: $logo_filename ='ViaBill_Logo'; break;
+        }
+        
         $config = [
             'payment' => [
                 'viabill' => [
                     'authorizeUrl' => $this->getAuthorizeUrl(),
                     'description' => $this->config->getValue('description'),
-                    'logo' => $this->repository->getUrl('Viabillhq_Payment::images/ViaBill_Logo.png'),
+                    'logo' => $this->repository->getUrl('Viabillhq_Payment::images/'.$logo_filename.'.png'),
                     'priceTagScript' => $this->config->getValue('price_tag_script'),
                     'priceTag' => [
                         'language' => $this->priceTag->getDataLanguage(),

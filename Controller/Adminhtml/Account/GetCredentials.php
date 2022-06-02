@@ -83,6 +83,7 @@ class GetCredentials extends Action
             $this->messageManager->addSuccessMessage(
                 __('You logged into your Viabill account.')
             );
+            $resultJson->setData($response);
         } catch (ViabillException $e) {
             $resultJson->setData(['errorMessage' => $e->getMessage()]);
             $resultJson->setHttpResponseCode(Exception::HTTP_BAD_REQUEST);
