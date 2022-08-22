@@ -195,4 +195,90 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
 
         return $info;
     }
+
+    /**
+     * Get cart info
+     *
+     * @param array $buildSubject
+     * @param string $key
+     *
+     * @return array
+     */
+    protected function getCartInfo(array $buildSubject, $key = null)
+    {                          
+        $order = $this->subjectReader->readOrder($buildSubject);
+                
+        // sanity check
+        if (empty($order)) {
+            return null;
+        }
+
+        $error_msg = null;
+
+        $info = [
+            'subtotal'=> '',
+            'tax' => '',
+            'shipping'=> '',
+            'discount'=> '',
+            'total'=> '',
+            'currency'=> '',
+            'quantity'=> ''            
+        ];
+
+        try {            
+            $info['subtotal'] = $order->getSubtotal();
+            $info['tax'] = $order->getTaxAmount(); 
+            $info['shipping'] = $order->getShippingAmount();
+            $info['discount'] = $order->getDiscountAmount();
+            $info['total'] = $order->getTotalDue();
+            $info['currency'] = $order->getOrderCurrencyCode();
+            $info['quantity'] = $order->getTotalItemCount();        
+
+            $orderAllItems = $order->getAllItems();
+            if ($orderAllItems) {
+                $products = [];                
+                foreach ($orderAllItems as $item) {
+                    $product = $item->getProduct();
+
+                    $product_price = (float) $item->getPrice();
+					$product_quantity = (int) $item->getQtyOrdered();
+					$product_tax = (float) $item->getTaxAmount();
+
+                    $product_entry = [
+                        'name' => $product->getName(),
+                        // 'description' => $item->getDescription(),
+                        'quantity' => $product_quantity,
+                        'subtotal' => number_format($product_price * $product_quantity, 2),
+                        'tax' => $product_tax
+                    ];
+
+                    /*
+                    $product_options = $product->getOptions();
+                    if (!empty($product_options)) {
+                        $product_entry['meta'] = '';
+                    }
+                    */
+
+                    if ($product->getIsVirtual()) {
+                        $product_entry['virtual'] = 1;
+                    }
+
+                    $products[] = $product_entry;                    
+                }
+                $info['products'] = $products;
+            } 
+        } catch (\Exception $e) {
+            // do nothing
+            $error_msg = $e->getMessage();
+            return '';
+        }
+
+        if (!empty($key)) {
+            if (isset($info[$key])) {
+                return $info[$key];
+            }
+        }        
+
+        return json_encode($info);
+    }
 }
