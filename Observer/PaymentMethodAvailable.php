@@ -10,12 +10,12 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 
 class PaymentMethodAvailable implements ObserverInterface
 {
-	/**
+    /**
      * @var ScopeConfigInterface
      */
     private $config;
 
-	/**
+    /**
      * PriceTagProcessor constructor.
      *
      * @param ConfigInterface $config
@@ -33,24 +33,24 @@ class PaymentMethodAvailable implements ObserverInterface
      * @param \Magento\Framework\Event\Observer $observer
      */
     public function execute(\Magento\Framework\Event\Observer $observer)
-    {			
-		$payment_method = $observer->getEvent()->getMethodInstance()->getCode();
+    {
+        $payment_method = $observer->getEvent()->getMethodInstance()->getCode();
         if ($payment_method == "viabill") {
-			$is_available = $this->isViabillAvailable($observer);
-			if (!$is_available) {
-				$checkResult = $observer->getEvent()->getResult();
-				$checkResult->setData('is_available', false);
-			}
+            $is_available = $this->isViabillAvailable($observer);
+            if (!$is_available) {
+                $checkResult = $observer->getEvent()->getResult();
+                $checkResult->setData('is_available', false);
+            }
         }
     }
 
-	protected function isViabillAvailable(\Magento\Framework\Event\Observer $observer) {				
-		$hide = (bool) $this->config->getValue(
+    protected function isViabillAvailable(\Magento\Framework\Event\Observer $observer) {
+        $hide = (bool) $this->config->getValue(
             'payment/viabill/hide_checkout',
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
-		
-		if ($hide) return false;				
-		return true;				
-	}
+
+        if ($hide) return false;
+        return true;
+    }
 }
