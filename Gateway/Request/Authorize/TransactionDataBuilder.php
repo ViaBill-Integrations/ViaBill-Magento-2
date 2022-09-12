@@ -168,7 +168,7 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
                     }
                     $phone = $address->getTelephone();
                     if (!empty($phone)) {
-                        $info['phoneNumber'] = $phone;
+                        $info['phoneNumber'] = $this->sanitizePhone($phone, $address->getCountryId());
                     }
                     $city = $address->getCity();
                     if (!empty($city)) {
@@ -279,7 +279,7 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
                 }
                 $phone = $billingAddress->getTelephone();
                 if (!empty($phone)) {
-                    $billing_phone = $phone;
+                    $billing_phone = $this->sanitizePhone($phone, $billingAddress->getCountryId());
                 }
                 $city = $billingAddress->getCity();
                 if (!empty($city)) {
@@ -429,6 +429,54 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
         }        
 
         return json_encode($info);
+    }
+
+    public function sanitizePhone($phone, $country_code = null) {
+        if (empty($phone)) {
+            return $phone;
+        }
+        if (empty($country_code)) {
+            return $phone;
+        }
+        $clean_phone = str_replace(array('+','(',')','-',' '),'',$phone);
+        if (strlen($clean_phone)<3) {
+            return $phone;
+        }
+        $country_code = strtoupper($country_code);
+        switch ($country_code) {
+            case 'US':
+            case 'USA': // +1
+                $prefix = substr($clean_phone, 0, 1);
+                if ($prefix == '1') {
+                    $phone_number = substr($clean_phone, 1);
+                    if (strlen($phone_number)==10) {
+                        $phone = $phone_number;
+                    }
+                }                
+                break;
+            case 'DK': 
+            case 'DNK': // +45
+                $prefix = substr($clean_phone, 0, 2);
+                if ($prefix == '45') {
+                    $phone_number = substr($clean_phone, 2);
+                    if (strlen($phone_number)==8) {
+                        $phone = $phone_number;
+                    }
+                }
+                break;
+            case 'ES': 
+            case 'ESP': // +34
+                $prefix = substr($clean_phone, 0, 2);
+                if ($prefix == '34') {
+                    $phone_number = substr($clean_phone, 2);
+                    if (strlen($phone_number)==9) {
+                        $phone = $phone_number;
+                    }
+                }
+                break;        
+        }
+
+        return $phone;
     }
 
     public function truncateDescription($text, $maxchar=200, $end='...') {
