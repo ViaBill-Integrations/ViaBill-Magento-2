@@ -60,20 +60,33 @@ class ConfigProvider implements ConfigProviderInterface
      */
     public function getConfig()
     {
-
         $logo_filename = 'ViaBill_Logo';
+        $logo_try_filename = 'ViaBillTry_Logo';
         $lang = strtoupper($this->priceTag->getDataLanguage());
         switch ($lang) {
-            case 'EN': $logo_filename ='ViaBill_Logo_EN'; break;
-            case 'ES': $logo_filename ='ViaBill_Logo_ES'; break;
-            case 'DA': $logo_filename ='ViaBill_Logo_DA'; break;
-            default: $logo_filename ='ViaBill_Logo'; break;
+            case 'EN':
+				$logo_filename ='ViaBill_Logo_EN'; 
+				$logo_try_filename = 'ViaBillTry_Logo_EN';
+				break;
+            case 'ES':
+				$logo_filename ='ViaBill_Logo_ES';
+				$logo_try_filename = 'ViaBillTry_Logo_ES';
+				break;
+            case 'DA':
+   				$logo_filename ='ViaBill_Logo_DA';
+				$logo_try_filename = 'ViaBillTry_Logo_DA';
+				break;
+            default: 
+				$logo_filename ='ViaBill_Logo';
+				$logo_try_filename = 'ViaBillTry_Logo';
+				break;
         }
-        
+
         $config = [
             'payment' => [
                 'viabill' => [
                     'authorizeUrl' => $this->getAuthorizeUrl(),
+                    'title' => $this->config->getValue('title'),
                     'description' => $this->config->getValue('description'),
                     'logo' => $this->repository->getUrl('Viabillhq_Payment::images/'.$logo_filename.'.png'),
                     'priceTagScript' => $this->config->getValue('price_tag_script'),
@@ -82,6 +95,12 @@ class ConfigProvider implements ConfigProviderInterface
                         'currency' => $this->priceTag->getDataCurrency(),
                         'countryCode' => $this->priceTag->getDataCountryCode()
                     ]
+                ],
+				'viabill_try' => [
+                    'authorizeUrl' => $this->getAuthorizeTryUrl(),
+                    'title' => $this->config->getValue('title_try'),
+                    'description' => $this->config->getValue('description_try'),
+                    'logo' => $this->repository->getUrl('Viabillhq_Payment::images/'.$logo_try_filename.'.png')
                 ]
             ]
         ];
@@ -97,5 +116,15 @@ class ConfigProvider implements ConfigProviderInterface
     private function getAuthorizeUrl()
     {
         return $this->urlProvider->getUrl('viabill/payment/authorize', ['_secure' => true]);
+    }
+
+    /**
+     * Get Authorize URL
+     *
+     * @return string
+     */
+    private function getAuthorizeTryUrl()
+    {
+        return $this->urlProvider->getUrl('viabill/payment/authorize', ['_secure' => true, 'trybeforebuy' => 1]);
     }
 }

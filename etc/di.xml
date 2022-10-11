@@ -18,6 +18,17 @@
         </arguments>
     </virtualType>
 
+    <virtualType name="ViabillTryFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="string">viabill_try</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Magento\Payment\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">ViabillValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">ViabillValidatorPool</argument>
+            <argument name="commandPool" xsi:type="object">ViabillCommandPool</argument>
+        </arguments>
+    </virtualType>
+
     <!-- Commands infrastructure -->
     <virtualType name="ViabillCommandPool" type="Viabillhq\Payment\Gateway\Command\ViabillCommandPool">
         <arguments>
@@ -92,6 +103,7 @@
                 <item name="currency" xsi:type="string">currency</item>
                 <item name="customParams" xsi:type="string">customerInfo</item>
                 <item name="cartParams" xsi:type="string">cartInfo</item>
+                <item name="tbyb" xsi:type="string">tbyb</item>
             </argument>
         </arguments>
     </virtualType>

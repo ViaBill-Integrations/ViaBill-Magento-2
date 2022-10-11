@@ -431,6 +431,32 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
         return json_encode($info);
     }
 
+    /**
+     * Get tbyb (Try before you Buy)
+     *
+     * @param array $buildSubject
+     *
+     * @return string
+     */
+    public function getTbyb(array $buildSubject) {
+        $tbyb = 0;
+
+        try {
+            $order = $this->subjectReader->readOrder($buildSubject);
+            $payment = $order->getPayment();
+            $method = $payment->getMethodInstance();
+            $payment_code = $method->getCode();
+            if ($payment_code == 'viabill_try') {
+                $tbyb = 1;
+            }            
+        } catch (\Exception $e) {
+            // do nothing            
+            return 0;
+        }
+                
+        return $tbyb;
+    }
+
     public function sanitizePhone($phone, $country_code = null) {
         if (empty($phone)) {
             return $phone;

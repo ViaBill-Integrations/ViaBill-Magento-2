@@ -8,9 +8,9 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <section id="payment">
-            <!-- payment group -->
+            <!-- viabill payments group -->
             <group id="viabill" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>ViaBill</label>
+                <label>ViaBill - Easy Monthy Payments</label>
                 <attribute type="activity_path">payment/viabill/active</attribute>
                 <!-- request credentials group -->
                 <group id="new_credentials" translate="label" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
@@ -231,9 +231,37 @@
                         <config_path>payment/viabill/price_tag_show_on_checkout</config_path>
                     </field>
                 </group>
-                <!-- // pricetag group -->
+                <!-- // pricetag group -->    
+                <!-- try before you buy group -->
+                <group id="viabill_try" translate="label" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Try before you Buy Settings</label>
+                    <comment>
+                        <![CDATA[Enable ViaBill's Try before you Buy payment option to increase the sales.]]>
+                    </comment>
+                    <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Fieldset\ModuleConfiguration</frontend_model>
+                    <field id="active" translate="label" sortOrder="910" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>payment/viabill/active_try</config_path>
+                    </field>
+                    <field id="title" translate="label comment" sortOrder="920" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Title</label>
+                        <comment>
+                            <![CDATA[Payment method Title will be shown on checkout page.]]>
+                        </comment>
+                        <config_path>payment/viabill/title_try</config_path>
+                    </field>                    
+                    <field id="description" translate="label comment" sortOrder="930" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Description</label>
+                        <comment>
+                            <![CDATA[Description for the payment method will be shown on checkout page.]]>
+                        </comment>
+                        <config_path>payment/viabill/description_try</config_path>
+                    </field>                    
+                </group>   
+                <!-- // try before you buy group -->            
             </group>
-            <!-- // payment-group -->
+            <!-- // viabill payments group -->                
         </section>
     </system>
 </config>

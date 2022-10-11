@@ -41,6 +41,12 @@ class PaymentMethodAvailable implements ObserverInterface
                 $checkResult = $observer->getEvent()->getResult();
                 $checkResult->setData('is_available', false);
             }
+        } else if ($payment_method == "viabill_try") {
+			$is_available = $this->isTryViabillAvailable($observer);
+			if (!$is_available) {
+				$checkResult = $observer->getEvent()->getResult();
+				$checkResult->setData('is_available', false);
+			}
         }
     }
 
@@ -53,4 +59,14 @@ class PaymentMethodAvailable implements ObserverInterface
         if ($hide) return false;
         return true;
     }
+
+    protected function isTryViabillAvailable(\Magento\Framework\Event\Observer $observer) {
+		$show_try = (bool) $this->config->getValue(
+            'payment/viabill/active_try',
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+        );
+
+		if ($show_try) return true;
+		return false;
+	}
 }

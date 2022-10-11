@@ -10,9 +10,9 @@
         <payment>
             <viabill>
                 <active>0</active>
-                <title>ViaBill</title>
+                <title>ViaBill - Easy monthly payments</title>
                 <sort_order>6</sort_order>
-                <description>You will be redirected to the ViaBill website.</description>
+                <description>Pay your purchase in monthly installments.</description>
                 <model>ViabillFacade</model>
                 <order_status>pending_payment</order_status>
                 <debug>0</debug>
@@ -37,6 +37,33 @@
                 <order_status_after_authorization>pending_payment</order_status_after_authorization>
                 <order_status_after_capture>processing</order_status_after_capture>
             </viabill>
+            <viabill_try>
+                <active>0</active>
+                <title>ViaBill - Try before you Buy</title>                
+                <description>Pay only for what you keep - in 30 days</description>                
+                <model>ViabillTryFacade</model>
+                <order_status>pending_payment</order_status>
+                <debug>0</debug>
+                <test_transaction>1</test_transaction>                
+                <apikey backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
+                <secret backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
+                <can_initialize>0</can_initialize>
+                <can_use_checkout>1</can_use_checkout>
+                <can_authorize>0</can_authorize>
+                <can_capture>1</can_capture>
+                <can_capture_partial>1</can_capture_partial>
+                <can_refund_partial_per_invoice>1</can_refund_partial_per_invoice>
+                <can_refund>1</can_refund>
+                <can_void>1</can_void>
+                <can_cancel>1</can_cancel>
+                <can_use_internal>0</can_use_internal>
+                <is_gateway>1</is_gateway>
+                <admin_notifications_severity>4</admin_notifications_severity>
+                <viabill_payment_action>authorize</viabill_payment_action>
+                <order_status_before_authorization>pending</order_status_before_authorization>
+                <order_status_after_authorization>pending_payment</order_status_after_authorization>
+                <order_status_after_capture>processing</order_status_after_capture>
+            </viabill_try>
         </payment>
     </default>
 </config>
