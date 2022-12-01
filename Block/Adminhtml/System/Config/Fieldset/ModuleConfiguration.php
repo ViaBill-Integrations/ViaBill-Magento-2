@@ -11,7 +11,7 @@ use Viabillhq\Payment\Model\Adminhtml\AccountConfiguration;
 class ModuleConfiguration extends \Magento\Config\Block\System\Config\Form\Fieldset
 {
     // Hide "try before you buy" payment option in backend settings
-    const TRY_BEFORE_YOU_BUY_SHOW_SETTING_OPTION = 0;
+    const TRY_BEFORE_YOU_BUY_SHOW_SETTING_OPTION = 1;
 
     /**
      * Render element

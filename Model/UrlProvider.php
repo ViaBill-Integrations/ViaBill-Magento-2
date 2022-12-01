@@ -20,7 +20,7 @@ class UrlProvider
     /**
      * @var string
      */
-    private static $forgotPasswordUrl = 'https://viabill.com/auth/forgot?lang=';
+    private static $forgotPasswordUrl = ' https://my.viabill.com/merchant/lang/#/auth/forgot';
 
     /**
      * @var string
@@ -125,7 +125,19 @@ class UrlProvider
      */
     public function getForgotPasswordUrl($localeCode) : string
     {
-        return  self::$forgotPasswordUrl . $localeCode;
+        $localeCode = strtolower($localeCode);
+        switch ($localeCode) {
+            case 'en':
+            case 'es':
+            case 'da':
+                $lang = $localeCode;
+                break;
+            default:
+                $lang = 'en';
+                break;     
+        }
+        $url = str_replace('lang', $localeCode, self::$forgotPasswordUrl);
+        return $url;
     }
 
     /**
