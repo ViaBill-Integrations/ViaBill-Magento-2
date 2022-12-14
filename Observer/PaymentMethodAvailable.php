@@ -26,9 +26,8 @@ class PaymentMethodAvailable implements ObserverInterface
         $this->config = $config;
     }
 
-
     /**
-     * payment_method_is_active event handler.
+     * Event handler for payment_method_is_active
      *
      * @param \Magento\Framework\Event\Observer $observer
      */
@@ -41,32 +40,52 @@ class PaymentMethodAvailable implements ObserverInterface
                 $checkResult = $observer->getEvent()->getResult();
                 $checkResult->setData('is_available', false);
             }
-        } else if ($payment_method == "viabill_try") {
-			$is_available = $this->isTryViabillAvailable($observer);
-			if (!$is_available) {
-				$checkResult = $observer->getEvent()->getResult();
-				$checkResult->setData('is_available', false);
-			}
+        } elseif ($payment_method == "viabill_try") {
+            $is_available = $this->isTryViabillAvailable($observer);
+            if (!$is_available) {
+                $checkResult = $observer->getEvent()->getResult();
+                $checkResult->setData('is_available', false);
+            }
         }
     }
 
-    protected function isViabillAvailable(\Magento\Framework\Event\Observer $observer) {
+    /**
+     * Check if Viabill Monthly Payments is available during checkout
+     *
+     * @param Observer $observer
+     *
+     * return boolean
+     */
+    protected function isViabillAvailable(\Magento\Framework\Event\Observer $observer)
+    {
         $hide = (bool) $this->config->getValue(
             'payment/viabill/hide_checkout',
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
 
-        if ($hide) return false;
+        if ($hide) {
+            return false;
+        }
         return true;
     }
 
-    protected function isTryViabillAvailable(\Magento\Framework\Event\Observer $observer) {
-		$show_try = (bool) $this->config->getValue(
+    /**
+     * Check if Viabill TBYB is available during checkout
+     *
+     * @param Observer $observer
+     *
+     * return boolean
+     */
+    protected function isTryViabillAvailable(\Magento\Framework\Event\Observer $observer)
+    {
+        $show_try = (bool) $this->config->getValue(
             'payment/viabill/active_try',
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
 
-		if ($show_try) return true;
-		return false;
-	}
+        if ($show_try) {
+            return true;
+        }
+        return false;
+    }
 }

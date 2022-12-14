@@ -15,7 +15,7 @@ class TransferFactory implements TransferFactoryInterface
     /**
      * The ViaBill module version
      */
-    public const ADDON_VERSION = '4.0.31';
+    public const ADDON_VERSION = '4.0.32';
 
     /**
      * @var TransferBuilder
@@ -110,9 +110,10 @@ class TransferFactory implements TransferFactoryInterface
             $magento_version = $productMetadata->getVersion();
             $module_version = self::ADDON_VERSION;
             $platform_version = $magento_version;
+            $shop_url = $this->urlProvider->getShopURL();
             
-            $endpointUrl = $endpointUrl .'&platform='.urlencode($platform).'&platform_ver='.urlencode($platform_version).'&module_ver='.urlencode($module_version);
+            $endpointUrl = $endpointUrl .'&platform='.urlencode($platform).'&platform_ver='.urlencode($platform_version).'&module_ver='.urlencode($module_version).'&shop_url='.urlencode($shop_url);
         }
-        return $this->urlProvider->getViabillApiUrl($endpointUrl);        
+        return $this->urlProvider->getViabillApiUrl($endpointUrl);
     }
 }

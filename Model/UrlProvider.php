@@ -134,7 +134,7 @@ class UrlProvider
                 break;
             default:
                 $lang = 'en';
-                break;     
+                break;
         }
         $url = str_replace('lang', $localeCode, self::$forgotPasswordUrl);
         return $url;
@@ -161,5 +161,17 @@ class UrlProvider
     public function getUrl($routePath = null, $routeParams = null) : string
     {
         return $this->urlBuilder->getUrl($routePath, $routeParams);
+    }
+
+    /**
+     * Get Shop URL
+     */
+    public function getShopURL(): string
+    {
+        if (!empty($this->storeManager)) {
+            return $site_host = $this->storeManager->getStore()->getBaseUrl();
+        }
+
+        return '';
     }
 }

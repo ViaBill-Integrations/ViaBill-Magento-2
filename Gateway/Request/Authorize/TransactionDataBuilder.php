@@ -26,7 +26,7 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     /**
      * @var TransactionProvider
      */
-    private $transactionProvider;    
+    private $transactionProvider;
 
     /**
      * @var Image
@@ -38,7 +38,8 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
      *
      * @param ConfigInterface $config
      * @param SubjectReader $subjectReader
-     * @param TransactionProvider $transactionProvider     
+     * @param TransactionProvider $transactionProvider
+     * @param Image $imageHelper
      * @param array $requestFields
      */
     public function __construct(
@@ -51,9 +52,9 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
         parent::__construct($requestFields);
         $this->config = $config;
         $this->subjectReader = $subjectReader;
-        $this->transactionProvider = $transactionProvider;        
+        $this->transactionProvider = $transactionProvider;
         $this->imageHelper = $imageHelper;
-        // Note: If you don't want to inject imageHelper in the constructor, 
+        // Note: If you don't want to inject imageHelper in the constructor,
         // use ObjectManager instead:
         // $objectManager =\Magento\Framework\App\ObjectManager::getInstance();
         // $helperImport = $objectManager->get('\Magento\Catalog\Helper\Image');
@@ -217,7 +218,7 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
      * @return array
      */
     protected function getCartInfo(array $buildSubject, $key = null)
-    {                          
+    {
         $order = $this->subjectReader->readOrder($buildSubject);
                 
         // sanity check
@@ -275,7 +276,7 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
             
             if (isset($billingAddress)) {
                 if (empty($billing_email)) {
-                    $billing_email = $billingAddress->getEmail();                   
+                    $billing_email = $billingAddress->getEmail();
                 }
                 $phone = $billingAddress->getTelephone();
                 if (!empty($phone)) {
@@ -307,13 +308,13 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
 
             if (isset($shippingAddress)) {
                 if (empty($billing_email)) {
-                    $billing_email = $shippingAddress->getEmail();                    
+                    $billing_email = $shippingAddress->getEmail();
                 }
                 $phone = $shippingAddress->getTelephone();
                 if (!empty($phone)) {
                     if (empty($billing_phone)) {
                         $billing_phone = $phone;
-                    }                    
+                    }
                 }
                 $city = $shippingAddress->getCity();
                 if (!empty($city)) {
@@ -361,7 +362,7 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
             $info['shipping_city'] = $shipping_city;
             $info['shipping_postcode'] = $shipping_postcode;
             $info['shipping_country'] = $shipping_country;
-            $info['shipping_same_as_billing'] = $shipping_same_as_billing;            
+            $info['shipping_same_as_billing'] = $shipping_same_as_billing;
 
             $orderAllItems = $order->getAllItems();
             if ($orderAllItems) {
@@ -374,7 +375,7 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
                     $product_tax = (float) $item->getTaxAmount();
 
                     $product_entry = [
-                        'name' => $product->getName(),    
+                        'name' => $product->getName(),
                         'quantity' => $product_quantity,
                         'subtotal' => number_format($product_price * $product_quantity, 2),
                         'tax' => $product_tax
@@ -397,25 +398,27 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
                     }
 
                     $image_url = null;
-                    $image_sizes = [                        
+                    $image_sizes = [
                         'product_base_image',
                         'product_small_image',
                         'product_thumbnail_image'
-                    ];                           
+                    ];
                     foreach ($image_sizes as $image_size) {
-                        if (isset($image_url)) continue;                        
+                        if (isset($image_url)) {
+                            continue;
+                        }
                         $image_url = $this->imageHelper->init($product, $image_size)->getUrl();
                         if (!empty($image_url)) {
-                            $product_entry['image_url'] = $image_url;                 
-                        }                        
+                            $product_entry['image_url'] = $image_url;
+                        }
                     }
 
                     // $product_entry['description'] = $this->truncateDescription($product->getDescription());
 
-                    $products[] = $product_entry;                    
+                    $products[] = $product_entry;
                 }
                 $info['products'] = $products;
-            } 
+            }
         } catch (\Exception $e) {
             // do nothing
             $error_msg = $e->getMessage();
@@ -426,7 +429,7 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
             if (isset($info[$key])) {
                 return $info[$key];
             }
-        }        
+        }
 
         return json_encode($info);
     }
@@ -438,7 +441,8 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
      *
      * @return string
      */
-    public function getTbyb(array $buildSubject) {
+    public function getTbyb(array $buildSubject)
+    {
         $tbyb = 0;
 
         try {
@@ -448,23 +452,32 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
             $payment_code = $method->getCode();
             if ($payment_code == 'viabill_try') {
                 $tbyb = 1;
-            }            
+            }
         } catch (\Exception $e) {
-            // do nothing            
+            // do nothing
             return 0;
         }
                 
         return $tbyb;
     }
 
-    public function sanitizePhone($phone, $country_code = null) {
+    /**
+     * Sanitize phone, so the country code is removed
+     *
+     * @param string $phone
+     * @param string $country_code
+     *
+     * @return string
+     */
+    public function sanitizePhone($phone, $country_code = null)
+    {
         if (empty($phone)) {
             return $phone;
         }
         if (empty($country_code)) {
             return $phone;
         }
-        $clean_phone = str_replace(array('+','(',')','-',' '),'',$phone);
+        $clean_phone = str_replace(['+','(',')','-',' '], '', $phone);
         if (strlen($clean_phone)<3) {
             return $phone;
         }
@@ -478,9 +491,9 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
                     if (strlen($phone_number)==10) {
                         $phone = $phone_number;
                     }
-                }                
+                }
                 break;
-            case 'DK': 
+            case 'DK':
             case 'DNK': // +45
                 $prefix = substr($clean_phone, 0, 2);
                 if ($prefix == '45') {
@@ -490,7 +503,7 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
                     }
                 }
                 break;
-            case 'ES': 
+            case 'ES':
             case 'ESP': // +34
                 $prefix = substr($clean_phone, 0, 2);
                 if ($prefix == '34') {
@@ -499,15 +512,27 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
                         $phone = $phone_number;
                     }
                 }
-                break;        
+                break;
         }
 
         return $phone;
     }
 
-    public function truncateDescription($text, $maxchar=200, $end='...') {
-        if (empty($text)) return '';
-        $text = strip_tags(trim($text));        
+    /**
+     * Truncate product description
+     *
+     * @param string $text
+     * @param int $maxchar
+     * @param string $end
+     *
+     * @return string
+     */
+    public function truncateDescription($text, $maxchar = 200, $end = '...')
+    {
+        if (empty($text)) {
+            return '';
+        }
+        $text = strip_tags(trim($text));
         if (strlen($text) > $maxchar || $text == '') {
             $words = preg_split('/\s/', $text);
             $output = '';
@@ -516,15 +541,13 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
                 $length = strlen($output)+strlen($words[$i]);
                 if ($length > $maxchar) {
                     break;
-                }
-                else {
+                } else {
                     $output .= " " . $words[$i];
                     ++$i;
                 }
             }
             $output .= $end;
-        }
-        else {
+        } else {
             $output = $text;
         }
         return $output;

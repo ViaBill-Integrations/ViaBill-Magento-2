@@ -171,7 +171,7 @@ class OrderManager
     public function cancelOrder($orderId, $comment = '')
     {
         $order = $this->orderRepository->get($orderId);
-        if (($order->getId()) && 
+        if (($order->getId()) &&
                 ($order->getState() != Order::STATE_CANCELED) &&
                 ($order->getState() != Order::STATE_COMPLETE)
             ) {

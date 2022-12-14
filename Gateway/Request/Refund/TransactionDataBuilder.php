@@ -65,7 +65,9 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
         $amount = $this->subjectReader->readAmount($buildSubject);
         if ($amount) {
             return (string) round($amount, 2);
-        } else return 0;
+        } else {
+            return 0;
+        }
     }
 
     /**

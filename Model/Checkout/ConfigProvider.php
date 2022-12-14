@@ -65,21 +65,21 @@ class ConfigProvider implements ConfigProviderInterface
         $lang = strtoupper($this->priceTag->getDataLanguage());
         switch ($lang) {
             case 'EN':
-				$logo_filename ='ViaBill_Logo_EN'; 
-				$logo_try_filename = 'ViaBillTry_Logo_EN';
-				break;
+                $logo_filename ='ViaBill_Logo_EN';
+                $logo_try_filename = 'ViaBillTry_Logo_EN';
+                break;
             case 'ES':
-				$logo_filename ='ViaBill_Logo_ES';
-				$logo_try_filename = 'ViaBillTry_Logo_ES';
-				break;
+                $logo_filename ='ViaBill_Logo_ES';
+                $logo_try_filename = 'ViaBillTry_Logo_ES';
+                break;
             case 'DA':
-   				$logo_filename ='ViaBill_Logo_DA';
-				$logo_try_filename = 'ViaBillTry_Logo_DA';
-				break;
-            default: 
-				$logo_filename ='ViaBill_Logo';
-				$logo_try_filename = 'ViaBillTry_Logo';
-				break;
+                   $logo_filename ='ViaBill_Logo_DA';
+                $logo_try_filename = 'ViaBillTry_Logo_DA';
+                break;
+            default:
+                $logo_filename ='ViaBill_Logo';
+                $logo_try_filename = 'ViaBillTry_Logo';
+                break;
         }
 
         $config = [
@@ -96,7 +96,7 @@ class ConfigProvider implements ConfigProviderInterface
                         'countryCode' => $this->priceTag->getDataCountryCode()
                     ]
                 ],
-				'viabill_try' => [
+                'viabill_try' => [
                     'authorizeUrl' => $this->getAuthorizeTryUrl(),
                     'title' => $this->config->getValue('title_try'),
                     'description' => $this->config->getValue('description_try'),
