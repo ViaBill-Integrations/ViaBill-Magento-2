@@ -435,7 +435,7 @@ class TransactionDataBuilder extends ViabillRequestDataBuilder
     }
 
     /**
-     * Get tbyb (Try before you Buy)
+     * Get tbyb (Pay in 30 days)
      *
      * @param array $buildSubject
      *

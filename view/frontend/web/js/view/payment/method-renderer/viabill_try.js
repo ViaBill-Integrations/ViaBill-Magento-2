@@ -12,7 +12,10 @@ define(
         'Magento_Checkout/js/model/payment/additional-validators',
         'Magento_Checkout/js/model/full-screen-loader',
         'Magento_Checkout/js/model/error-processor',
-        'Magento_Customer/js/customer-data'
+        'Magento_Customer/js/customer-data',
+        'Magento_Checkout/js/model/quote',
+		'Magento_Checkout/js/model/totals',
+		'ko'
     ], function (
         $,
         Component,
@@ -20,7 +23,10 @@ define(
         additionalValidators,
         fullScreenLoader,
         errorProcessor,
-        customerData
+        customerData,
+        quote, 
+		totals,
+		ko
     ) {
         'use strict';
 
@@ -28,6 +34,23 @@ define(
             defaults: {
                 template: 'Viabillhq_Payment/payment/form_try',
             },
+
+            totals: quote.getTotals(),
+			price: ko.observable(0),
+			storeLanguage: window.checkoutConfig.payment.viabill.priceTag.language,
+			storeCurrency: window.checkoutConfig.payment.viabill.priceTag.currency,
+			countryCode: window.checkoutConfig.payment.viabill.priceTag.countryCode,
+
+			initialize: function () {
+                this._super();
+				this.setPrice(totals.getSegment('grand_total').value);
+            },
+
+			setPrice: function (price) {
+				if (this.totals()) {
+					this.price(price);
+				}
+			},
 
             /** Redirect to viabill */
             continueToViabill: function () {

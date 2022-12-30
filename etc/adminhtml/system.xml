@@ -234,7 +234,7 @@
                 <!-- // pricetag group -->    
                 <!-- try before you buy group -->
                 <group id="viabill_try" translate="label" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Try before you Buy Settings</label>
+                    <label>Pay in 30 days Settings</label>
                     <comment>
                         <![CDATA[Enable ViaBill's Try before you Buy payment option to increase the sales.]]>
                     </comment>

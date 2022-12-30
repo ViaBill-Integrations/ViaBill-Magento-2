@@ -14,6 +14,9 @@
             <img class="payment-icon" width="280px" alt="ViaBill" data-bind="attr: {'src': getLogoUrl()}" />
         </label>
     </div>
+
+    <div class="viabill-pricetag" data-checkout-product-types='["light","liberty","plus"]' data-view="payment" data-bind="attr: { 'data-price' : price, 'data-currency': storeCurrency, 'data-language': storeLanguage, 'data-country-code': countryCode }"></div>
+
     <div class="payment-method-content">
         <!-- ko foreach: getRegion('messages') -->
         <!-- ko template: getTemplate() --><!-- /ko -->

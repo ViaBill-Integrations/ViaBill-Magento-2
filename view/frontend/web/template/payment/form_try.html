@@ -10,11 +10,13 @@
                name="payment[method]"
                class="radio"
                data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()" />
-			   				   
         <label data-bind="attr: {'for': getCode()}" class="label">
-            <img class="payment-icon" width="280px" alt="ViaBill - Try before you buy" data-bind="attr: {'src': getLogoUrl()}" />
+            <img class="payment-icon" width="280px" alt="ViaBill - Pay in 30 days" data-bind="attr: {'src': getLogoUrl()}" />
         </label>
     </div>
+
+    <div class="viabill-pricetag" data-checkout-product-types='["tbyb"]' data-view="payment" data-bind="attr: { 'data-price' : price, 'data-currency': storeCurrency, 'data-language': storeLanguage, 'data-country-code': countryCode }"></div>
+
     <div class="payment-method-content">
         <!-- ko foreach: getRegion('messages') -->
         <!-- ko template: getTemplate() --><!-- /ko -->
@@ -34,10 +36,10 @@
                 <button class="action primary checkout"
                         type="submit"
                         data-bind="click: continueToViabill,
-                        attr: {title: $t('Continue')},
+                        attr: {title: $t('Continue to Viabill')},
                         enable: (getCode() == isChecked())"
                         disabled>
-                    <span data-bind="i18n: 'Continue'"></span>
+                    <span data-bind="i18n: 'Continue to Viabill'"></span>
                 </button>
             </div>
         </div>

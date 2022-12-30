@@ -39,7 +39,7 @@
             </viabill>
             <viabill_try>
                 <active>0</active>
-                <title>ViaBill - Try before you Buy</title>                
+                <title>ViaBill - Pay in 30 days</title>                
                 <description>Pay only for what you keep - in 30 days</description>                
                 <model>ViabillTryFacade</model>
                 <order_status>pending_payment</order_status>
