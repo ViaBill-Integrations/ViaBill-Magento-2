@@ -25,8 +25,25 @@ class ModuleConfiguration extends \Magento\Config\Block\System\Config\Form\Field
         $element_id = $element->getId();
         if (!empty($element_id)) {
             if (strpos($element_id, 'viabill_try')!==false) {
-                if (!self::TRY_BEFORE_YOU_BUY_SHOW_SETTING_OPTION) {
+                if (!self::TRY_BEFORE_YOU_BUY_SHOW_SETTING_OPTION) {                    
                     return;
+                } else {
+                    $country_code = $this->_scopeConfig->getValue(
+                        AccountConfiguration::CONFIG_PATH_VIABILL_ACCOUNT_COUNTRY,
+                        ScopeConfigInterface::SCOPE_TYPE_DEFAULT
+                    );
+                    if (!empty($country_code)) {
+                        $country_code = strtoupper($country_code);
+                        switch ($country_code) {
+                            case 'ES':
+                            case 'ESP':
+                            case 'SPAIN':
+                                // ignore Spain for the moment,
+                                // as currently is not available
+                                return;
+                                break;
+                        }
+                    }
                 }
             }
         }
