@@ -22,6 +22,11 @@ class ViabillExceptionFactory
     private $jsonSerializer;
 
     /**
+     * @var \Psr\Log\LoggerInterface
+     */
+    protected $logger;
+
+    /**
      * ViabillExceptionFactory constructor.
      *
      * @param MessagesMap $messagesMap
