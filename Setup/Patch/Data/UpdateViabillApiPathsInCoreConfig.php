@@ -13,6 +13,7 @@ use Magento\Framework\Setup\Patch\PatchVersionInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\DB\Adapter\AdapterInterface;
 use Viabillhq\Payment\Model\Adminhtml\AccountConfiguration;
+use Magento\Framework\Module\ResourceInterface;
 
 class UpdateViabillApiPathsInCoreConfig implements DataPatchInterface, PatchVersionInterface
 {
@@ -22,9 +23,9 @@ class UpdateViabillApiPathsInCoreConfig implements DataPatchInterface, PatchVers
     private $moduleDataSetup;
 
     /**
-     * @var ModuleContextInterface
+     * @var ResourceInterface
      */
-    private $context;
+    private $moduleResource;
 
     /**
      * @var array
@@ -43,12 +44,12 @@ class UpdateViabillApiPathsInCoreConfig implements DataPatchInterface, PatchVers
 
     /**
      * @param ModuleDataSetupInterface $moduleDataSetup
-     * @param ModuleContextInterface $context
+     * @param ResourceInterface $moduleResource
      */
-    public function __construct(ModuleDataSetupInterface $moduleDataSetup, ModuleContextInterface $context)
+    public function __construct(ModuleDataSetupInterface $moduleDataSetup, ResourceInterface $moduleResource)
     {
         $this->moduleDataSetup = $moduleDataSetup;
-        $this->context = context;
+        $this->moduleResource = $moduleResource;
     }
 
     /**
@@ -114,7 +115,7 @@ class UpdateViabillApiPathsInCoreConfig implements DataPatchInterface, PatchVers
             $connection->insertOnDuplicate($configTable, $configItem, ['value']);
         }
         
-        $context_version = (empty($this->context))?null:$this->context->getVersion();
+        $context_version = $this->moduleResource->getDbVersion('Viabillhq_Payment');
         if (isset($context_version)) {
             if (version_compare($context_version, '0.0.2', '<')) {
                 $pathMap = [
