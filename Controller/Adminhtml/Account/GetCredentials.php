@@ -123,11 +123,19 @@ class GetCredentials extends Action
      *
      * @param string $command
      * @param array $requestParams
+     * @throws LocalizedException
      */
     private function beforeRequest($command, &$requestParams)
     {
         if ($command === ViabillCommandPool::COMMAND_ACCOUNT_REGISTER) {
             $requestParams['affiliate'] = 'MAGENTO';
+            // check if tax id is valid or needs a modification
+            $taxId = $this->sanitizeTaxId($requestParams['tax_id'], $requestParams['country']);
+            if (empty($taxId)) {
+                throw new LocalizedException(__('Invalid Tax ID. Please make sure it is not empty and contains a valid value.'));
+            } else {
+                $requestParams['tax_id'] = $taxId;
+            }
         }
     }
 
@@ -142,4 +150,36 @@ class GetCredentials extends Action
             $this->adminNotification->registerAdminNotifications();
         }
     }
+
+    /**
+     * Sanitize and format the Tax ID (if given)
+     * 
+     * @param string $taxId
+     * @param string $country
+     * 
+     * @return string
+     */
+    public function sanitizeTaxId($taxId, $country) {
+        $taxId = str_replace(array(' ','-'), '', trim($taxId));
+        if ($country == 'ES') {        
+         $regex_with_prefix = '/^ES[0-9A-Z]*/';
+         if (preg_match($regex_with_prefix, $taxId)) {
+           return $taxId;
+         }
+         $regex_without_prefix = '/^[0-9A-Z]+/';
+         if (preg_match($regex_without_prefix, $taxId)) {
+           return 'ES'.$taxId;
+         }
+        } else if ($country == 'DK') {
+          $regex_with_prefix = '/^DK[0-9]{8}$/';
+          if (preg_match($regex_with_prefix, $taxId)) {
+           return $taxId;
+          }
+          $regex_without_prefix = '/^[0-9]{8}$/';
+          if (preg_match($regex_without_prefix, $taxId)) {
+           return 'DK'.$taxId;
+          }
+        }
+        return '';
+     }
 }

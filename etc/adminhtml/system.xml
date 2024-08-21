@@ -55,6 +55,12 @@
                             <frontend_class>disabled_on_log_in</frontend_class>
                             <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
                             <config_path>payment/viabill_account/merchant_name</config_path>
+                        </field>    
+                        <field id="tax_id" translate="label" sortOrder="175" showInDefault="1" showInWebsite="0" showInStore="0">
+                            <label>Tax ID</label>
+                            <frontend_class>account_required disabled_on_log_in</frontend_class>
+                            <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
+                            <config_path>payment/viabill_account/tax_id</config_path>    
                         </field>
                         <field id="reg_buttons" translate="registration_button_label label attribute login_button_label" sortOrder="180" showInDefault="1" showInWebsite="0" showInStore="0">
                             <frontend_model>ViabillRegistrationForm</frontend_model>

@@ -36,6 +36,7 @@ class UpdateViabillApiPathsInCoreConfig implements DataPatchInterface, PatchVers
         AccountConfiguration::CONFIG_PATH_VIABILL_ACCOUNT_CONTACT_NAME,
         AccountConfiguration::CONFIG_PATH_VIABILL_ACCOUNT_PHONE,
         AccountConfiguration::CONFIG_PATH_VIABILL_ACCOUNT_MERCHANT_NAME,
+        AccountConfiguration::CONFIG_PATH_VIABILL_ACCOUNT_TAX_ID,
         AccountConfiguration::CONFIG_PATH_VIABILL_API_KEY,
         AccountConfiguration::CONFIG_PATH_VIABILL_SECRET,
         AccountConfiguration::CONFIG_PATH_VIABILL_PRICE_TAG_SCRIPT

@@ -17,6 +17,7 @@ class AccountConfiguration
     public const CONFIG_PATH_VIABILL_ACCOUNT_CONTACT_NAME = 'payment/viabill_account/contact_name';
     public const CONFIG_PATH_VIABILL_ACCOUNT_PHONE = 'payment/viabill_account/phone';
     public const CONFIG_PATH_VIABILL_ACCOUNT_MERCHANT_NAME = 'payment/viabill_account/merchant_name';
+    public const CONFIG_PATH_VIABILL_ACCOUNT_TAX_ID = 'payment/viabill_account/tax_id';
     public const CONFIG_PATH_VIABILL_API_KEY = 'payment/viabill/apikey';
     public const CONFIG_PATH_VIABILL_SECRET = 'payment/viabill/secret';
     public const CONFIG_PATH_VIABILL_PRICE_TAG_SCRIPT = 'payment/viabill/price_tag_script';
@@ -34,6 +35,7 @@ class AccountConfiguration
         'name' => self::CONFIG_PATH_VIABILL_ACCOUNT_CONTACT_NAME,
         'phone' => self::CONFIG_PATH_VIABILL_ACCOUNT_PHONE,
         'merchant_name' => self::CONFIG_PATH_VIABILL_ACCOUNT_MERCHANT_NAME,
+        'tax_id' => self::CONFIG_PATH_VIABILL_ACCOUNT_TAX_ID,
         'key' => self::CONFIG_PATH_VIABILL_API_KEY,
         'secret' => self::CONFIG_PATH_VIABILL_SECRET,
         'pricetagScript' => self::CONFIG_PATH_VIABILL_PRICE_TAG_SCRIPT,

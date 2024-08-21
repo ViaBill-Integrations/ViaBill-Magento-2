@@ -234,6 +234,7 @@
                 <item name="url" xsi:type="string">url</item>
                 <item name="country" xsi:type="string">country</item>
                 <item name="name" xsi:type="string">name</item>
+                <item name="taxId" xsi:type="string">tax_id</item>
                 <item name="affiliate" xsi:type="string">affiliate</item>
                 <item name="additionalInfo" xsi:type="array">
                     <!--nested array values will be unnamed-->                    
