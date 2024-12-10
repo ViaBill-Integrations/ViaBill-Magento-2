@@ -1,126 +1,119 @@
-# ViaBill - seamless financing! 
-## Module for Magento 2
-
-# Prerequisites
-
-1. A compatible Magento 2 version. Note that ViaBill Payment module is compatible with Magento 2.3.x and early versions of 2.4.x. It may be compatible with newer versions as well, but it hasn't been tested.
-2. SSL must be installed on your site and active on your Checkout pages.
-3. As with _all_ Magento extensions, it is highly recommended to backup your site before installation and to install and test on a staging environment prior to production deployments.
+# ViaBill - Seamless Financing!
+### Module for Magento 2
+## Prerequisites
+1. Compatible Magento 2 Version: The ViaBill Payment module is compatible with Magento 2.3.x and early versions of 2.4.x. Compatibility with newer versions has not been tested but is likely.
+2. SSL Requirement: SSL must be installed and active, especially on Checkout pages.
+3. Backup Your Site: Always back up your site before installation. Install and test on a staging environment prior to deploying to production.
+4. Environment Requirements: Ensure your server meets the following:
+- PHP version compatible with your Magento version.
+- Composer installed and compatible with your Magento version.
+- At least 2GB of PHP memory available.
 
 # Installation
+### Installation via Composer
+This is the recommended method for installing the ViaBill Payment module as it ensures all dependencies are handled automatically.
 
-Before you start the installation of the module, make sure you meet the requirements set by your Magento version. More specifically, you should make sure that the PHP version and the Composer version is compatible with the Magento 2 version installed on your server. Also, make sure there is enough PHP memory (2GB or more) to complete the installation without errors.
-
-## Installation via Composer
-
-If you’re running the composer command for the first time, you may be asked for your Magento Marketplace account credentials (Public Key and Private Key). Therefore, if you haven't done it before, please go to https://magento.com/ and create an Magento Marketplace account to obtain the keys.
-1. Log in to your server with SSH and go to the Magento 2 root folder.
-2. Enter the following commands: 
+1. Log in to your server via SSH and navigate to the Magento 2 root folder.
+2. Run the following commands:
 ```sh
 composer require viabillhq/module-payment
 php bin/magento module:enable Viabillhq_Payment
 php bin/magento setup:upgrade
+php bin/magento cache:flush
+php bin/magento indexer:reindex
 ```
+The module should now be installed and enabled.
 
-## Installation via app/code folder
+## Installation via app/code Folder
+Use this method if Composer is unavailable or the PHP memory limit is insufficient for Composer-based installation.
 
-This method is an alternative method to the installation via Composer, in case you have not enough PHP memory to complete the installation, or if the composer tool is not available.
-1. Download the module files from a public repository
-2. Copy the contents of the viabillhq/module-payment folder into the newly created `{magento 2 root folder}`/app/code/Viabillhq/Payment folder.
-3. Enter the following commands:
+1. Download the module files from the public repository.
+2. Copy the contents of the viabillhq/module-payment folder into `{Magento root}`/app/code/Viabillhq/Payment.
+3. Run the following commands:
 ```sh
 php bin/magento module:enable Viabillhq_Payment
 php bin/magento setup:di:compile
 php bin/magento setup:upgrade
+php bin/magento cache:flush
+php bin/magento indexer:reindex
 ```
+The module should now be installed and enabled.
+## Configuration
+1. Log in to the Magento Admin panel.
+2. Navigate to Stores → Configuration → Sales → Payment Methods.
+3. Locate the ViaBill payment method and click to configure.
 
-## Installation via Marketplace
+## Module Settings
+1. Enable: Set this to "Yes" to enable ViaBill as a payment method.
+2. Test Transactions Mode: Use "Yes" for sandbox mode; set to "No" for live transactions.
+3. Debug Mode: Enable for troubleshooting and log generation.
 
-Please follow these instructions to install the module through the Magento Marketplace. Note that this method is not available in all Magento versions.
+## Price Tag Settings
+If the ViaBill Price Tag feature is enabled, a small information box will appear below product prices or the cart total to indicate installment details.
 
-# Configuration
-
-From Magento Admin navigate to Stores -> Configuration -> Sales -> Payment Methods section. On the Payments Methods page ViaBill should be listed together with other installed payment methods in the system.
-
-## New or Existing User
-
-Before configuring the module, you need to create a new ViaBill account or sign in, if you already have an existing one.
-
-## Module Configuration
-
-Once you have created successfully your ViaBill account, or login into your existing one, you will be able to configure the payment module. Please pay attention to the following settings:
-Enable: Set the parameter to “Yes” to enable this payment method.
-Test Transactions Mode: If this parameter is set to “Yes”, no actual payment is made, therefore orders should not be shipped. Once you are ready to use ViaBill with real customers it's important to set this parameter to “No”.
-Debug Mode: This parameter is useful if something is not working as expected and it can provide valuable information to the tech support team.
-
-> Tip: If you can't save the module configuration settings without getting any errors, click on the “Configure” button for the PayPal Express Checkout  payment method that appears on the same page. Sometimes, the browser fills in partially the Express Checkout form fields and you have to manually clear these fields before clicking on the “Save Config” button.
-
-## PriceTag Settings
-
-If you enable the ViaBill Price Tag feature, then a small info box will appear below the product price and/or the cart total price to indicate the monthly installments.
-
-# Upgrade Module
-
-If you want to upgrade the ViaBill Payment Module, there are two methods to do that that are explained below. 
-
+# Upgrading the Module
 ## Upgrade via Composer
+If the module was installed via Composer, use this method:
 
-This method is recommended if you have installed the ViaBill module using the Composer.
-
-1. Log in to your server with SSH and go to the Magento 2 root folder.
-2. Enter the following commands
+1. Log in via SSH and navigate to the Magento 2 root folder.
+2. Run the following commands:
 ```sh
-rm -rf var/page_cache var/cache var/composer_home var/generation var/di var/view_preprocessed
-composer update vendor/module-name
+composer update viabillhq/module-payment
 php bin/magento setup:upgrade
 php bin/magento setup:di:compile
 php bin/magento setup:static-content:deploy -f
 php bin/magento cache:flush
 php bin/magento indexer:reindex
 ```
-## Upgrade manually
 
-This method is recommended only if you have not installed the module via Composer. 
+## Upgrade via app/code Folder
+If the module was installed manually, follow these steps:
 
-1. Download the module files from a public repository
-2. Copy the contents of the viabillhq/module-payment folder into the existing folder, which can be one of the following: `{magento 2 root folder}`/app/code/Viabillhq/Payment or `{magento 2 root folder}`/vendor/viabillhq/module-payment
-3. Log in to your server with SSH and go to the Magento 2 root folder.
-4. Enter the following commands
-```sh 
-rm -rf var/page_cache var/cache var/composer_home var/generation var/di var/view_preprocessed
+1. Download the latest module version from the public repository.
+2. Replace the contents of `{Magento root}`/app/code/Viabillhq/Payment with the new version.
+3. Run the following commands:
+```sh
 php bin/magento setup:upgrade
 php bin/magento setup:di:compile
 php bin/magento setup:static-content:deploy -f
 php bin/magento cache:flush
 php bin/magento indexer:reindex
 ```
-# Disable Module
 
-If you wish disable the ViaBill module without uninstall it, you can simply go to the module configuration page by navigating to Stores -> Configuration -> Sales -> Payment Methods and inside the ViaBill Module Configuration set the “Enable” parameter to No. 
+## Disabling the Module
+To disable the ViaBill module without uninstalling it:
 
-You mean need to clear the Magento 2 cache to see the changes in the front-end.
-
-# Uninstall Module
-
-If you want to completely remove the ViaBill module you will need shell access. More specifically:
-
-1. Log in to your server with SSH and go to the Magento 2 root folder.
-2. Enter the commands: 
+1. Navigate to Stores → Configuration → Sales → Payment Methods.
+2. Set "Enable" to "No" in the ViaBill module settings.
+3. Clear the Magento cache:
 ```sh
-php bin/magento module:disable Viabillhq_Payment --clear-static-content 
-php bin/magento setup:upgrade
-uninstall -r Viabillhq_Payment
+php bin/magento cache:flush
 ```
-# Troubleshooting and Support
 
-## ViaBill Module Support
+## Uninstalling the Module
+To completely remove the ViaBill module:
 
-If you are experiencing any technical issues, please navigate to Stores -> Configuration -> Sales -> Payment Methods and under the ViaBill Module Configuration section set the Debug Mode parameter to “Developer”. Then try to replicate your issue by repeating the action which caused it. Finally, click on the “Contact Form” link that you will find under the ViaBill Module Info section. Fill out the form and submit it to our technical support team. This contact form is auto-populated with vital information that will help us to resolve your issue faster.
+### If Installed via Composer:
+1. Log in via SSH and navigate to the Magento 2 root folder.
+2. Run the following commands:
+```sh
+php bin/magento module:disable Viabillhq_Payment --clear-static-content
+composer remove viabillhq/module-payment
+php bin/magento setup:upgrade
+```
 
-Alternatively, contact us via email at tech@viabill.com.
+### If Installed via app/code:
+1. Log in via SSH and navigate to the Magento 2 root folder.
+2. Run the following commands:
+```sh
+php bin/magento module:disable Viabillhq_Payment --clear-static-content
+php bin/magento setup:upgrade
+rm -rf app/code/Viabillhq/Payment
+php bin/magento cache:flush
+```
 
-## Magento Support
+## Troubleshooting
+1. Enable Debug Mode: Set Debug Mode to "Yes" in the module configuration to generate logs.
+2. Contact Technical Support: If the issue persists, contact ViaBill support at tech@viabill.com.
 
-Magento is an open source ecommerce solution: https://magento.com
-Magento Inc is an Adobe company: https://magento.com/about
-For Magento support, see Magento Help Center: https://support.magento.com/hc/en-us 
+
