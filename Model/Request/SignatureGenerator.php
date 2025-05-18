@@ -39,16 +39,19 @@ class SignatureGenerator
      * @param array $fields
      *
      * @return string
-     */
-    public function generateSignature(array $fields) : string
+     */    
+    public function generateSignature(array $fields): string
     {
         $signatureParts = [];
         $patternParts = explode('#', $this->signaturePattern);
+
         foreach ($patternParts as $part) {
-            if (isset($fields[$part])) {
-                $signatureParts[] = $fields[$part];
+            if (!isset($fields[$part]) || trim((string)$fields[$part]) === '') {
+                throw new LocalizedException(__("Missing or empty required field for signature: %1", $part));
             }
+            $signatureParts[] = $fields[$part];
         }
+
         $signature = implode('#', $signatureParts);
         return hash('sha256', $signature);
     }
