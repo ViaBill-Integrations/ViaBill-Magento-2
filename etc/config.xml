@@ -31,7 +31,7 @@
                 <can_cancel>1</can_cancel>
                 <can_use_internal>0</can_use_internal>
                 <is_gateway>1</is_gateway>
-                <admin_notifications_severity>4</admin_notifications_severity>
+                <admin_notifications_severity>1</admin_notifications_severity>
                 <viabill_payment_action>authorize</viabill_payment_action>
                 <order_status_before_authorization>pending</order_status_before_authorization>
                 <order_status_after_authorization>pending_payment</order_status_after_authorization>
