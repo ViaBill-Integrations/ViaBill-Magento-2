@@ -189,7 +189,7 @@ class OrderManager
     {
         $order->setState(Order::STATE_PENDING_PAYMENT);
         $this->orderRepository->save($order);
-    }   
+    }
 
     /**
      * Capture.

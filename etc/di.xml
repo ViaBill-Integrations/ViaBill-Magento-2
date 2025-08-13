@@ -5,7 +5,8 @@
  * See LICENSE.txt for license details.
  */
 -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
     <virtualType name="ViabillFacade" type="Magento\Payment\Model\Method\Adapter">
         <arguments>
@@ -50,20 +51,20 @@
     <!-- Viabill Authorize command declaration start-->
     <virtualType name="ViabillAuthorizeCommand" type="Viabillhq\Payment\Gateway\Command\AuthorizeCommand">
         <arguments>
-            <argument name="requestBuilder" xsi:type="object">ViabillAuthorizeRequestBuilder</argument>
-            <argument name="transferFactory" xsi:type="object">ViabillAuthorizeTransferFactory</argument>
-            <argument name="client" xsi:type="object">Viabillhq\Payment\Gateway\Http\Client\Curl</argument>
-            <argument name="handler" xsi:type="object">ViabillAuthorizeHandler</argument>
-            <argument name="validator" xsi:type="object">Viabillhq\Payment\Gateway\Validator\AuthorizeValidator</argument>
-        </arguments>
+<argument name="requestBuilder" xsi:type="object">ViabillAuthorizeRequestBuilder</argument>
+<argument name="transferFactory" xsi:type="object">ViabillAuthorizeTransferFactory</argument>
+<argument name="client" xsi:type="object">Viabillhq\Payment\Gateway\Http\Client\Curl</argument>
+<argument name="handler" xsi:type="object">ViabillAuthorizeHandler</argument>
+<argument name="validator" xsi:type="object">Viabillhq\Payment\Gateway\Validator\AuthorizeValidator</argument>
+    </arguments>
     </virtualType>
     <virtualType name="ViabillAuthorizeRequestBuilder" type="Viabillhq\Payment\Gateway\Request\RequestBuilderComposite">
         <arguments>
             <argument name="builders" xsi:type="array">
-                <item name="additionalData" xsi:type="string">Viabillhq\Payment\Gateway\Request\Authorize\AdditionalDataBuilder</item>
-                <item name="config" xsi:type="string">AuthorizeConfigDataBuilder</item>
-                <item name="transaction" xsi:type="string">AuthorizeTransactionDataBuilder</item>
-                <item name="url" xsi:type="string">Viabillhq\Payment\Gateway\Request\Authorize\UrlDataBuilder</item>
+    <item name="additionalData" xsi:type="string">Viabillhq\Payment\Gateway\Request\Authorize\AdditionalDataBuilder</item>
+    <item name="config" xsi:type="string">AuthorizeConfigDataBuilder</item>
+    <item name="transaction" xsi:type="string">AuthorizeTransactionDataBuilder</item>
+    <item name="url" xsi:type="string">Viabillhq\Payment\Gateway\Request\Authorize\UrlDataBuilder</item>
             </argument>
             <argument name="signatureGenerator" xsi:type="object">ViabillAuthorizeSignatureGenerator</argument>
             <argument name="signatureFieldName" xsi:type="string">sha256check</argument>
@@ -117,7 +118,7 @@
     <virtualType name="ViabillAuthorizeHandler" type="Magento\Payment\Gateway\Response\HandlerChain">
         <arguments>
             <argument name="handlers" xsi:type="array">
-                <item name="authorizeHandler" xsi:type="string">Viabillhq\Payment\Gateway\Response\AuthorizeHandler</item>
+<item name="authorizeHandler" xsi:type="string">Viabillhq\Payment\Gateway\Response\AuthorizeHandler</item>
             </argument>
         </arguments>
     </virtualType>
@@ -126,11 +127,11 @@
     <!-- Viabill GetCountries command declaration start-->
     <virtualType name="ViabillGetCountriesCommand" type="Viabillhq\Payment\Gateway\Command\GatewayCommand">
         <arguments>
-            <argument name="requestBuilder" xsi:type="object">GetCountriesConfigDataBuilder</argument>
-            <argument name="transferFactory" xsi:type="object">ViabillGetCountriesTransferFactory</argument>
-            <argument name="client" xsi:type="object">Viabillhq\Payment\Gateway\Http\Client\Curl</argument>
-            <argument name="handler" xsi:type="object">ViabillGetCountriesHandler</argument>
-            <argument name="validator" xsi:type="object">Viabillhq\Payment\Gateway\Validator\GetCountriesValidator</argument>
+<argument name="requestBuilder" xsi:type="object">GetCountriesConfigDataBuilder</argument>
+<argument name="transferFactory" xsi:type="object">ViabillGetCountriesTransferFactory</argument>
+<argument name="client" xsi:type="object">Viabillhq\Payment\Gateway\Http\Client\Curl</argument>
+<argument name="handler" xsi:type="object">ViabillGetCountriesHandler</argument>
+<argument name="validator" xsi:type="object">Viabillhq\Payment\Gateway\Validator\GetCountriesValidator</argument>
         </arguments>
     </virtualType>
     <virtualType name="GetCountriesConfigDataBuilder" type="Viabillhq\Payment\Gateway\Request\ConfigDataBuilder">
@@ -142,18 +143,18 @@
     </virtualType>
     <virtualType name="ViabillGetCountriesTransferFactory" type="Viabillhq\Payment\Gateway\Http\TransferFactory">
         <arguments>
-            <argument name="method" xsi:type="const">Laminas\http\Request::METHOD_GET</argument>
-            <argument name="endpointUrl" xsi:type="string">/api/addon/magento/countries/supported/:locale</argument>
-            <argument name="urlParams" xsi:type="array">
-                <item name="locale" xsi:type="string">locale</item>
-            </argument>
+<argument name="method" xsi:type="const">Laminas\http\Request::METHOD_GET</argument>
+<argument name="endpointUrl" xsi:type="string">/api/addon/magento/countries/supported/:locale</argument>
+<argument name="urlParams" xsi:type="array">
+    <item name="locale" xsi:type="string">locale</item>
+</argument>
         </arguments>
     </virtualType>
     <virtualType name="ViabillGetCountriesHandler" type="Magento\Payment\Gateway\Response\HandlerChain">
         <arguments>
-            <argument name="handlers" xsi:type="array">
-                <item name="getStoreHandler" xsi:type="string">Viabillhq\Payment\Gateway\Response\GetCountriesHandler</item>
-            </argument>
+<argument name="handlers" xsi:type="array">
+    <item name="getStoreHandler" xsi:type="string">Viabillhq\Payment\Gateway\Response\GetCountriesHandler</item>
+</argument>
         </arguments>
     </virtualType>
     <!-- // Viabill GetCountries command declaration end-->
@@ -161,22 +162,22 @@
     <!-- Viabill Notifications command declaration start-->
     <virtualType name="ViabillGetNotificationsCommand" type="Viabillhq\Payment\Gateway\Command\GatewayCommand">
         <arguments>
-            <argument name="requestBuilder" xsi:type="object">ViabillServiceRequestBuilder</argument>
-            <argument name="transferFactory" xsi:type="object">ViabillGetNotificationsTransferFactory</argument>
-            <argument name="client" xsi:type="object">Viabillhq\Payment\Gateway\Http\Client\Curl</argument>
-            <argument name="handler" xsi:type="object">Magento\Payment\Gateway\Response\HandlerChain</argument>
-            <argument name="validator" xsi:type="object">Viabillhq\Payment\Gateway\Validator\GetNotificationsValidator</argument>
+<argument name="requestBuilder" xsi:type="object">ViabillServiceRequestBuilder</argument>
+<argument name="transferFactory" xsi:type="object">ViabillGetNotificationsTransferFactory</argument>
+<argument name="client" xsi:type="object">Viabillhq\Payment\Gateway\Http\Client\Curl</argument>
+<argument name="handler" xsi:type="object">Magento\Payment\Gateway\Response\HandlerChain</argument>
+<argument name="validator" xsi:type="object">Viabillhq\Payment\Gateway\Validator\GetNotificationsValidator</argument>
         </arguments>
     </virtualType>
     <virtualType name="ViabillGetNotificationsTransferFactory" type="Viabillhq\Payment\Gateway\Http\TransferFactory">
         <arguments>
-            <argument name="method" xsi:type="const">Laminas\http\Request::METHOD_GET</argument>
-            <argument name="endpointUrl" xsi:type="string">/api/addon/magento/notifications?key=:apikey&amp;signature=:signature</argument>
-            <argument name="urlParams" xsi:type="array">
-                <item name="key" xsi:type="string">apikey</item>
-                <item name="signature" xsi:type="string">signature</item>
-            </argument>
-            <argument name="signaturePattern" xsi:type="string">apikey#secret</argument>
+<argument name="method" xsi:type="const">Laminas\http\Request::METHOD_GET</argument>
+<argument name="endpointUrl" xsi:type="string">/api/addon/magento/notifications?key=:apikey&amp;signature=:signature</argument>
+<argument name="urlParams" xsi:type="array">
+    <item name="key" xsi:type="string">apikey</item>
+    <item name="signature" xsi:type="string">signature</item>
+</argument>
+<argument name="signaturePattern" xsi:type="string">apikey#secret</argument>
         </arguments>
     </virtualType>
     <!-- // Viabill Notifications command declaration end-->
@@ -184,19 +185,19 @@
     <!-- Viabill My ViaBill command declaration start-->
     <virtualType name="ViabillMyViabillCommand" type="Viabillhq\Payment\Gateway\Command\GatewayCommand">
         <arguments>
-            <argument name="requestBuilder" xsi:type="object">ViabillServiceRequestBuilder</argument>
-            <argument name="transferFactory" xsi:type="object">ViabillMyViabillTransferFactory</argument>
-            <argument name="client" xsi:type="object">Viabillhq\Payment\Gateway\Http\Client\Curl</argument>
-            <argument name="handler" xsi:type="object">Magento\Payment\Gateway\Response\HandlerChain</argument>
-            <argument name="validator" xsi:type="object">Viabillhq\Payment\Gateway\Validator\MyViabillValidator</argument>
+<argument name="requestBuilder" xsi:type="object">ViabillServiceRequestBuilder</argument>
+<argument name="transferFactory" xsi:type="object">ViabillMyViabillTransferFactory</argument>
+<argument name="client" xsi:type="object">Viabillhq\Payment\Gateway\Http\Client\Curl</argument>
+<argument name="handler" xsi:type="object">Magento\Payment\Gateway\Response\HandlerChain</argument>
+<argument name="validator" xsi:type="object">Viabillhq\Payment\Gateway\Validator\MyViabillValidator</argument>
         </arguments>
     </virtualType>
     <virtualType name="ViabillServiceRequestBuilder" type="Viabillhq\Payment\Gateway\Request\RequestBuilderComposite">
         <arguments>
-            <argument name="builders" xsi:type="array">
-                <item name="config" xsi:type="string">DefaultConfigDataBuilder</item>
-            </argument>
-            <argument name="signatureGenerator" xsi:type="object">ViabillServiceRequestSignatureGenerator</argument>
+<argument name="builders" xsi:type="array">
+    <item name="config" xsi:type="string">DefaultConfigDataBuilder</item>
+</argument>
+<argument name="signatureGenerator" xsi:type="object">ViabillServiceRequestSignatureGenerator</argument>
         </arguments>
     </virtualType>
     <virtualType name="ViabillServiceRequestSignatureGenerator" type="Viabillhq\Payment\Model\Request\SignatureGenerator">
@@ -220,11 +221,11 @@
     <!-- Viabill Account Register command declaration start-->
     <virtualType name="ViabillAccountRegisterCommand" type="Viabillhq\Payment\Gateway\Command\GatewayCommand">
         <arguments>
-            <argument name="requestBuilder" xsi:type="object">RegisterRequestDataBuilder</argument>
-            <argument name="transferFactory" xsi:type="object">ViabillAccountRegisterTransferFactory</argument>
-            <argument name="client" xsi:type="object">Viabillhq\Payment\Gateway\Http\Client\Curl</argument>
-            <argument name="handler" xsi:type="object">ViabillGetCredentialsHandler</argument>
-            <argument name="validator" xsi:type="object">Viabillhq\Payment\Gateway\Validator\GetCredentialsValidator</argument>
+<argument name="requestBuilder" xsi:type="object">RegisterRequestDataBuilder</argument>
+<argument name="transferFactory" xsi:type="object">ViabillAccountRegisterTransferFactory</argument>
+<argument name="client" xsi:type="object">Viabillhq\Payment\Gateway\Http\Client\Curl</argument>
+<argument name="handler" xsi:type="object">ViabillGetCredentialsHandler</argument>
+<argument name="validator" xsi:type="object">Viabillhq\Payment\Gateway\Validator\GetCredentialsValidator</argument>
         </arguments>
     </virtualType>
     <virtualType name="RegisterRequestDataBuilder" type="Viabillhq\Payment\Gateway\Request\GetCredentials\RequestDataBuilder">
@@ -252,7 +253,7 @@
     <virtualType name="ViabillGetCredentialsHandler" type="Magento\Payment\Gateway\Response\HandlerChain">
         <arguments>
             <argument name="handlers" xsi:type="array">
-                <item name="getCredentialsHandler" xsi:type="string">Viabillhq\Payment\Gateway\Response\GetCredentialsHandler</item>
+<item name="getCredentialsHandler" xsi:type="string">Viabillhq\Payment\Gateway\Response\GetCredentialsHandler</item>
             </argument>
         </arguments>
     </virtualType>
@@ -261,11 +262,11 @@
     <!-- Viabill Account Login command declaration start-->
     <virtualType name="ViabillAccountLoginCommand" type="Viabillhq\Payment\Gateway\Command\GatewayCommand">
         <arguments>
-            <argument name="requestBuilder" xsi:type="object">LoginRequestDataBuilder</argument>
-            <argument name="transferFactory" xsi:type="object">ViabillAccountLoginTransferFactory</argument>
-            <argument name="client" xsi:type="object">Viabillhq\Payment\Gateway\Http\Client\Curl</argument>
-            <argument name="handler" xsi:type="object">ViabillGetCredentialsHandler</argument>
-            <argument name="validator" xsi:type="object">Viabillhq\Payment\Gateway\Validator\GetCredentialsValidator</argument>
+<argument name="requestBuilder" xsi:type="object">LoginRequestDataBuilder</argument>
+<argument name="transferFactory" xsi:type="object">ViabillAccountLoginTransferFactory</argument>
+<argument name="client" xsi:type="object">Viabillhq\Payment\Gateway\Http\Client\Curl</argument>
+<argument name="handler" xsi:type="object">ViabillGetCredentialsHandler</argument>
+<argument name="validator" xsi:type="object">Viabillhq\Payment\Gateway\Validator\GetCredentialsValidator</argument>
         </arguments>
     </virtualType>
     <virtualType name="LoginRequestDataBuilder" type="Viabillhq\Payment\Gateway\Request\GetCredentials\RequestDataBuilder">
@@ -287,11 +288,11 @@
     <!-- Viabill Capture command declaration start -->
     <virtualType name="ViabillCaptureCommand" type="Viabillhq\Payment\Gateway\Command\GatewayCommand">
         <arguments>
-            <argument name="requestBuilder" xsi:type="object">ViabillCaptureRequestBuilder</argument>
-            <argument name="transferFactory" xsi:type="object">ViabillCaptureTransferFactory</argument>
-            <argument name="client" xsi:type="object">Viabillhq\Payment\Gateway\Http\Client\Curl</argument>
-            <argument name="handler" xsi:type="object">Magento\Payment\Gateway\Response\HandlerChain</argument>
-            <argument name="validator" xsi:type="object">Viabillhq\Payment\Gateway\Validator\DummyValidator</argument>
+<argument name="requestBuilder" xsi:type="object">ViabillCaptureRequestBuilder</argument>
+<argument name="transferFactory" xsi:type="object">ViabillCaptureTransferFactory</argument>
+<argument name="client" xsi:type="object">Viabillhq\Payment\Gateway\Http\Client\Curl</argument>
+<argument name="handler" xsi:type="object">Magento\Payment\Gateway\Response\HandlerChain</argument>
+<argument name="validator" xsi:type="object">Viabillhq\Payment\Gateway\Validator\DummyValidator</argument>
         </arguments>
     </virtualType>
     <virtualType name="ViabillCaptureRequestBuilder" type="Viabillhq\Payment\Gateway\Request\RequestBuilderComposite">

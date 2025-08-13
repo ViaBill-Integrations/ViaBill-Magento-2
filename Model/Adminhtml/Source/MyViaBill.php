@@ -48,11 +48,12 @@ class MyViaBill
      *
      * @param CommandPoolInterface $commandPool
      * @param LoggerInterface $logger
+     * @param CacheInterface $cache
      */
     public function __construct(
         CommandPoolInterface $commandPool,
         LoggerInterface $logger,
-        CacheInterface $cache      
+        CacheInterface $cache
     ) {
         $this->commandPool = $commandPool;
         $this->logger = $logger;
@@ -98,11 +99,11 @@ class MyViaBill
         } finally {
             $this->myViaBillUrl = $result['url'] ?? self::VIABILL_LOGIN_URL;
         }
-    }    
+    }
 
     /**
      * Loads ViaBill Notifications
-     */    
+     */
     private function loadNotifications()
     {
         $cacheKeyTimestamp = 'viabill_notifications_last_fetch';
@@ -126,14 +127,14 @@ class MyViaBill
             $messages = $result['messages'] ?? [];
 
             // Check for duplicate response
-            $currentHash = md5(json_encode($messages));
+            $currentHash = hash('sha256', json_encode($messages));
             if (!$allowDuplicates) {
                 if ($currentHash === $lastHash) {
                     $this->logger->info('[ViaBill] Duplicate notification response detected — skipping.');
                     $this->notifications = [];
                     return;
                 }
-            }            
+            }
 
             // Save new hash + timestamp
             $this->cache->save($currentHash, $cacheKeyHash, [ConfigCache::CACHE_TAG], 0);
@@ -146,5 +147,4 @@ class MyViaBill
             $this->notifications = [];
         }
     }
-
 }

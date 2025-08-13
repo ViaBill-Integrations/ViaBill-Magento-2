@@ -77,33 +77,33 @@ class GatewayCommand implements CommandInterface
     /**
      * GatewayCommand constructor.
      *
-     * @param BuilderInterface $requestBuilder
+     * @param BuilderInterface        $requestBuilder
      * @param TransferFactoryInterface $transferFactory
-     * @param ClientInterface $client
-     * @param LoggerInterface $logger
-     * @param SerializerInterface $jsonSerializer
-     * @param HandlerInterface|null $handler
-     * @param ValidatorInterface|null $validator
+     * @param ClientInterface         $client
+     * @param LoggerInterface         $logger
+     * @param SerializerInterface     $jsonSerializer
      * @param ViabillExceptionFactory $exceptionFactory
+     * @param HandlerInterface|null   $handler
+     * @param ValidatorInterface|null $validator
      */
     public function __construct(
-        BuilderInterface $requestBuilder,
+        BuilderInterface         $requestBuilder,
         TransferFactoryInterface $transferFactory,
-        ClientInterface $client,
-        LoggerInterface $logger,
-        SerializerInterface $jsonSerializer,
-        HandlerInterface $handler = null,
-        ValidatorInterface $validator = null,
-        ViabillExceptionFactory $exceptionFactory
+        ClientInterface          $client,
+        LoggerInterface          $logger,
+        SerializerInterface      $jsonSerializer,
+        ViabillExceptionFactory  $exceptionFactory,
+        ?HandlerInterface        $handler = null,
+        ?ValidatorInterface      $validator = null
     ) {
-        $this->requestBuilder = $requestBuilder;
-        $this->transferFactory = $transferFactory;
-        $this->client = $client;
-        $this->handler = $handler;
-        $this->validator = $validator;
-        $this->logger = $logger;
-        $this->jsonSerializer = $jsonSerializer;
+        $this->requestBuilder   = $requestBuilder;
+        $this->transferFactory  = $transferFactory;
+        $this->client           = $client;
+        $this->logger           = $logger;
+        $this->jsonSerializer   = $jsonSerializer;
         $this->exceptionFactory = $exceptionFactory;
+        $this->handler          = $handler;
+        $this->validator        = $validator;
     }
 
     /**

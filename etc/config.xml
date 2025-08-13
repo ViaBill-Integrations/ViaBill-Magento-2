@@ -5,7 +5,8 @@
  * See LICENSE.txt for license details.
  */
 -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <payment>
             <viabill>
@@ -20,6 +21,7 @@
                 <hide_checkout>0</hide_checkout>
                 <apikey backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
                 <secret backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
+                <price_tag_script></price_tag_script>
                 <can_initialize>0</can_initialize>
                 <can_use_checkout>1</can_use_checkout>
                 <can_authorize>0</can_authorize>
@@ -36,7 +38,17 @@
                 <order_status_before_authorization>pending</order_status_before_authorization>
                 <order_status_after_authorization>pending_payment</order_status_after_authorization>
                 <order_status_after_capture>processing</order_status_after_capture>
+                <viabill_account>
+                    <email></email>
+                    <country></country>
+                    <shop_url></shop_url>
+                    <contact_name></contact_name>
+                    <phone></phone>
+                    <merchant_name></merchant_name>
+                    <tax_id></tax_id>
+                </viabill_account>
             </viabill>
+
             <viabill_try>
                 <active>0</active>
                 <title>ViaBill - Pay in 30 days</title>                
@@ -47,6 +59,7 @@
                 <test_transaction>1</test_transaction>                
                 <apikey backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
                 <secret backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
+                <price_tag_script></price_tag_script>
                 <can_initialize>0</can_initialize>
                 <can_use_checkout>1</can_use_checkout>
                 <can_authorize>0</can_authorize>
@@ -64,6 +77,17 @@
                 <order_status_after_authorization>pending_payment</order_status_after_authorization>
                 <order_status_after_capture>processing</order_status_after_capture>
             </viabill_try>
+
+            <viabill_account>
+                <email></email>
+                <country></country>
+                <shop_url></shop_url>
+                <contact_name></contact_name>
+                <phone></phone>
+                <merchant_name></merchant_name>
+                <tax_id></tax_id>
+            </viabill_account>
+
         </payment>
     </default>
 </config>

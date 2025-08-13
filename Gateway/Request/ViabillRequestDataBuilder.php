@@ -49,7 +49,7 @@ class ViabillRequestDataBuilder implements BuilderInterface
      * @param array $buildSubject
      *
      * @return mixed
-     * @throws \Exception
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     private function getFieldData($field, array $buildSubject = [])
     {
@@ -57,7 +57,7 @@ class ViabillRequestDataBuilder implements BuilderInterface
         if (method_exists($this, $method)) {
             return $this->{$method}($buildSubject);
         }
-        throw new \Exception( // @codingStandardsIgnoreLine
+        throw new \Magento\Framework\Exception\LocalizedException(
             sprintf('Method "%s" does not exist', $method)
         );
     }

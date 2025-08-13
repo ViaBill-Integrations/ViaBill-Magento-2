@@ -105,12 +105,8 @@ class Authorize extends Action implements CsrfAwareActionInterface
 
     /**
      * @inheritdoc
-     *
-     * @param RequestInterface $request
-     *
-     * @return null
      */
-    public function createCsrfValidationException(RequestInterface $request): ?InvalidRequestException //@codingStandardsIgnoreLine
+    public function createCsrfValidationException(RequestInterface $request): ?InvalidRequestException
     {
         return null;
     }

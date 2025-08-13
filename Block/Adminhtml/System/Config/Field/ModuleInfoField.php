@@ -7,6 +7,7 @@ namespace Viabillhq\Payment\Block\Adminhtml\System\Config\Field;
 
 use Magento\Backend\Block\Context;
 use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Framework\Webapi\Exception;
 use Magento\Framework\Data\Form\FormKey;
 use Magento\Framework\Filesystem\DirectoryList;
@@ -49,6 +50,11 @@ class ModuleInfoField extends \Magento\Backend\Block\AbstractBlock implements
     protected $fileIO;
 
     /**
+     * @var ProductMetadataInterface
+     */
+    private $productMetadata;
+
+    /**
      * ModuleInfoField constructor.
      *
      * @param Context $context
@@ -57,6 +63,7 @@ class ModuleInfoField extends \Magento\Backend\Block\AbstractBlock implements
      * @param FormKey $formKey
      * @param DirectoryList $directory
      * @param StoreManagerInterface $storeManager
+     * @param ProductMetadataInterface $productMetadata
      * @param File $fileIO
      * @param array $data
      */
@@ -67,6 +74,7 @@ class ModuleInfoField extends \Magento\Backend\Block\AbstractBlock implements
         FormKey $formKey,
         DirectoryList $directory,
         StoreManagerInterface $storeManager,
+        ProductMetadataInterface $productMetadata,
         File $fileIO,
         array $data = []
     ) {
@@ -75,6 +83,7 @@ class ModuleInfoField extends \Magento\Backend\Block\AbstractBlock implements
         $this->formKey = $formKey;
         $this->directory = $directory;
         $this->storeManager = $storeManager;
+        $this->productMetadata = $productMetadata;
         $this->fileIO = $fileIO;
         parent::__construct($context, $data);
     }
@@ -95,7 +104,7 @@ class ModuleInfoField extends \Magento\Backend\Block\AbstractBlock implements
         
         try {
             // Get Module Version
-            $module_version = '4.0.41';
+            $module_version = '4.0.42';
                         
             $module_info_data = $module_version;
 
@@ -104,10 +113,7 @@ class ModuleInfoField extends \Magento\Backend\Block\AbstractBlock implements
             $memory_limit = ini_get('memory_limit');
 
             // Get Magento Version
-            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-            $productMetadata =
-                $objectManager->get('Magento\Framework\App\ProductMetadataInterface'); // @codingStandardsIgnoreLine
-            $magento_version = $productMetadata->getVersion();
+            $magento_version = $this->productMetadata->getVersion();
             
             // Log data
             $error_file_path = $this->directory->getPath('log').'/viabill_critical.log';

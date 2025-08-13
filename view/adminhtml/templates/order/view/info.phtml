@@ -13,8 +13,8 @@
 $order = $block->getOrder();
 ?>
 <?php if ($order->getCustomerNote() && strpos($order->getCustomerNote(), 'Test') !== false): ?>
-    <div role="alert" class="message message-error error">
-        <?= __($order->getCustomerNote()) ?>
+    <div role="alert" class="message message-error error">        
+        <?= $block->escapeHtml(__($order->getCustomerNote())) ?>
     </div>
     <br />
 <?php endif; ?>

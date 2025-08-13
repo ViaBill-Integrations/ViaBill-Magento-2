@@ -8,14 +8,14 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <virtualType name="ViabillRegistrationForm" type="Viabillhq\Payment\Block\Adminhtml\System\Config\CredentialsForm">
         <arguments>
-            <argument name="command" xsi:type="const">Viabillhq\Payment\Gateway\Command\ViabillCommandPool::COMMAND_ACCOUNT_REGISTER</argument>
-            <argument name="template" xsi:type="const">Viabillhq\Payment\Block\Adminhtml\System\Config\CredentialsForm::REGISTRATION_TEMPLATE</argument>
+<argument name="command" xsi:type="const">Viabillhq\Payment\Gateway\Command\ViabillCommandPool::COMMAND_ACCOUNT_REGISTER</argument>
+<argument name="template" xsi:type="const">Viabillhq\Payment\Block\Adminhtml\System\Config\CredentialsForm::REGISTRATION_TEMPLATE</argument>
         </arguments>
     </virtualType>
     <virtualType name="ViabillLoginForm" type="Viabillhq\Payment\Block\Adminhtml\System\Config\CredentialsForm">
         <arguments>
-            <argument name="command" xsi:type="const">Viabillhq\Payment\Gateway\Command\ViabillCommandPool::COMMAND_ACCOUNT_LOGIN</argument>
-            <argument name="template" xsi:type="const">Viabillhq\Payment\Block\Adminhtml\System\Config\CredentialsForm::LOGIN_TEMPLATE</argument>
+<argument name="command" xsi:type="const">Viabillhq\Payment\Gateway\Command\ViabillCommandPool::COMMAND_ACCOUNT_LOGIN</argument>
+<argument name="template" xsi:type="const">Viabillhq\Payment\Block\Adminhtml\System\Config\CredentialsForm::LOGIN_TEMPLATE</argument>
         </arguments>
     </virtualType>
 
@@ -51,15 +51,18 @@
     </type>
 
     <type name="Magento\Config\Model\Config">
-        <plugin name="admin_system_config_save_plugin" type="Viabillhq\Payment\Plugin\Config\Model\Config" sortOrder="1" />
+        <plugin name="admin_system_config_save_plugin" 
+            type="Viabillhq\Payment\Plugin\Config\Model\Config" sortOrder="1" />
     </type>
 
     <type name="Magento\Sales\Model\Order\Invoice">
-        <plugin name="Viabillhq\Payment\Plugin\Sales\Model\Order\Invoice" type="Viabillhq\Payment\Plugin\Sales\Model\Order\Invoice" sortOrder="10"/>
+        <plugin name="Viabillhq\Payment\Plugin\Sales\Model\Order\Invoice" 
+            type="Viabillhq\Payment\Plugin\Sales\Model\Order\Invoice" sortOrder="10"/>
     </type>
 
     <type name="Magento\Sales\Model\Service\CreditmemoService">
-        <plugin name="Viabillhq\Payment\Plugin\Sales\Model\Services\CreditmemoService" type="Viabillhq\Payment\Plugin\Sales\Model\Services\CreditmemoService" sortOrder="10"/>
+        <plugin name="Viabillhq\Payment\Plugin\Sales\Model\Services\CreditmemoService" 
+            type="Viabillhq\Payment\Plugin\Sales\Model\Services\CreditmemoService" sortOrder="10"/>
     </type>
 
     <type name="Viabillhq\Payment\Model\Adminhtml\AdminNotification">

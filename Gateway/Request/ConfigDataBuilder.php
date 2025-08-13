@@ -53,7 +53,7 @@ class ConfigDataBuilder extends ViabillRequestDataBuilder
      * Get API Key
      *
      * @return mixed
-     */    
+     */
     protected function getApikey()
     {
         $apiKey = $this->config->getValue('apikey');

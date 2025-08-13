@@ -64,7 +64,8 @@ class Cancel extends Action implements CsrfAwareActionInterface
      */
     public function execute()
     {
-        $this->messageManager->addErrorMessage(__(self::CANCEL_MESSAGE));
+        $cancel_msg_literal = self::CANCEL_MESSAGE;
+        $this->messageManager->addErrorMessage(__($cancel_msg_literal));
 
         /** @var \Magento\Framework\Controller\Result\Redirect $result */
         $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
@@ -74,7 +75,7 @@ class Cancel extends Action implements CsrfAwareActionInterface
                 'Payment Cancel Action for order '.$orderId,
                 DebugLevels::DEBUG_LEVEL_PRIORITY_DEVELOPER
             );
-            $this->orderManager->cancelOrder($orderId, self::CANCEL_MESSAGE);
+            $this->orderManager->cancelOrder($orderId, $cancel_msg_literal);
             $this->checkoutSession->restoreQuote();
             $result->setPath('checkout/cart');
         } catch (\Exception $e) {
@@ -100,12 +101,8 @@ class Cancel extends Action implements CsrfAwareActionInterface
 
     /**
      * @inheritdoc
-     *
-     * @param RequestInterface $request
-     *
-     * @return null
      */
-    public function createCsrfValidationException(RequestInterface $request): ?InvalidRequestException //@codingStandardsIgnoreLine
+    public function createCsrfValidationException(RequestInterface $request): ?InvalidRequestException
     {
         return null;
     }

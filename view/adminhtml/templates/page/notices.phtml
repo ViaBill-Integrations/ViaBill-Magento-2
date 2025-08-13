@@ -1,7 +1,5 @@
 <?php
-
 // @codingStandardsIgnoreFile
-
 ?>
 <?php
 /**
@@ -11,11 +9,11 @@
 <?php if ($block->displayTestTransactionNotice()): ?>
     <div class="messages">
         <div class="message message-warning message-demo-mode">
-            <?= /* @escapeNotVerified */ __(
+            <?= $block->escapeHtml(__(
                 'ViaBill is currently set to Test Mode. ' .
                  'All orders placed with ViaBill should not be shipped! ' .
                  'Remember to disable Test Mode before offering ViaBill on your store.'
-            ) ?>
+            )) ?>
         </div>
     </div>
 <?php endif; ?>

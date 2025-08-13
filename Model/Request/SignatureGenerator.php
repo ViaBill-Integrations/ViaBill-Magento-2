@@ -39,7 +39,7 @@ class SignatureGenerator
      * @param array $fields
      *
      * @return string
-     */    
+     */
     public function generateSignature(array $fields): string
     {
         $signatureParts = [];

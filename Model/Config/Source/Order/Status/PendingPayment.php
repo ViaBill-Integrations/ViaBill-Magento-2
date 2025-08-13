@@ -13,5 +13,4 @@ class PendingPayment extends \Magento\Sales\Model\Config\Source\Order\Status
         \Magento\Sales\Model\Order::STATE_PENDING_PAYMENT,
         \Magento\Sales\Model\Order::STATE_PROCESSING
     ];
-
 }

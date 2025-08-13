@@ -16,20 +16,20 @@
                 "#viabill-request-form": {
                     "Viabillhq_Payment/js/viabill_request": {
                         "loginForm": "#viabil-login-btn",
-                        "loginUrl": "<?= $block->escapeUrl($block->getCredentialsRequestUrl())?>",
-                        "loginParam": "<?= $block->escapeJs($block->getCommand())?>"
+                        "loginUrl": "<?= $escaper->escapeUrl($block->getCredentialsRequestUrl())?>",
+                        "loginParam": "<?= $escaper->escapeJs($block->getCommand())?>"
                     }
                 }
             }
         </script>
         <a id="viabil-forgot-password-btn"
-           href="<?= $block->escapeUrl($block->getForgotPasswordUrl())?>"
+           href="<?= $escaper->escapeUrl($block->getForgotPasswordUrl())?>"
            target="_blank"
            class="forgot-password-btn">
-            <?= $block->escapeHtml(__('Forgot password'))?>
+            <?= $escaper->escapeHtml(__('Forgot password'))?>
         </a>
         <span id="viabil-login-btn" class="action-default">
-            <?= $block->escapeHtml(__('Connect'))?>
+            <?= $escaper->escapeHtml(__('Connect'))?>
         </span>
     </div>
 </div>

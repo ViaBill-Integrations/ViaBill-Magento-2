@@ -19,6 +19,8 @@ use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\View\Asset\Repository;
 use Magento\Framework\Data\Form\FormKey;
 use Magento\Framework\App\RequestInterface;
+use Magento\Framework\App\ProductMetadataInterface;
+use Magento\Framework\Mail\Template\TransportBuilder;
 use Magento\Framework\Escaper;
 use Psr\Log\LoggerInterface;
 use Viabillhq\Payment\Model\UrlProvider;
@@ -28,7 +30,7 @@ class ContactSupport extends Action
     /**
      * The ViaBill module version
      */
-    public const ADDON_VERSION = '4.0.41';
+    public const ADDON_VERSION = '4.0.42';
 
     /**
      * Contact From Action.
@@ -106,6 +108,16 @@ class ContactSupport extends Action
     protected $request;
 
     /**
+     * @var ProductMetadataInterface
+     */
+    protected $productMetadata;
+
+    /**
+     * @var TransportBuilder
+     */
+    protected $transportBuilder;
+    
+    /**
      * ContactSupport constructor.
      *
      * @param Context $context
@@ -118,6 +130,8 @@ class ContactSupport extends Action
      * @param Escaper $escaper
      * @param Resolver $localeResolver
      * @param StoreManagerInterface $storeManager
+     * @param ProductMetadataInterface $productMetadata
+     * @param TransportBuilder $transportBuilder
      * @param ScopeConfigInterface $scopeConfig
      * @param RequestInterface $request
      */
@@ -132,6 +146,8 @@ class ContactSupport extends Action
         Escaper $escaper,
         Resolver $localeResolver,
         StoreManagerInterface $storeManager,
+        ProductMetadataInterface $productMetadata,
+        TransportBuilder $transportBuilder,
         ScopeConfigInterface $scopeConfig,
         RequestInterface $request
     ) {
@@ -144,6 +160,8 @@ class ContactSupport extends Action
         $this->escaper = $escaper;
         $this->localeResolver = $localeResolver;
         $this->storeManager = $storeManager;
+        $this->productMetadata = $productMetadata;
+        $this->transportBuilder = $transportBuilder;
         $this->scopeConfig =  $scopeConfig;
         $this->request = $context->getRequest();
 
@@ -190,10 +208,7 @@ class ContactSupport extends Action
         $memory_limit = ini_get('memory_limit');
 
         // Get Magento Version
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $productMetadata =
-            $objectManager->get('Magento\Framework\App\ProductMetadataInterface'); // @codingStandardsIgnoreLine
-        $magento_version = $productMetadata->getVersion();
+        $magento_version = $this->productMetadata->getVersion();
         
         // Get Store Info
         $langCode = $this->localeResolver->getLocale();
@@ -479,8 +494,30 @@ class ContactSupport extends Action
         $headers .= "Reply-To: ". $merchant_email . "\r\n";
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-                
-        if (mail($to, $email_subject, $email_body, $headers)) { // @codingStandardsIgnoreLine
+
+        try {
+            $transport = $this->transportBuilder
+                ->setTemplateIdentifier('system_email_support_template')
+                ->setTemplateOptions([
+                    'area' => \Magento\Framework\App\Area::AREA_FRONTEND,
+                    'store' => $this->storeManager->getStore()->getId(),
+                ])
+                ->setTemplateVars([
+                    'message' => $email_body
+                ])
+                ->setFromByScope($sender_email)
+                ->addTo($to)
+                ->setReplyTo($merchant_email)
+                ->getTransport();
+
+            $transport->sendMessage();
+            $emailSent = true;
+        } catch (\Exception $e) {
+            $this->logger->error('Support email failed: ' . $e->getMessage());
+            $emailSent = false;
+        }
+                        
+        if ($emailSent) {
             $body = "<div style='background-color: #CEC9FF; padding: 15px; margin:5%;
              border:3px dashed #5a00ff; text-align: center;'><h3>Success!</h3>
              Your request has been received successfully! We will get back to you soon at

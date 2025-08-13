@@ -63,7 +63,7 @@
                                                                         <item name="methods" xsi:type="array">
                                                                             <item name="viabill_try" xsi:type="array">
                                                                                 <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
-                                                                            </item>																																						
+                                                                            </item>                                                                                                                                                        
                                                                         </item>
                                                                     </item>
                                                                 </item>

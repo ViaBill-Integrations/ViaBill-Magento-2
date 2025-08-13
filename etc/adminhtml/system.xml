@@ -5,120 +5,134 @@
  * See LICENSE.txt for license details.
  */
 -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <section id="payment">
-            <!-- viabill payments group -->
-            <group id="viabill" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="viabill" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
                 <label>ViaBill - Easy Monthy Payments</label>
                 <attribute type="activity_path">payment/viabill/active</attribute>
-                <!-- request credentials group -->
-                <group id="new_credentials" translate="label" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
+                <group id="new_credentials" translate="label" sortOrder="100" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
                     <label>Access ViaBill</label>
-                    <!-- registration group -->
-                    <group id="reg_configuration" translate="label" sortOrder="110" showInDefault="1" showInWebsite="0" showInStore="0">
-                        <label>New ViaBill user</label>
-                        <frontend_model>Magento\Paypal\Block\Adminhtml\System\Config\Fieldset\Expanded</frontend_model>
-                        <field id="email" translate="label" sortOrder="120" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <group id="reg_configuration" translate="label" sortOrder="110" showInDefault="1"
+                           showInWebsite="0" showInStore="0">
+                        <label>New ViaBill user</label>                        
+                        <field id="email" translate="label" sortOrder="120" showInDefault="1"
+                               showInWebsite="0" showInStore="0">
                             <label>Email</label>
                             <frontend_class>account_required disabled_on_log_in</frontend_class>
                             <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
                             <config_path>payment/viabill_account/email</config_path>
                         </field>
-                        <field id="country" translate="label" type="select" sortOrder="130" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <field id="country" translate="label" type="select" sortOrder="130" showInDefault="1"
+                               showInWebsite="0" showInStore="0">
                             <label>Country</label>
                             <source_model>Viabillhq\Payment\Model\Adminhtml\Source\Country</source_model>
                             <frontend_class>account_required disabled_on_log_in</frontend_class>
                             <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
                             <config_path>payment/viabill_account/country</config_path>
                         </field>
-                        <field id="shop_url" translate="label" sortOrder="140" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <field id="shop_url" translate="label" sortOrder="140" showInDefault="1"
+                               showInWebsite="0" showInStore="0">
                             <label>URL</label>
                             <frontend_class>account_required disabled_on_log_in</frontend_class>
                             <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
                             <config_path>payment/viabill_account/shop_url</config_path>
                         </field>
-                        <field id="contact_name" translate="label" sortOrder="150" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <field id="contact_name" translate="label" sortOrder="150" showInDefault="1"
+                               showInWebsite="0" showInStore="0">
                             <label>Name</label>
                             <frontend_class>account_required disabled_on_log_in</frontend_class>
                             <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
                             <config_path>payment/viabill_account/contact_name</config_path>
                         </field>
-                        <field id="phone" translate="label" sortOrder="160" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <field id="phone" translate="label" sortOrder="160" showInDefault="1"
+                               showInWebsite="0" showInStore="0">
                             <label>Phone</label>
                             <frontend_class>disabled_on_log_in</frontend_class>
                             <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
                             <config_path>payment/viabill_account/phone</config_path>
                         </field>
-                        <field id="merchant_name" translate="label" sortOrder="170" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <field id="merchant_name" translate="label" sortOrder="170" showInDefault="1"
+                               showInWebsite="0" showInStore="0">
                             <label>Merchant Name</label>
                             <frontend_class>disabled_on_log_in</frontend_class>
                             <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
                             <config_path>payment/viabill_account/merchant_name</config_path>
-                        </field>    
-                        <field id="tax_id" translate="label" sortOrder="175" showInDefault="1" showInWebsite="0" showInStore="0">
+                        </field>
+                        <field id="tax_id" translate="label" sortOrder="175" showInDefault="1"
+                               showInWebsite="0" showInStore="0">
                             <label>Tax ID</label>
                             <frontend_class>account_required disabled_on_log_in</frontend_class>
                             <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
-                            <config_path>payment/viabill_account/tax_id</config_path>    
+                            <config_path>payment/viabill_account/tax_id</config_path>
                         </field>
-                        <field id="reg_buttons" translate="registration_button_label label attribute login_button_label" sortOrder="180" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <field id="reg_buttons" translate="registration_button_label label attribute login_button_label"
+                               sortOrder="180" showInDefault="1" showInWebsite="0" showInStore="0">
                             <frontend_model>ViabillRegistrationForm</frontend_model>
                         </field>
                     </group>
-                    <!-- // registration group -->
-                    <!-- login group -->
-                    <group id="login_configuration" translate="label" sortOrder="300" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <group id="login_configuration" translate="label" sortOrder="300" showInDefault="1"
+                           showInWebsite="0" showInStore="0">
                         <label>Existing user</label>
-                        <field id="login_email" translate="label" sortOrder="310" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <field id="login_email" translate="label" sortOrder="310" showInDefault="1"
+                               showInWebsite="0" showInStore="0">
                             <label>Email</label>
                             <frontend_class>account_required</frontend_class>
                             <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
                             <config_path>payment/viabill_account/email</config_path>
                         </field>
-                        <field id="password" translate="label" type="obscure" sortOrder="320" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <field id="password" translate="label" type="obscure" sortOrder="320" showInDefault="1"
+                               showInWebsite="0" showInStore="0">
                             <label>Password</label>
                             <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
                             <frontend_class>account_required</frontend_class>
                             <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
                             <config_path>payment/viabill_account/password</config_path>
                         </field>
-                        <field id="login_buttons" translate="registration_button_label label attribute login_button_label" sortOrder="330" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <field id="login_buttons" translate="registration_button_label label attribute login_button_label"
+                               sortOrder="330" showInDefault="1" showInWebsite="0" showInStore="0">
                             <frontend_model>ViabillLoginForm</frontend_model>
                         </field>
                     </group>
-                    <!-- // login group -->
                 </group>
-                <!-- // request credentials group -->
-                <group id="module_configuration" translate="label" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="0">
+                <group id="module_configuration" translate="label" sortOrder="500" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
                     <label>Module Configuration</label>
                     <attribute type="expanded">1</attribute>
                     <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Fieldset\ModuleConfiguration</frontend_model>
-                    <field id="active" translate="label" sortOrder="510" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <field id="active" translate="label" sortOrder="510" type="select" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
                         <label>Enable</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                         <config_path>payment/viabill/active</config_path>
                     </field>
-                    <field id="title" translate="label comment" sortOrder="520" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <field id="title" translate="label comment" sortOrder="520" type="text" showInDefault="1"
+                           showInWebsite="1" showInStore="1">
                         <label>Title</label>
                         <comment>
                             <![CDATA[Payment method Title will be shown on checkout page.]]>
                         </comment>
                         <config_path>payment/viabill/title</config_path>
                     </field>
-                    <field id="sort_order" translate="label" type="text" sortOrder="525" showInDefault="1" showInWebsite="1">
+                    <field id="sort_order" translate="label" type="text" sortOrder="525" showInDefault="1"
+                           showInWebsite="1">
                         <label>Sort Order</label>
                         <frontend_class>validate-number</frontend_class>
                         <config_path>payment/viabill/sort_order</config_path>
                     </field>
-                    <field id="description" translate="label comment" sortOrder="530" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <field id="description" translate="label comment" sortOrder="530" type="textarea"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Description</label>
                         <comment>
                             <![CDATA[Description for the payment method will be shown on checkout page.]]>
                         </comment>
                         <config_path>payment/viabill/description</config_path>
                     </field>
-                    <field id="order_status_before_authorization" translate="label comment" sortOrder="540" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <field id="order_status_before_authorization" translate="label comment" sortOrder="540"
+                           type="select" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Order status (After checkout is initiated)</label>
                         <comment>
                             <![CDATA[Set the status of the order before the payment is authorized.]]>
@@ -126,7 +140,8 @@
                         <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
                         <config_path>payment/viabill/order_status_before_authorization</config_path>
                     </field>
-                    <field id="order_status_after_authorization" translate="label comment" sortOrder="545" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <field id="order_status_after_authorization" translate="label comment" sortOrder="545"
+                           type="select" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Order status (After the payment is authorized)</label>
                         <comment>
                             <![CDATA[Set the status of the order after the payment is authorized.]]>
@@ -134,7 +149,8 @@
                         <source_model>Viabillhq\Payment\Model\Config\Source\Order\Status\PendingPayment</source_model>
                         <config_path>payment/viabill/order_status_after_authorization</config_path>
                     </field>
-                    <field id="order_status_after_capture" translate="label comment" sortOrder="546" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <field id="order_status_after_capture" translate="label comment" sortOrder="546"
+                           type="select" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Order status (After the payment is captured)</label>
                         <comment>
                             <![CDATA[Set the status of the order after the payment is captured.]]>
@@ -142,12 +158,14 @@
                         <source_model>Magento\Sales\Model\ResourceModel\Order\Status\Collection</source_model>
                         <config_path>payment/viabill/order_status_after_capture</config_path>
                     </field>
-                    <field id="viabill_payment_action" translate="label" type="select" sortOrder="547" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <field id="viabill_payment_action" translate="label" type="select" sortOrder="547"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Payment Action</label>
                         <source_model>Viabillhq\Payment\Model\Adminhtml\Source\PaymentAction</source_model>
                         <config_path>payment/viabill/viabill_payment_action</config_path>
                     </field>
-                    <field id="test_transaction" translate="label comment" sortOrder="550" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <field id="test_transaction" translate="label comment" sortOrder="550" type="select"
+                           showInDefault="1" showInWebsite="1" showInStore="0">
                         <label>Test Transactions Mode</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                         <comment>
@@ -155,7 +173,8 @@
                         </comment>
                         <config_path>payment/viabill/test_transaction</config_path>
                     </field>
-                    <field id="debug" translate="label comment" sortOrder="560" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <field id="debug" translate="label comment" sortOrder="560" type="select"
+                           showInDefault="1" showInWebsite="1" showInStore="0">
                         <label>Debug Mode</label>
                         <source_model>Viabillhq\Payment\Model\Adminhtml\Source\DebugLevels</source_model>
                         <comment>
@@ -163,7 +182,8 @@
                         </comment>
                         <config_path>payment/viabill/debug</config_path>
                     </field>
-                    <field id="hide_checkout" translate="label comment" sortOrder="570" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <field id="hide_checkout" translate="label comment" sortOrder="570" type="select"
+                           showInDefault="1" showInWebsite="1" showInStore="0">
                         <label>Hide in Checkout</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                         <comment>
@@ -171,49 +191,62 @@
                         </comment>
                         <config_path>payment/viabill/hide_checkout</config_path>
                     </field>
-                    <field id="admin_notifications_severity" translate="label" type="select" sortOrder="570" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <field id="admin_notifications_severity" translate="label" type="select" sortOrder="570"
+                           showInDefault="1" showInWebsite="1" showInStore="0">
                         <label>Admin Notifications Severity</label>
                         <source_model>Viabillhq\Payment\Model\Adminhtml\Source\Notifications</source_model>
                         <config_path>payment/viabill/admin_notifications_severity</config_path>
                     </field>
-                    <field id="apikey" translate="label" sortOrder="580" type="obscure" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <field id="apikey" translate="label" sortOrder="580" type="obscure" showInDefault="1"
+                           showInWebsite="0" showInStore="0">
                         <label>Public Key</label>
                         <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
                         <frontend_class>disabled_on_log_in</frontend_class>
                         <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
                         <config_path>payment/viabill/apikey</config_path>
                     </field>
-                    <field id="secret" translate="label" sortOrder="590" type="obscure" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <field id="secret" translate="label" sortOrder="590" type="obscure" showInDefault="1"
+                           showInWebsite="0" showInStore="0">
                         <label>Private Key</label>
                         <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
                         <frontend_class>disabled_on_log_in</frontend_class>
                         <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
                         <config_path>payment/viabill/secret</config_path>
                     </field>
-                    <field id="price_tag_script" translate="label" sortOrder="600" type="textarea" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <field id="price_tag_script" translate="label" sortOrder="600" type="textarea"
+                           showInDefault="1" showInWebsite="0" showInStore="0">
                         <label>PriceTag script</label>
                         <frontend_class>disabled_on_log_in</frontend_class>
                         <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
                         <config_path>payment/viabill/price_tag_script</config_path>
-                    </field>                    
+                    </field>
                 </group>
-                <!-- module and system info -->
-                <group id="module_info" translate="label" sortOrder="650" showInDefault="1" showInWebsite="1" showInStore="0">
+                <group id="module_info" translate="label" sortOrder="650" showInDefault="1"
+                       showInWebsite="1" showInStore="0">
                     <label>Module Info</label>
-                    <field id="module_info_field" translate="label" sortOrder="680" type="note" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <field id="module_info_field" translate="label" sortOrder="680" type="note"
+                           showInDefault="1" showInWebsite="1" showInStore="0">
                         <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\ModuleInfoField</frontend_model>
-                    </field>                   
+                    </field>
                 </group>
-                <!-- pricetag group -->
-                <group id="price_tag" translate="label comment" sortOrder="800" showInDefault="1" showInWebsite="1" showInStore="1">
+                <group id="price_tag" translate="label comment" sortOrder="800" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
                     <label>PriceTag Settings</label>
                     <comment>
-                        <![CDATA[Enable ViaBill's PriceTags to obtain the best possible conversion, and inform your customers about ViaBill.]]>
+                        <![CDATA[Enable ViaBill's PriceTags to obtain the best possible conversion, and inform your
+                        customers about ViaBill.]]>
                     </comment>
                     <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Fieldset\ModuleConfiguration</frontend_model>
-                    <field id="notification" type="label" translate="label" sortOrder="810" showInDefault="1" showInWebsite="1" showInStore="1">
-                        <label>Enable ViaBill’s PriceTag to make your customers aware of the possibility and thereby maximizing your conversion.</label>
-                        <comment>Enable ViaBill’s PriceTag to make your customers aware of the possibility and thereby maximizing your conversion.</comment>
+                    <field id="notification" type="label" translate="label" sortOrder="810" showInDefault="1"
+                           showInWebsite="1" showInStore="1">
+                        <label>
+                            Enable ViaBill’s PriceTag to make your customers aware of the possibility and thereby
+                            maximizing your conversion.
+                        </label>
+                        <comment>
+                            Enable ViaBill’s PriceTag to make your customers aware of the possibility and thereby
+                            maximizing your conversion.
+                        </comment>
                         <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\Notice</frontend_model>
                         <depends>
                             <field id="show_on_product">0</field>
@@ -221,53 +254,56 @@
                             <field id="show_on_checkout">0</field>
                         </depends>
                     </field>
-                    <field id="show_on_product" translate="label" type="select" sortOrder="820" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <field id="show_on_product" translate="label" type="select" sortOrder="820"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Enable on Product page</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                         <config_path>payment/viabill/price_tag_show_on_product</config_path>
                     </field>
-                    <field id="show_on_cart" translate="label" type="select" sortOrder="830" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <field id="show_on_cart" translate="label" type="select" sortOrder="830"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Enable on Cart Summary</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                         <config_path>payment/viabill/price_tag_show_on_cart</config_path>
                     </field>
-                    <field id="show_on_checkout" translate="label" type="select" sortOrder="840" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <field id="show_on_checkout" translate="label" type="select" sortOrder="840"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Enable on Checkout Summary</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                         <config_path>payment/viabill/price_tag_show_on_checkout</config_path>
                     </field>
                 </group>
-                <!-- // pricetag group -->    
-                <!-- try before you buy group -->
-                <group id="viabill_try" translate="label" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="1">
+                <group id="viabill_try" translate="label" sortOrder="900" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
                     <label>Pay in 30 days Settings</label>
                     <comment>
                         <![CDATA[Enable ViaBill's Try before you Buy payment option to increase the sales.]]>
                     </comment>
                     <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Fieldset\ModuleConfiguration</frontend_model>
-                    <field id="active" translate="label" sortOrder="910" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <field id="active" translate="label" sortOrder="910" type="select"
+                           showInDefault="1" showInWebsite="1" showInStore="0">
                         <label>Enable</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                         <config_path>payment/viabill/active_try</config_path>
                     </field>
-                    <field id="title" translate="label comment" sortOrder="920" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <field id="title" translate="label comment" sortOrder="920" type="text"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Title</label>
                         <comment>
                             <![CDATA[Payment method Title will be shown on checkout page.]]>
                         </comment>
                         <config_path>payment/viabill/title_try</config_path>
-                    </field>                    
-                    <field id="description" translate="label comment" sortOrder="930" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1">
+                    </field>
+                    <field id="description" translate="label comment" sortOrder="930" type="textarea"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Description</label>
                         <comment>
                             <![CDATA[Description for the payment method will be shown on checkout page.]]>
                         </comment>
                         <config_path>payment/viabill/description_try</config_path>
-                    </field>                    
-                </group>   
-                <!-- // try before you buy group -->            
+                    </field>
+                </group>
             </group>
-            <!-- // viabill payments group -->                
         </section>
     </system>
 </config>

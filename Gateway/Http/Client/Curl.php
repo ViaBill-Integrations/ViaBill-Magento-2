@@ -59,7 +59,7 @@ class Curl implements ClientInterface
      * @param TransferInterface $transfer
      *
      * @return array
-     * @throws \Exception
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function placeRequest(TransferInterface $transfer)
     {
@@ -92,7 +92,10 @@ class Curl implements ClientInterface
             return ['response' => $response];
         } catch (\Throwable $t) {
             $this->logger->critical($t->__toString());
-            throw new \Exception($t->getMessage(), $t->getCode(), $t); //@codingStandardsIgnoreLine
+            throw new \Magento\Framework\Exception\LocalizedException(
+                __('Payment request failed: %1', $t->getMessage()),
+                $t
+            );
         } finally {
             $adapter ? $adapter->close() : null;
         }

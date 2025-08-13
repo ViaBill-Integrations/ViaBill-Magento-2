@@ -25,8 +25,8 @@ $viewModel = $block->getData('viewModel');
         <?= /** @noEscape */ $viewModel->getPriceTagScript();?>
     };
     window.priceTag = {
-        'language': '<?= $block->escapeHtml($viewModel->getDataLanguage());?>',
-        'currency': '<?= $block->escapeHtml($viewModel->getDataCurrency());?>',
-        'countryCode': '<?= $block->escapeHtml($viewModel->getDataCountryCode());?>'
+        'language': '<?= $escaper->escapeHtml($viewModel->getDataLanguage());?>',
+        'currency': '<?= $escaper->escapeHtml($viewModel->getDataCurrency());?>',
+        'countryCode': '<?= $escaper->escapeHtml($viewModel->getDataCountryCode());?>'
     };
 </script>

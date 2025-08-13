@@ -147,7 +147,7 @@ class Callback extends Action implements CsrfAwareActionInterface
      * Check if all required fields present
      *
      * @param array $requestData
-     * @throws \Exception
+     * @throws \InvalidArgumentException
      */
     private function validateRequest($requestData)
     {
@@ -165,7 +165,7 @@ class Callback extends Action implements CsrfAwareActionInterface
         ))) {
             $this->debugLog('Payment Callback: Request Fields are missing '.
                 '- Request Validation failed.', DebugLevels::DEBUG_LEVEL_PRIORITY_BASIC);
-            throw new \Exception('Invalid request parameters', 400); // @codingStandardsIgnoreLine
+            throw new \InvalidArgumentException('Invalid request parameters');
         }
     }
 
@@ -246,13 +246,12 @@ class Callback extends Action implements CsrfAwareActionInterface
     }
 
     /**
-     * @inheritdoc
+     * Create CSRF validation exception
      *
      * @param RequestInterface $request
-     *
-     * @return null
+     * @return InvalidRequestException|null
      */
-    public function createCsrfValidationException(RequestInterface $request): ?InvalidRequestException //@codingStandardsIgnoreLine
+    public function createCsrfValidationException(RequestInterface $request): ?InvalidRequestException
     {
         return null;
     }

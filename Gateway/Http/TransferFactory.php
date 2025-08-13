@@ -8,6 +8,7 @@ namespace Viabillhq\Payment\Gateway\Http;
 use Magento\Payment\Gateway\Http\TransferBuilder;
 use Magento\Payment\Gateway\Http\TransferFactoryInterface;
 use Magento\Payment\Gateway\Http\TransferInterface;
+use Magento\Framework\App\ProductMetadataInterface;
 use Viabillhq\Payment\Model\UrlProvider;
 
 class TransferFactory implements TransferFactoryInterface
@@ -15,7 +16,7 @@ class TransferFactory implements TransferFactoryInterface
     /**
      * The ViaBill module version
      */
-    public const ADDON_VERSION = '4.0.41';
+    public const ADDON_VERSION = '4.0.42';
 
     /**
      * @var TransferBuilder
@@ -43,10 +44,16 @@ class TransferFactory implements TransferFactoryInterface
     private $urlParams;
 
     /**
+     * @var ProductMetadataInterface
+     */
+    protected $productMetadata;
+
+    /**
      * TransferFactory constructor.
      *
      * @param TransferBuilder $transferBuilder
      * @param UrlProvider $urlProvider
+     * @param ProductMetadataInterface $productMetadata
      * @param string $method
      * @param string $endpointUrl
      * @param array $urlParams
@@ -54,12 +61,14 @@ class TransferFactory implements TransferFactoryInterface
     public function __construct(
         TransferBuilder $transferBuilder,
         UrlProvider $urlProvider,
+        ProductMetadataInterface $productMetadata,
         string $method,
         string $endpointUrl,
         array $urlParams = []
     ) {
         $this->transferBuilder = $transferBuilder;
         $this->urlProvider = $urlProvider;
+        $this->productMetadata = $productMetadata;
         $this->method = $method;
         $this->endpointUrl = $endpointUrl;
         $this->urlParams = $urlParams;
@@ -104,6 +113,8 @@ class TransferFactory implements TransferFactoryInterface
         if (strpos($endpointUrl, '/api/addon/magento/notifications')!== false) {
             $platform = 'magento';
             // Get Magento Version
+            $magento_version = $this->productMetadata->getVersion();
+
             $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
             $productMetadata =
                 $objectManager->get('Magento\Framework\App\ProductMetadataInterface'); // @codingStandardsIgnoreLine
@@ -112,7 +123,11 @@ class TransferFactory implements TransferFactoryInterface
             $platform_version = $magento_version;
             $shop_url = $this->urlProvider->getShopURL();
             
-            $endpointUrl = $endpointUrl .'&platform='.urlencode($platform).'&platform_ver='.urlencode($platform_version).'&module_ver='.urlencode($module_version).'&shop_url='.urlencode($shop_url);
+            $endpointUrl = $endpointUrl .
+                '&platform='.urlencode($platform).
+                '&platform_ver='.urlencode($platform_version).
+                '&module_ver='.urlencode($module_version).
+                '&shop_url='.urlencode($shop_url);
         }
         return $this->urlProvider->getViabillApiUrl($endpointUrl);
     }
