@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Copyright © ViaBill. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
 namespace Viabillhq\Payment\Model\Logger\Handler;
 
 use Magento\Framework\Filesystem\DriverInterface;
@@ -60,7 +63,7 @@ class Debug extends Base
      * @param LogRecord $record
      * @return bool
      */
-    public function isHandling(LogRecord $record): bool
+    public function isHandling($record): bool
     {
         // Read module debug level from config
         $config_debug_level = (int) $this->config->getValue('debug');
@@ -79,7 +82,18 @@ class Debug extends Base
             return true;
         }
 
-        // Otherwise defer to the parent (checks handler level etc.)
-        return parent::isHandling($record);
+        // Monolog 3
+        if ($record instanceof LogRecord) {
+            // use $record->level, $record->message, etc.
+            return parent::isHandling($record);
+        }
+
+        // Monolog 2 (array record)
+        if (is_array($record)) {
+            return parent::isHandling($record);
+        }
+
+        return false;
     }
+
 }

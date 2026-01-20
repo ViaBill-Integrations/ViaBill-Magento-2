@@ -77,14 +77,14 @@ class GatewayCommand implements CommandInterface
     /**
      * GatewayCommand constructor.
      *
-     * @param BuilderInterface        $requestBuilder
+     * @param BuilderInterface         $requestBuilder
      * @param TransferFactoryInterface $transferFactory
-     * @param ClientInterface         $client
-     * @param LoggerInterface         $logger
-     * @param SerializerInterface     $jsonSerializer
-     * @param ViabillExceptionFactory $exceptionFactory
-     * @param HandlerInterface|null   $handler
-     * @param ValidatorInterface|null $validator
+     * @param ClientInterface          $client
+     * @param LoggerInterface          $logger
+     * @param SerializerInterface      $jsonSerializer
+     * @param ViabillExceptionFactory  $exceptionFactory
+     * @param HandlerInterface|null    $handler
+     * @param ValidatorInterface|null  $validator
      */
     public function __construct(
         BuilderInterface         $requestBuilder,

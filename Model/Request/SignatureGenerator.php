@@ -5,6 +5,8 @@
  */
 namespace Viabillhq\Payment\Model\Request;
 
+use Magento\Framework\Exception\LocalizedException;
+
 class SignatureGenerator
 {
     /**
