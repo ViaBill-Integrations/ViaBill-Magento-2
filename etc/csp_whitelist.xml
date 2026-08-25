@@ -11,12 +11,14 @@
         <policy id="frame-src">
             <values>
                 <value id="viabill-pricetag" type="host">pricetag.viabill.com</value>
+                <value id="viabill-pricetag-test" type="host">pricetag-test.viabill.com</value>
                 <value id="viabill-event-client" type="host">event-client.viabill.com</value>
             </values>
         </policy>
         <policy id="script-src">
             <values>
                 <value id="viabill-pricetag" type="host">pricetag.viabill.com</value>
+                <value id="viabill-pricetag-test" type="host">pricetag-test.viabill.com</value>
             </values>
         </policy>
     </policies>

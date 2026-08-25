@@ -104,7 +104,7 @@ class ModuleInfoField extends \Magento\Backend\Block\AbstractBlock implements
         
         try {
             // Get Module Version
-            $module_version = '5.0.1';
+            $module_version = '5.1.0';
                         
             $module_info_data = $module_version;
 

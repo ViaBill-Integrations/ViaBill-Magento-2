@@ -42,6 +42,7 @@ The module should now be installed and enabled.
 1. Log in to the Magento Admin panel.
 2. Navigate to Stores → Configuration → Sales → Payment Methods.
 3. Locate the ViaBill payment method and click to configure.
+4. In the "ViaBill Account Credentials" section, enter your API key, API secret and PriceTag script. You can find these values in your ViaBill merchant account. The module no longer contacts the ViaBill server to register or log in; you enter these values manually. The key and secret are stored encrypted and displayed as asterisks; leave them unchanged to keep the stored values.
 
 ## Module Settings
 1. Enable: Set this to "Yes" to enable ViaBill as a payment method.

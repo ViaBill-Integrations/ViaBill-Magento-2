@@ -13,90 +13,45 @@
                    showInStore="1">
                 <label>ViaBill - Easy Monthy Payments</label>
                 <attribute type="activity_path">payment/viabill/active</attribute>
-                <group id="new_credentials" translate="label" sortOrder="100" showInDefault="1"
+                <group id="new_credentials" translate="label comment" sortOrder="100" showInDefault="1"
                        showInWebsite="0" showInStore="0">
-                    <label>Access ViaBill</label>
-                    <group id="reg_configuration" translate="label" sortOrder="110" showInDefault="1"
+                    <label>ViaBill Account Credentials</label>
+                    <comment>
+                        <![CDATA[Enter your ViaBill API key, API secret and PriceTag script. You can find these
+                        values in your ViaBill merchant account. All three values are required for the payment
+                        gateway and the PriceTags to work.]]>
+                    </comment>
+                    <field id="apikey" translate="label comment" sortOrder="110" type="obscure" showInDefault="1"
                            showInWebsite="0" showInStore="0">
-                        <label>New ViaBill user</label>                        
-                        <field id="email" translate="label" sortOrder="120" showInDefault="1"
-                               showInWebsite="0" showInStore="0">
-                            <label>Email</label>
-                            <frontend_class>account_required disabled_on_log_in</frontend_class>
-                            <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
-                            <config_path>payment/viabill_account/email</config_path>
-                        </field>
-                        <field id="country" translate="label" type="select" sortOrder="130" showInDefault="1"
-                               showInWebsite="0" showInStore="0">
-                            <label>Country</label>
-                            <source_model>Viabillhq\Payment\Model\Adminhtml\Source\Country</source_model>
-                            <frontend_class>account_required disabled_on_log_in</frontend_class>
-                            <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
-                            <config_path>payment/viabill_account/country</config_path>
-                        </field>
-                        <field id="shop_url" translate="label" sortOrder="140" showInDefault="1"
-                               showInWebsite="0" showInStore="0">
-                            <label>URL</label>
-                            <frontend_class>account_required disabled_on_log_in</frontend_class>
-                            <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
-                            <config_path>payment/viabill_account/shop_url</config_path>
-                        </field>
-                        <field id="contact_name" translate="label" sortOrder="150" showInDefault="1"
-                               showInWebsite="0" showInStore="0">
-                            <label>Name</label>
-                            <frontend_class>account_required disabled_on_log_in</frontend_class>
-                            <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
-                            <config_path>payment/viabill_account/contact_name</config_path>
-                        </field>
-                        <field id="phone" translate="label" sortOrder="160" showInDefault="1"
-                               showInWebsite="0" showInStore="0">
-                            <label>Phone</label>
-                            <frontend_class>disabled_on_log_in</frontend_class>
-                            <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
-                            <config_path>payment/viabill_account/phone</config_path>
-                        </field>
-                        <field id="merchant_name" translate="label" sortOrder="170" showInDefault="1"
-                               showInWebsite="0" showInStore="0">
-                            <label>Merchant Name</label>
-                            <frontend_class>disabled_on_log_in</frontend_class>
-                            <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
-                            <config_path>payment/viabill_account/merchant_name</config_path>
-                        </field>
-                        <field id="tax_id" translate="label" sortOrder="175" showInDefault="1"
-                               showInWebsite="0" showInStore="0">
-                            <label>Tax ID</label>
-                            <frontend_class>account_required disabled_on_log_in</frontend_class>
-                            <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
-                            <config_path>payment/viabill_account/tax_id</config_path>
-                        </field>
-                        <field id="reg_buttons" translate="registration_button_label label attribute login_button_label"
-                               sortOrder="180" showInDefault="1" showInWebsite="0" showInStore="0">
-                            <frontend_model>ViabillRegistrationForm</frontend_model>
-                        </field>
-                    </group>
-                    <group id="login_configuration" translate="label" sortOrder="300" showInDefault="1"
+                        <label>API Key</label>
+                        <comment>
+                            <![CDATA[Your ViaBill API key. For security, the saved value is displayed as
+                            asterisks; leave the field unchanged to keep the currently stored key.]]>
+                        </comment>
+                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        <config_path>payment/viabill/apikey</config_path>
+                    </field>
+                    <field id="secret" translate="label comment" sortOrder="120" type="obscure" showInDefault="1"
                            showInWebsite="0" showInStore="0">
-                        <label>Existing user</label>
-                        <field id="login_email" translate="label" sortOrder="310" showInDefault="1"
-                               showInWebsite="0" showInStore="0">
-                            <label>Email</label>
-                            <frontend_class>account_required</frontend_class>
-                            <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
-                            <config_path>payment/viabill_account/email</config_path>
-                        </field>
-                        <field id="password" translate="label" type="obscure" sortOrder="320" showInDefault="1"
-                               showInWebsite="0" showInStore="0">
-                            <label>Password</label>
-                            <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
-                            <frontend_class>account_required</frontend_class>
-                            <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
-                            <config_path>payment/viabill_account/password</config_path>
-                        </field>
-                        <field id="login_buttons" translate="registration_button_label label attribute login_button_label"
-                               sortOrder="330" showInDefault="1" showInWebsite="0" showInStore="0">
-                            <frontend_model>ViabillLoginForm</frontend_model>
-                        </field>
-                    </group>
+                        <label>API Secret</label>
+                        <comment>
+                            <![CDATA[Your ViaBill API secret. For security, the saved value is displayed as
+                            asterisks and is never revealed; leave the field unchanged to keep the currently
+                            stored secret.]]>
+                        </comment>
+                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        <config_path>payment/viabill/secret</config_path>
+                    </field>
+                    <field id="price_tag_script" translate="label comment" sortOrder="130" type="textarea"
+                           showInDefault="1" showInWebsite="0" showInStore="0">
+                        <label>PriceTag Script</label>
+                        <comment>
+                            <![CDATA[Paste the whole PriceTag script snippet provided by ViaBill. You may include
+                            the opening and closing script tags; they are removed automatically when the script
+                            is rendered.]]>
+                        </comment>
+                        <config_path>payment/viabill/price_tag_script</config_path>
+                    </field>
                 </group>
                 <group id="module_configuration" translate="label" sortOrder="500" showInDefault="1"
                        showInWebsite="1" showInStore="0">
@@ -196,29 +151,6 @@
                         <label>Admin Notifications Severity</label>
                         <source_model>Viabillhq\Payment\Model\Adminhtml\Source\Notifications</source_model>
                         <config_path>payment/viabill/admin_notifications_severity</config_path>
-                    </field>
-                    <field id="apikey" translate="label" sortOrder="580" type="obscure" showInDefault="1"
-                           showInWebsite="0" showInStore="0">
-                        <label>Public Key</label>
-                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
-                        <frontend_class>disabled_on_log_in</frontend_class>
-                        <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
-                        <config_path>payment/viabill/apikey</config_path>
-                    </field>
-                    <field id="secret" translate="label" sortOrder="590" type="obscure" showInDefault="1"
-                           showInWebsite="0" showInStore="0">
-                        <label>Private Key</label>
-                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
-                        <frontend_class>disabled_on_log_in</frontend_class>
-                        <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
-                        <config_path>payment/viabill/secret</config_path>
-                    </field>
-                    <field id="price_tag_script" translate="label" sortOrder="600" type="textarea"
-                           showInDefault="1" showInWebsite="0" showInStore="0">
-                        <label>PriceTag script</label>
-                        <frontend_class>disabled_on_log_in</frontend_class>
-                        <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\AccountField</frontend_model>
-                        <config_path>payment/viabill/price_tag_script</config_path>
                     </field>
                 </group>
                 <group id="module_info" translate="label" sortOrder="650" showInDefault="1"

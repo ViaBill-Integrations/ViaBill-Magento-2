@@ -99,3 +99,9 @@ Module Version,Module Version
 System Info,System Info
 Hide in Checkout,Ocultar en el pago
 "If enabled, the Viabill payment mode will not be available in the checkout step.","Si está habilitado, el modo de pago Viabill no estará disponible en el paso de pago."
+"ViaBill Account Credentials","Credenciales de la cuenta ViaBill"
+"API Key","Clave API"
+"API Secret","Secreto API"
+"Your ViaBill API key. For security, the saved value is displayed as asterisks; leave the field unchanged to keep the currently stored key.","Su clave API de ViaBill. Por seguridad, el valor guardado se muestra como asteriscos; deje el campo sin cambios para conservar la clave almacenada."
+"Your ViaBill API secret. For security, the saved value is displayed as asterisks and is never revealed; leave the field unchanged to keep the currently stored secret.","Su secreto API de ViaBill. Por seguridad, el valor guardado se muestra como asteriscos y nunca se revela; deje el campo sin cambios para conservar el secreto almacenado."
+"Paste the whole PriceTag script snippet provided by ViaBill. You may include the opening and closing script tags; they are removed automatically when the script is rendered.","Pegue el script PriceTag completo proporcionado por ViaBill. Puede incluir las etiquetas script de apertura y cierre; se eliminan automáticamente al mostrar el script."

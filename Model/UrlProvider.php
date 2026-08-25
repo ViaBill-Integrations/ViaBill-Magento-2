@@ -18,16 +18,6 @@ class UrlProvider
     private static $productionApiBaseUrl = 'https://secure.viabill.com';
 
     /**
-     * @var string
-     */
-    private static $forgotPasswordUrl = ' https://my.viabill.com/merchant/lang/#/auth/forgot';
-
-    /**
-     * @var string
-     */
-    private static $termsAndConditionsUrl = 'https://www.viabill.com/trade-terms/';
-
-    /**
      * @var ConfigInterface
      */
     private $config;
@@ -114,40 +104,6 @@ class UrlProvider
             }
         }
         return $url;
-    }
-
-    /**
-     * Get Forgot Password URL
-     *
-     * @param string $localeCode
-     *
-     * @return string
-     */
-    public function getForgotPasswordUrl($localeCode) : string
-    {
-        $localeCode = strtolower($localeCode);
-        switch ($localeCode) {
-            case 'en':
-            case 'es':
-            case 'da':
-                $lang = $localeCode;
-                break;
-            default:
-                $lang = 'en';
-                break;
-        }
-        $url = str_replace('lang', $localeCode, self::$forgotPasswordUrl);
-        return $url;
-    }
-
-    /**
-     * Get Terms and Conditions URL
-     *
-     * @return string
-     */
-    public function getTermsAndConditionsUrl() : string
-    {
-        return self::$termsAndConditionsUrl;
     }
 
     /**
