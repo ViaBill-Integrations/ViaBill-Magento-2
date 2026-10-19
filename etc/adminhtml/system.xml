@@ -52,6 +52,9 @@
                         </comment>
                         <config_path>payment/viabill/price_tag_script</config_path>
                     </field>
+                    <field id="signup_link" sortOrder="140" showInDefault="1" showInWebsite="0" showInStore="0">
+                        <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Field\SignupLink</frontend_model>
+                    </field>
                 </group>
                 <group id="module_configuration" translate="label" sortOrder="500" showInDefault="1"
                        showInWebsite="1" showInStore="0">

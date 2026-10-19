@@ -32,6 +32,16 @@ class Callback extends Action implements CsrfAwareActionInterface
     public const CANCEL_MESSAGE = 'Payment cancelled from Viabill.';
 
     /**
+     * Callback fields covered by the ViaBill signature, in signature order.
+     */
+    public const SIGNED_FIELDS = ['transaction', 'orderNumber', 'amount', 'currency', 'status', 'time'];
+
+    /**
+     * Payment methods of this module.
+     */
+    public const VIABILL_PAYMENT_METHODS = ['viabill', 'viabill_try'];
+
+    /**
      * @var LoggerInterface
      */
     private $logger;
@@ -108,13 +118,19 @@ class Callback extends Action implements CsrfAwareActionInterface
 
             $orderId = $requestData['orderNumber'];
             $order = $this->orderLocator->get($orderId);
+            $this->validateOrder($order, $requestData);
             $this->processOrder($order, $requestData);
             $result->setHttpResponseCode(Response::STATUS_CODE_204);
         } catch (\Exception $e) { // @codingStandardsIgnoreLine
             $this->logger->critical($e->getMessage());
-            $result->setHttpResponseCode($e->getCode());
+            // Only use the exception code when it is an HTTP error status.
+            $code = (int) $e->getCode();
+            if ($code < 400 || $code > 599) {
+                $code = Response::STATUS_CODE_400;
+            }
+            $result->setHttpResponseCode($code);
             $result->setData([
-                'status' => $e->getCode(),
+                'status' => $code,
                 'message' => __('An error occurred during callback processing.')
             ]);
         }
@@ -124,48 +140,96 @@ class Callback extends Action implements CsrfAwareActionInterface
     /**
      * Check Signature
      *
+     * Only the signed callback fields are used, together with the configured
+     * secret, so a request can never supply its own secret.
+     *
      * @param array $requestData
      *
      * @throws \Exception
      */
     private function checkSignature($requestData)
     {
-        $requestSignature = $requestData['signature'];
-        $secret = $this->paymentConfig->getValue('secret');
-        $realSignature = $this->signatureGenerator->generateSignature($requestData + ['secret' => $secret]);
-        if ($requestSignature !== $realSignature) {
+        $secret = (string) $this->paymentConfig->getValue('secret');
+        if ($secret === '') {
             $this->debugLog(
-                'Payment Callback: Request Signature '.$requestSignature.
-                ' is not equal to Real signature '.$realSignature,
+                'Payment Callback: no API secret configured - signature can not be verified.',
                 DebugLevels::DEBUG_LEVEL_PRIORITY_BASIC
             );
-            throw new \Exception(__('Invalid request', 401)); // @codingStandardsIgnoreLine
+            throw new \Exception('Invalid request', 401); // @codingStandardsIgnoreLine
+        }
+
+        $signedFields = [];
+        foreach (self::SIGNED_FIELDS as $field) {
+            $signedFields[$field] = (string) $requestData[$field];
+        }
+        $signedFields['secret'] = $secret;
+
+        $realSignature = $this->signatureGenerator->generateSignature($signedFields);
+        $requestSignature = strtolower(trim((string) $requestData['signature']));
+        if (!hash_equals($realSignature, $requestSignature)) {
+            $this->debugLog(
+                'Payment Callback: invalid signature for order ' . $signedFields['orderNumber'],
+                DebugLevels::DEBUG_LEVEL_PRIORITY_BASIC
+            );
+            throw new \Exception('Invalid request', 401); // @codingStandardsIgnoreLine
         }
     }
 
     /**
      * Check if all required fields present
      *
-     * @param array $requestData
+     * @param mixed $requestData
      * @throws \InvalidArgumentException
      */
     private function validateRequest($requestData)
     {
-        if (!empty(array_diff(
-            [
-                'transaction',
-                'orderNumber',
-                'amount',
-                'currency',
-                'status',
-                'time',
-                'signature'
-            ],
-            array_keys($requestData)
-        ))) {
-            $this->debugLog('Payment Callback: Request Fields are missing '.
+        if (!is_array($requestData)) {
+            $this->debugLog('Payment Callback: Request is not a JSON object '.
                 '- Request Validation failed.', DebugLevels::DEBUG_LEVEL_PRIORITY_BASIC);
-            throw new \InvalidArgumentException('Invalid request parameters');
+            throw new \InvalidArgumentException('Invalid request parameters', 400);
+        }
+        foreach (array_merge(self::SIGNED_FIELDS, ['signature']) as $field) {
+            if (!isset($requestData[$field])
+                || !is_scalar($requestData[$field])
+                || (string) $requestData[$field] === ''
+            ) {
+                $this->debugLog('Payment Callback: Request Fields are missing '.
+                    '- Request Validation failed.', DebugLevels::DEBUG_LEVEL_PRIORITY_BASIC);
+                throw new \InvalidArgumentException('Invalid request parameters', 400);
+            }
+        }
+    }
+
+    /**
+     * Check that the callback belongs to a ViaBill order and matches its amount and currency
+     *
+     * @param \Magento\Sales\Api\Data\OrderInterface|null $order
+     * @param array $requestData
+     * @throws \InvalidArgumentException
+     */
+    private function validateOrder($order, $requestData)
+    {
+        if (!$order) {
+            $this->debugLog('Payment Callback: unknown order '.$requestData['orderNumber'],
+                DebugLevels::DEBUG_LEVEL_PRIORITY_BASIC);
+            throw new \InvalidArgumentException('Unknown order', 404);
+        }
+
+        $payment = $order->getPayment();
+        if (!$payment || !in_array($payment->getMethod(), self::VIABILL_PAYMENT_METHODS, true)) {
+            $this->debugLog('Payment Callback: order '.$requestData['orderNumber'].
+                ' is not paid with ViaBill', DebugLevels::DEBUG_LEVEL_PRIORITY_BASIC);
+            throw new \InvalidArgumentException('Invalid order', 400);
+        }
+
+        $amountMatches = is_numeric($requestData['amount'])
+            && abs((float) $requestData['amount'] - (float) $order->getGrandTotal()) < 0.005;
+        $currencyMatches = strtoupper((string) $requestData['currency'])
+            === strtoupper((string) $order->getOrderCurrencyCode());
+        if (!$amountMatches || !$currencyMatches) {
+            $this->debugLog('Payment Callback: amount or currency does not match order '.
+                $requestData['orderNumber'], DebugLevels::DEBUG_LEVEL_PRIORITY_BASIC);
+            throw new \InvalidArgumentException('Amount or currency mismatch', 400);
         }
     }
 

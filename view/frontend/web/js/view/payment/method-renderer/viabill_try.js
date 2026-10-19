@@ -65,10 +65,13 @@ define(
                                 window.checkoutConfig.payment.viabill_try.authorizeUrl
                             ).done(
                                 function (response) {
-                                    if (response.hasOwnProperty('url')) {
+                                    if (response.url) {
                                         $.mage.redirect(response.url);
-                                    } else if (response.hasOwnProperty('errorMessage')) {
-                                        errorProcessor.process(response, self.messageContainer);
+                                    } else if (response.message || response.errorMessage) {
+                                        // Errors of the authorize request are returned as 'message'.
+                                        self.messageContainer.addErrorMessage({
+                                            message: response.message || response.errorMessage
+                                        });
                                         fullScreenLoader.stopLoader();
                                     } else {
                                         customerData.invalidate(['cart']);

@@ -378,10 +378,18 @@
             <argument name="name" xsi:type="string">viabill</argument>
             <argument name="handlers"  xsi:type="array">                                                
                 <item name="debug" xsi:type="object">Viabillhq\Payment\Model\Logger\Handler\Debug</item>
-                <item name="critical" xsi:type="object">Viabillhq\Payment\Model\Logger\Handler\Critical</item>                
+                <item name="critical" xsi:type="object">Viabillhq\Payment\Model\Logger\Handler\Critical</item>
+            </argument>
+            <argument name="processors" xsi:type="array">
+                <item name="sensitiveData" xsi:type="object">Viabillhq\Payment\Model\Logger\Processor\SensitiveDataProcessor</item>
             </argument>
         </arguments>
     </virtualType>
+    <type name="Viabillhq\Payment\Model\Logger\Processor\SensitiveDataProcessor">
+        <arguments>
+            <argument name="config" xsi:type="object">ViabillGatewayConfig</argument>
+        </arguments>
+    </type>
     <type name="Viabillhq\Payment\Model\Logger\Handler\Debug">
         <arguments>
             <argument name="config" xsi:type="object">ViabillGatewayConfig</argument>
@@ -425,6 +433,12 @@
     </type>
 
     <type name="Viabillhq\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="logger" xsi:type="object">ViabillLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Viabillhq\Payment\Gateway\Http\Client\Curl">
         <arguments>
             <argument name="logger" xsi:type="object">ViabillLogger</argument>
         </arguments>

@@ -13,6 +13,7 @@ use Magento\Framework\App\CsrfAwareActionInterface;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\Session\SessionManagerInterface;
+use Magento\Sales\Model\Order;
 use Viabillhq\Payment\Model\Adminhtml\Source\DebugLevels;
 use Psr\Log\LoggerInterface;
 use Viabillhq\Payment\Model\OrderManagement\OrderManager;
@@ -70,13 +71,23 @@ class Cancel extends Action implements CsrfAwareActionInterface
         /** @var \Magento\Framework\Controller\Result\Redirect $result */
         $result = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         try {
-            $orderId = $this->checkoutSession->getLastRealOrder()->getId();
+            $order = $this->checkoutSession->getLastRealOrder();
+            $orderId = $order->getId();
             $this->debugLog(
                 'Payment Cancel Action for order '.$orderId,
                 DebugLevels::DEBUG_LEVEL_PRIORITY_DEVELOPER
             );
-            $this->orderManager->cancelOrder($orderId, $cancel_msg_literal);
-            $this->checkoutSession->restoreQuote();
+            // Only a ViaBill order that has not been authorized yet is cancelled
+            // here; this URL can be opened by anyone (e.g. via a link on another site).
+            $payment = $order->getPayment();
+            if ($orderId
+                && $order->getState() === Order::STATE_NEW
+                && $payment
+                && in_array($payment->getMethod(), ['viabill', 'viabill_try'], true)
+            ) {
+                $this->orderManager->cancelOrder($orderId, $cancel_msg_literal);
+                $this->checkoutSession->restoreQuote();
+            }
             $result->setPath('checkout/cart');
         } catch (\Exception $e) {
             $this->logger->critical($e->getMessage());

@@ -42,8 +42,21 @@ define([
             }
         },
         loadViabillScriptCheckout: function () {
-            var viabillScript = window.checkoutConfig.payment.viabill.priceTagScript;
-            jQuery('#viabillScript').append(viabillScript);
+            // The checkout page has a strict Content Security Policy that blocks inline
+            // scripts, so the PriceTag snippet is not executed: the script URL it loads
+            // (pricetag.viabill.com, allowed in etc/csp_whitelist.xml) is loaded directly.
+            var snippet = window.checkoutConfig.payment.viabill.priceTagScript || '',
+                match = snippet.match(/src\s*=\s*['"](https:\/\/[^'"]+)['"]/i),
+                container = document.getElementById('viabillScript'),
+                script;
+
+            if (!match || !container) {
+                return;
+            }
+            script = document.createElement('script');
+            script.async = true;
+            script.src = match[1];
+            container.appendChild(script);
         }
     });
 })

@@ -54,7 +54,7 @@
                                                                         <item name="component" xsi:type="string">Viabillhq_Payment/js/view/payment/viabill</item>
                                                                         <item name="methods" xsi:type="array">
                                                                             <item name="viabill" xsi:type="array">
-                                                                                <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
+                                                                                <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
                                                                             </item>
                                                                         </item>
                                                                     </item>
@@ -62,7 +62,7 @@
                                                                         <item name="component" xsi:type="string">Viabillhq_Payment/js/view/payment/viabill_try</item>
                                                                         <item name="methods" xsi:type="array">
                                                                             <item name="viabill_try" xsi:type="array">
-                                                                                <item name="isBillingAddressRequired" xsi:type="boolean">false</item>
+                                                                                <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
                                                                             </item>                                                                                                                                                        
                                                                         </item>
                                                                     </item>

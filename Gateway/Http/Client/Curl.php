@@ -91,7 +91,8 @@ class Curl implements ClientInterface
             }
             return ['response' => $response];
         } catch (\Throwable $t) {
-            $this->logger->critical($t->__toString());
+            // Only the message: a stack trace may contain the request arguments.
+            $this->logger->critical($t->getMessage());
             throw new \Magento\Framework\Exception\LocalizedException(
                 __('Payment request failed: %1', $t->getMessage()),
                 $t
