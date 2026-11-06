@@ -106,3 +106,15 @@ Hide in Checkout,Skjul i Checkout
 "Your ViaBill API key. For security, the saved value is displayed as asterisks; leave the field unchanged to keep the currently stored key.","Din ViaBill API-nøgle. Af sikkerhedshensyn vises den gemte værdi som stjerner; lad feltet være uændret for at beholde den gemte nøgle."
 "Your ViaBill API secret. For security, the saved value is displayed as asterisks and is never revealed; leave the field unchanged to keep the currently stored secret.","Din ViaBill API-hemmelighed. Af sikkerhedshensyn vises den gemte værdi som stjerner og afsløres aldrig; lad feltet være uændret for at beholde den gemte hemmelighed."
 "Paste the whole PriceTag script snippet provided by ViaBill. You may include the opening and closing script tags; they are removed automatically when the script is rendered.","Indsæt hele PriceTag-scriptet fra ViaBill. Du må gerne inkludere de omsluttende script-tags; de fjernes automatisk, når scriptet vises."
+"Warning! Borrow responsibly - it costs money.","Advarsel! Lån med omtanke - det koster penge."
+"Legal Note","Juridisk meddelelse"
+"The legal note is a short information text shown to customers at checkout when ViaBill is selected as the payment method, such as a warning that borrowing money costs money.","Den juridiske meddelelse er en kort informationstekst, der vises for kunderne ved kassen, når ViaBill er valgt som betalingsmetode, f.eks. en advarsel om, at det koster penge at låne penge."
+Enabled,Aktiveret
+Text,Tekst
+"Leave empty to use the default legal note, in the language selected below.","Lad feltet være tomt for at bruge standardmeddelelsen på det sprog, der er valgt nedenfor."
+Language,Sprog
+"Language of the default legal note. ""Auto"" uses the language of the store view.","Sproget for standardmeddelelsen. ""Automatisk"" bruger butiksvisningens sprog."
+Auto,Automatisk
+English,Engelsk
+Danish,Dansk
+Spanish,Spansk

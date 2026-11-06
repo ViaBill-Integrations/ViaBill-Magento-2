@@ -105,3 +105,15 @@ Hide in Checkout,Ocultar en el pago
 "Your ViaBill API key. For security, the saved value is displayed as asterisks; leave the field unchanged to keep the currently stored key.","Su clave API de ViaBill. Por seguridad, el valor guardado se muestra como asteriscos; deje el campo sin cambios para conservar la clave almacenada."
 "Your ViaBill API secret. For security, the saved value is displayed as asterisks and is never revealed; leave the field unchanged to keep the currently stored secret.","Su secreto API de ViaBill. Por seguridad, el valor guardado se muestra como asteriscos y nunca se revela; deje el campo sin cambios para conservar el secreto almacenado."
 "Paste the whole PriceTag script snippet provided by ViaBill. You may include the opening and closing script tags; they are removed automatically when the script is rendered.","Pegue el script PriceTag completo proporcionado por ViaBill. Puede incluir las etiquetas script de apertura y cierre; se eliminan automáticamente al mostrar el script."
+"Warning! Borrow responsibly - it costs money.","¡Advertencia! Pide prestado con responsabilidad - cuesta dinero."
+"Legal Note","Aviso legal"
+"The legal note is a short information text shown to customers at checkout when ViaBill is selected as the payment method, such as a warning that borrowing money costs money.","El aviso legal es un breve texto informativo que se muestra a los clientes en la página de pago cuando se selecciona ViaBill como método de pago, por ejemplo, una advertencia de que pedir dinero prestado cuesta dinero."
+Enabled,Activado
+Text,Texto
+"Leave empty to use the default legal note, in the language selected below.","Déjelo vacío para usar el aviso legal predeterminado, en el idioma seleccionado abajo."
+Language,Idioma
+"Language of the default legal note. ""Auto"" uses the language of the store view.","Idioma del aviso legal predeterminado. ""Automático"" usa el idioma de la vista de tienda."
+Auto,Automático
+English,Inglés
+Danish,Danés
+Spanish,Español

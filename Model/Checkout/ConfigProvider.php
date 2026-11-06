@@ -8,6 +8,7 @@ namespace Viabillhq\Payment\Model\Checkout;
 use Magento\Checkout\Model\ConfigProviderInterface;
 use Magento\Framework\View\Asset\Repository;
 use Magento\Payment\Gateway\ConfigInterface;
+use Viabillhq\Payment\Model\LegalNote;
 use Viabillhq\Payment\Model\PriceTag\PriceTagDataProvider;
 use Viabillhq\Payment\Model\UrlProvider;
 
@@ -34,23 +35,31 @@ class ConfigProvider implements ConfigProviderInterface
     private $repository;
 
     /**
+     * @var LegalNote
+     */
+    private $legalNote;
+
+    /**
      * SessionWrapper constructor.
      *
      * @param UrlProvider $urlProvider
      * @param PriceTagDataProvider $priceTag
      * @param ConfigInterface $config
      * @param Repository $repository
+     * @param LegalNote $legalNote
      */
     public function __construct(
         UrlProvider $urlProvider,
         PriceTagDataProvider $priceTag,
         ConfigInterface $config,
-        Repository $repository
+        Repository $repository,
+        LegalNote $legalNote
     ) {
         $this->urlProvider = $urlProvider;
         $this->priceTag = $priceTag;
         $this->config = $config;
         $this->repository = $repository;
+        $this->legalNote = $legalNote;
     }
 
     /**
@@ -82,12 +91,15 @@ class ConfigProvider implements ConfigProviderInterface
                 break;
         }
 
+        $legalNote = $this->legalNote->getText();
+
         $config = [
             'payment' => [
                 'viabill' => [
                     'authorizeUrl' => $this->getAuthorizeUrl(),
                     'title' => $this->config->getValue('title'),
                     'description' => $this->config->getValue('description'),
+                    'legalNote' => $legalNote,
                     'logo' => $this->repository->getUrl('Viabillhq_Payment::images/'.$logo_filename.'.png'),
                     'priceTagScript' => $this->config->getValue('price_tag_script'),
                     'priceTag' => [
@@ -100,6 +112,7 @@ class ConfigProvider implements ConfigProviderInterface
                     'authorizeUrl' => $this->getAuthorizeTryUrl(),
                     'title' => $this->config->getValue('title_try'),
                     'description' => $this->config->getValue('description_try'),
+                    'legalNote' => $legalNote,
                     'logo' => $this->repository->getUrl('Viabillhq_Payment::images/'.$logo_try_filename.'.png')
                 ]
             ]

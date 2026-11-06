@@ -208,6 +208,43 @@
                         <config_path>payment/viabill/price_tag_show_on_checkout</config_path>
                     </field>
                 </group>
+                <group id="legal_note" translate="label comment" sortOrder="850" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Legal Note</label>
+                    <comment>
+                        <![CDATA[The legal note is a short information text shown to customers at checkout when ViaBill is selected as the payment method, such as a warning that borrowing money costs money.]]>
+                    </comment>
+                    <frontend_model>Viabillhq\Payment\Block\Adminhtml\System\Config\Fieldset\ModuleConfiguration</frontend_model>
+                    <field id="enabled" translate="label" type="select" sortOrder="860"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>payment/viabill/legal_note_enabled</config_path>
+                    </field>
+                    <field id="text" translate="label comment" type="textarea" sortOrder="870"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Text</label>
+                        <comment>
+                            <![CDATA[Leave empty to use the default legal note, in the language selected below.]]>
+                        </comment>
+                        <config_path>payment/viabill/legal_note_text</config_path>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                    <field id="language" translate="label comment" type="select" sortOrder="880"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Language</label>
+                        <comment>
+                            <![CDATA[Language of the default legal note. "Auto" uses the language of the store view.]]>
+                        </comment>
+                        <source_model>Viabillhq\Payment\Model\Adminhtml\Source\LegalNoteLanguage</source_model>
+                        <config_path>payment/viabill/legal_note_language</config_path>
+                        <depends>
+                            <field id="enabled">1</field>
+                        </depends>
+                    </field>
+                </group>
                 <group id="viabill_try" translate="label" sortOrder="900" showInDefault="1"
                        showInWebsite="1" showInStore="1">
                     <label>Pay in 30 days Settings</label>

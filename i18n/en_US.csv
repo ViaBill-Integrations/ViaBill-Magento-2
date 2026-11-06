@@ -105,3 +105,15 @@ Description,Description
 "Your ViaBill API key. For security, the saved value is displayed as asterisks; leave the field unchanged to keep the currently stored key.","Your ViaBill API key. For security, the saved value is displayed as asterisks; leave the field unchanged to keep the currently stored key."
 "Your ViaBill API secret. For security, the saved value is displayed as asterisks and is never revealed; leave the field unchanged to keep the currently stored secret.","Your ViaBill API secret. For security, the saved value is displayed as asterisks and is never revealed; leave the field unchanged to keep the currently stored secret."
 "Paste the whole PriceTag script snippet provided by ViaBill. You may include the opening and closing script tags; they are removed automatically when the script is rendered.","Paste the whole PriceTag script snippet provided by ViaBill. You may include the opening and closing script tags; they are removed automatically when the script is rendered."
+"Warning! Borrow responsibly - it costs money.","Warning! Borrow responsibly - it costs money."
+"Legal Note","Legal Note"
+"The legal note is a short information text shown to customers at checkout when ViaBill is selected as the payment method, such as a warning that borrowing money costs money.","The legal note is a short information text shown to customers at checkout when ViaBill is selected as the payment method, such as a warning that borrowing money costs money."
+Enabled,Enabled
+Text,Text
+"Leave empty to use the default legal note, in the language selected below.","Leave empty to use the default legal note, in the language selected below."
+Language,Language
+"Language of the default legal note. ""Auto"" uses the language of the store view.","Language of the default legal note. ""Auto"" uses the language of the store view."
+Auto,Auto
+English,English
+Danish,Danish
+Spanish,Spanish

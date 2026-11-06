@@ -97,6 +97,13 @@ define(
                 return window.checkoutConfig.payment.viabill_try.description;
             },
 
+            /**
+             * Get legal note (escaped HTML), empty if it is switched off.
+             */
+            getLegalNote: function () {
+                return window.checkoutConfig.payment.viabill_try.legalNote || '';
+            },
+
             getLogoUrl: function () {
                 return window.checkoutConfig.payment.viabill_try.logo;
             }

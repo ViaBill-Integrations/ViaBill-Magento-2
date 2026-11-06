@@ -30,6 +30,10 @@
             <div class="payment-method-note">
                 <!-- ko i18n: getDescription() --><!-- /ko -->
             </div>
+            <!-- ko if: getLegalNote() -->
+            <!-- The legal note is escaped HTML, see Model\LegalNote::getText(). Styled in css/source/_module.less -->
+            <div class="viabill-legal-note" data-bind="html: getLegalNote()"></div>
+            <!-- /ko -->
         </fieldset>
         <div class="checkout-agreements-block">
             <!-- ko foreach: $parent.getRegion('before-place-order') -->

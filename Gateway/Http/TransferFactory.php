@@ -16,7 +16,7 @@ class TransferFactory implements TransferFactoryInterface
     /**
      * The ViaBill module version
      */
-    public const ADDON_VERSION = '5.1.2';
+    public const ADDON_VERSION = '5.1.3';
 
     /**
      * @var TransferBuilder
