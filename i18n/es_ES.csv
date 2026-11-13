@@ -117,3 +117,29 @@ Auto,Automático
 English,Inglés
 Danish,Danés
 Spanish,Español
+"Font size","Tamaño de fuente"
+"Font size of the legal note, e.g. 14px, 0.9em or 90%. Leave empty to use the font size of your theme.","Tamaño de fuente del aviso legal, p. ej. 14px, 0.9em o 90%. Déjelo vacío para usar el tamaño de fuente de su tema."
+"Font style","Estilo de fuente"
+"Text color","Color del texto"
+"Color code of the legal note text, e.g. #cc0000. Leave empty to use the text color of your theme.","Código de color del texto del aviso legal, p. ej. #cc0000. Déjelo vacío para usar el color de texto de su tema."
+"Text alignment","Alineación del texto"
+"Extra CSS","CSS adicional"
+"Optional CSS declarations applied to the legal note box, separated by semicolons (no selectors or braces), e.g. padding: 8px 12px; background-color: #fff8e1; border-left: 3px solid #f0b849; They are applied after the options above, so they can also override them.","Declaraciones CSS opcionales que se aplican al cuadro del aviso legal, separadas por punto y coma (sin selectores ni llaves), p. ej. padding: 8px 12px; background-color: #fff8e1; border-left: 3px solid #f0b849; Se aplican después de las opciones anteriores, por lo que también pueden sobrescribirlas."
+"The font size of the legal note is not valid. Use a value such as 14px, 0.9em or 90%.","El tamaño de fuente del aviso legal no es válido. Use un valor como 14px, 0.9em o 90%."
+"The text color of the legal note is not valid. Use a color code such as #cc0000.","El color del texto del aviso legal no es válido. Use un código de color como #cc0000."
+Normal,Normal
+Bold,Negrita
+Italic,Cursiva
+"Bold italic","Negrita cursiva"
+"Theme default","Predeterminado del tema"
+Left,Izquierda
+Center,Centro
+Right,Derecha
+"The legal note shown at checkout, in the language selected below.","El aviso legal que se muestra en la página de pago, en el idioma seleccionado abajo."
+"Margin top","Margen superior"
+"Margin bottom","Margen inferior"
+"Margin left","Margen izquierdo"
+"Space above the legal note, e.g. 4px or 0.5em. A negative value moves it closer to the payment method name.","Espacio encima del aviso legal, p. ej. 4px o 0.5em. Un valor negativo lo acerca al nombre del método de pago."
+"Space below the legal note, e.g. 4px or 0.5em.","Espacio debajo del aviso legal, p. ej. 4px o 0.5em."
+"Space to the left of the legal note, e.g. 4px. A negative value moves it to the left.","Espacio a la izquierda del aviso legal, p. ej. 4px. Un valor negativo lo mueve a la izquierda."
+"The margin of the legal note is not valid. Use a value such as 4px, -12px or 0.5em.","El margen del aviso legal no es válido. Use un valor como 4px, -12px o 0.5em."

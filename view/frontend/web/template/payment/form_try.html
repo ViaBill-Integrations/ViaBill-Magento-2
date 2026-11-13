@@ -12,6 +12,13 @@
                data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()" >
         <label data-bind="attr: {'for': getCode()}" class="label">
             <img class="payment-icon" width="280px" alt="ViaBill - Pay in 30 days" data-bind="attr: {'src': getLogoUrl()}" >
+            <!-- The legal note is placed right below the logo, while this payment method is selected, so it lines
+                 up with the logo and is shown above the billing address. It is escaped HTML, see
+                 Model\LegalNote::getText(). Styled in css/source/_module.less and by the styling settings of the
+                 module, see Model\LegalNote::getStyle(). -->
+            <!-- ko if: getLegalNote() && getCode() == isChecked() -->
+            <span class="viabill-legal-note" data-bind="html: getLegalNote(), attr: {style: getLegalNoteStyle()}"></span>
+            <!-- /ko -->
         </label>
     </div>
 
@@ -30,10 +37,6 @@
             <div class="payment-method-note">
                 <!-- ko i18n: getDescription() --><!-- /ko -->
             </div>
-            <!-- ko if: getLegalNote() -->
-            <!-- The legal note is escaped HTML, see Model\LegalNote::getText(). Styled in css/source/_module.less -->
-            <div class="viabill-legal-note" data-bind="html: getLegalNote()"></div>
-            <!-- /ko -->
         </fieldset>
         <div class="checkout-agreements-block">
             <!-- ko foreach: $parent.getRegion('before-place-order') -->

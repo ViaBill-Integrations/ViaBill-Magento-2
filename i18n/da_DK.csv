@@ -118,3 +118,29 @@ Auto,Automatisk
 English,Engelsk
 Danish,Dansk
 Spanish,Spansk
+"Font size",Skriftstørrelse
+"Font size of the legal note, e.g. 14px, 0.9em or 90%. Leave empty to use the font size of your theme.","Skriftstørrelse for den juridiske meddelelse, f.eks. 14px, 0.9em eller 90%. Lad feltet være tomt for at bruge dit temas skriftstørrelse."
+"Font style",Skriftstil
+"Text color",Tekstfarve
+"Color code of the legal note text, e.g. #cc0000. Leave empty to use the text color of your theme.","Farvekode for teksten i den juridiske meddelelse, f.eks. #cc0000. Lad feltet være tomt for at bruge dit temas tekstfarve."
+"Text alignment",Tekstjustering
+"Extra CSS","Ekstra CSS"
+"Optional CSS declarations applied to the legal note box, separated by semicolons (no selectors or braces), e.g. padding: 8px 12px; background-color: #fff8e1; border-left: 3px solid #f0b849; They are applied after the options above, so they can also override them.","Valgfrie CSS-erklæringer, der anvendes på boksen med den juridiske meddelelse, adskilt med semikolon (ingen selektorer eller krøllede parenteser), f.eks. padding: 8px 12px; background-color: #fff8e1; border-left: 3px solid #f0b849; De anvendes efter indstillingerne ovenfor, så de også kan tilsidesætte dem."
+"The font size of the legal note is not valid. Use a value such as 14px, 0.9em or 90%.","Skriftstørrelsen for den juridiske meddelelse er ikke gyldig. Brug en værdi som 14px, 0.9em eller 90%."
+"The text color of the legal note is not valid. Use a color code such as #cc0000.","Tekstfarven for den juridiske meddelelse er ikke gyldig. Brug en farvekode som #cc0000."
+Normal,Normal
+Bold,Fed
+Italic,Kursiv
+"Bold italic","Fed kursiv"
+"Theme default","Temaets standard"
+Left,Venstre
+Center,Centreret
+Right,Højre
+"The legal note shown at checkout, in the language selected below.","Den juridiske meddelelse, der vises ved kassen, på det sprog, der er valgt nedenfor."
+"Margin top","Margen øverst"
+"Margin bottom","Margen nederst"
+"Margin left","Margen venstre"
+"Space above the legal note, e.g. 4px or 0.5em. A negative value moves it closer to the payment method name.","Afstand over den juridiske meddelelse, f.eks. 4px eller 0.5em. En negativ værdi flytter den tættere på betalingsmetodens navn."
+"Space below the legal note, e.g. 4px or 0.5em.","Afstand under den juridiske meddelelse, f.eks. 4px eller 0.5em."
+"Space to the left of the legal note, e.g. 4px. A negative value moves it to the left.","Afstand til venstre for den juridiske meddelelse, f.eks. 4px. En negativ værdi flytter den til venstre."
+"The margin of the legal note is not valid. Use a value such as 4px, -12px or 0.5em.","Margenen for den juridiske meddelelse er ikke gyldig. Brug en værdi som 4px, -12px eller 0.5em."

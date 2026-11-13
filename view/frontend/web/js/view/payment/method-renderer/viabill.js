@@ -104,6 +104,13 @@ define(
                 return window.checkoutConfig.payment.viabill.legalNote || '';
             },
 
+            /**
+             * Get the inline style of the legal note, built from the styling settings.
+             */
+            getLegalNoteStyle: function () {
+                return window.checkoutConfig.payment.viabill.legalNoteStyle || '';
+            },
+
             getLogoUrl: function () {
                 return window.checkoutConfig.payment.viabill.logo;
             }

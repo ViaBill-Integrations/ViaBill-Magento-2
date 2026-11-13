@@ -92,6 +92,7 @@ class ConfigProvider implements ConfigProviderInterface
         }
 
         $legalNote = $this->legalNote->getText();
+        $legalNoteStyle = $this->legalNote->getStyle();
 
         $config = [
             'payment' => [
@@ -100,6 +101,7 @@ class ConfigProvider implements ConfigProviderInterface
                     'title' => $this->config->getValue('title'),
                     'description' => $this->config->getValue('description'),
                     'legalNote' => $legalNote,
+                    'legalNoteStyle' => $legalNoteStyle,
                     'logo' => $this->repository->getUrl('Viabillhq_Payment::images/'.$logo_filename.'.png'),
                     'priceTagScript' => $this->config->getValue('price_tag_script'),
                     'priceTag' => [
@@ -113,6 +115,7 @@ class ConfigProvider implements ConfigProviderInterface
                     'title' => $this->config->getValue('title_try'),
                     'description' => $this->config->getValue('description_try'),
                     'legalNote' => $legalNote,
+                    'legalNoteStyle' => $legalNoteStyle,
                     'logo' => $this->repository->getUrl('Viabillhq_Payment::images/'.$logo_try_filename.'.png')
                 ]
             ]

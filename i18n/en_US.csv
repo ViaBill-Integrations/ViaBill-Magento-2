@@ -117,3 +117,29 @@ Auto,Auto
 English,English
 Danish,Danish
 Spanish,Spanish
+"Font size","Font size"
+"Font size of the legal note, e.g. 14px, 0.9em or 90%. Leave empty to use the font size of your theme.","Font size of the legal note, e.g. 14px, 0.9em or 90%. Leave empty to use the font size of your theme."
+"Font style","Font style"
+"Text color","Text color"
+"Color code of the legal note text, e.g. #cc0000. Leave empty to use the text color of your theme.","Color code of the legal note text, e.g. #cc0000. Leave empty to use the text color of your theme."
+"Text alignment","Text alignment"
+"Extra CSS","Extra CSS"
+"Optional CSS declarations applied to the legal note box, separated by semicolons (no selectors or braces), e.g. padding: 8px 12px; background-color: #fff8e1; border-left: 3px solid #f0b849; They are applied after the options above, so they can also override them.","Optional CSS declarations applied to the legal note box, separated by semicolons (no selectors or braces), e.g. padding: 8px 12px; background-color: #fff8e1; border-left: 3px solid #f0b849; They are applied after the options above, so they can also override them."
+"The font size of the legal note is not valid. Use a value such as 14px, 0.9em or 90%.","The font size of the legal note is not valid. Use a value such as 14px, 0.9em or 90%."
+"The text color of the legal note is not valid. Use a color code such as #cc0000.","The text color of the legal note is not valid. Use a color code such as #cc0000."
+Normal,Normal
+Bold,Bold
+Italic,Italic
+"Bold italic","Bold italic"
+"Theme default","Theme default"
+Left,Left
+Center,Center
+Right,Right
+"The legal note shown at checkout, in the language selected below.","The legal note shown at checkout, in the language selected below."
+"Margin top","Margin top"
+"Margin bottom","Margin bottom"
+"Margin left","Margin left"
+"Space above the legal note, e.g. 4px or 0.5em. A negative value moves it closer to the payment method name.","Space above the legal note, e.g. 4px or 0.5em. A negative value moves it closer to the payment method name."
+"Space below the legal note, e.g. 4px or 0.5em.","Space below the legal note, e.g. 4px or 0.5em."
+"Space to the left of the legal note, e.g. 4px. A negative value moves it to the left.","Space to the left of the legal note, e.g. 4px. A negative value moves it to the left."
+"The margin of the legal note is not valid. Use a value such as 4px, -12px or 0.5em.","The margin of the legal note is not valid. Use a value such as 4px, -12px or 0.5em."
